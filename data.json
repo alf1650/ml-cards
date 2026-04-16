@@ -1,0 +1,111 @@
+{
+  "hero": "Layla",
+  "role": "Marksman",
+  "specialty": "Energy Gunner",
+  "cards": [
+    {
+      "id": "ML-AS-C003",
+      "file": "681ae0aa-60ce-4a08-9f49-06c876b4f9bb.JPG",
+      "hero": "Layla",
+      "skin": "Classic",
+      "rarity": "C",
+      "rarityLabel": "Common"
+    },
+    {
+      "id": "ML-AS-R003",
+      "file": "a8f68463-3a92-4c8e-a718-ebe7dac8f0b8.JPG",
+      "hero": "Layla",
+      "skin": "Green Flash",
+      "rarity": "R",
+      "rarityLabel": "Rare"
+    },
+    {
+      "id": "ML-AS-RS003",
+      "file": "7a1ba7cb-0e66-4ee1-a1ac-9d2a62c03b80.JPG",
+      "hero": "Layla",
+      "skin": "Night Owl",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star"
+    },
+    {
+      "id": "ML-AS-SSR003",
+      "file": "195d4817-da21-4d9f-8a90-2ea392e71068.JPG",
+      "hero": "Layla",
+      "skin": "Bunny Girl",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare"
+    },
+    {
+      "id": "ML-AS-UR005",
+      "file": "53dc7ca4-be1c-444a-a9b4-9c1741a2fb85.JPG",
+      "hero": "Layla",
+      "skin": "Arcane Witch",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare"
+    },
+    {
+      "id": "ML-AS-UR006",
+      "file": "e78b5713-451a-457a-a500-6109195ae833.JPG",
+      "hero": "Layla",
+      "skin": "New Year Blessings",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare"
+    },
+    {
+      "id": "ML-AS-UR007",
+      "file": "d5eb2af1-8207-423c-b6de-3d87b106b1c3.JPG",
+      "hero": "Layla",
+      "skin": "Bloom",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare"
+    },
+    {
+      "id": "ML-AS-SP003",
+      "file": "5ca056f0-11f4-401d-a36a-d46ba283bda9.JPG",
+      "hero": "Layla",
+      "skin": "G-Mech",
+      "rarity": "SP",
+      "rarityLabel": "Special"
+    },
+    {
+      "id": "ML-AS-SP004",
+      "file": "ae033cff-755e-4ad5-a9c2-d1f75ab13534.JPG",
+      "hero": "Layla",
+      "skin": "Bounty Hunter",
+      "rarity": "SP",
+      "rarityLabel": "Special"
+    },
+    {
+      "id": "ML-AS-SP005",
+      "file": "6cff7921-0262-45dc-ae31-1b4841f6e845.JPG",
+      "hero": "Layla",
+      "skin": "Saber",
+      "rarity": "SP",
+      "rarityLabel": "Special"
+    },
+    {
+      "id": "ML-AS-AR002",
+      "file": "b9bae260-4529-4cd1-9cac-09dacadcc50f.JPG",
+      "hero": "Layla",
+      "skin": "Graffiti Queen",
+      "rarity": "AR",
+      "rarityLabel": "Augmented Reality"
+    },
+    {
+      "id": "ML-AS-AR003",
+      "file": "1cba25ea-b3cf-48cb-a37a-bdb727c30410.JPG",
+      "hero": "Layla",
+      "skin": "Mech Striker",
+      "rarity": "AR",
+      "rarityLabel": "Augmented Reality"
+    },
+    {
+      "id": "ML-AS-QR003",
+      "file": "814248f2-73f8-49ac-b720-621fc9c42c39.JPG",
+      "hero": "Layla",
+      "skin": "Game Star",
+      "rarity": "QR",
+      "rarityLabel": "Quick Release"
+    }
+  ]
+}

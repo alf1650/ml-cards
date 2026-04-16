@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Layla · ML Card Collection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:      #07080f;
+      --bg2:     #0d0f1c;
+      --surface: #111425;
+      --surf2:   #161a2e;
+      --border:  rgba(255,255,255,0.07);
+      --border2: rgba(255,255,255,0.12);
+      --text:    #eaedf8;
+      --muted:   #5a6080;
+      --accent:  #e8a930;
+      --C:  #8892aa; --R:  #4b9fff; --RS: #9b6df0;
+      --SSR:#ff6b35; --UR: #f5c842; --SP: #ff4b8b;
+      --AR: #00e5c8; --QR: #ff80c8;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bot: env(safe-area-inset-bottom, 0px);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100dvh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    body::before, body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(228,169,48,0.07) 0%, transparent 70%);
+      top: -200px; right: -150px;
+    }
+    body::after {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(75,159,255,0.06) 0%, transparent 70%);
+      bottom: -150px; left: -100px;
+    }
+
+    /* ── Hero Banner ── */
+    .hero-banner {
+      position: relative;
+      z-index: 1;
+      padding: calc(var(--safe-top) + 32px) 24px 28px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(228,169,48,0.06) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(228,169,48,0.12);
+      border: 1px solid rgba(228,169,48,0.25);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.5; transform:scale(0.7); }
+    }
+    .hero-title {
+      font-size: clamp(28px, 8vw, 44px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      background: linear-gradient(135deg, #fff 30%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.05;
+    }
+    .hero-sub {
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      margin-top: 22px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+    .stat { padding: 0 20px; border-right: 1px solid var(--border); }
+    .stat:last-child { border-right: none; }
+    .stat-val { font-size: 22px; font-weight: 800; color: var(--accent); }
+    .stat-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-top: 3px; }
+
+    /* ── Controls ── */
+    .controls {
+      position: sticky; top: 0; z-index: 20;
+      padding: 12px 16px;
+      background: rgba(7,8,15,0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .search-wrap { position: relative; }
+    .search-icon {
+      position: absolute; left: 14px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted); pointer-events: none; display: flex;
+    }
+    #search {
+      width: 100%;
+      padding: 12px 14px 12px 42px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text);
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    #search:focus {
+      border-color: rgba(228,169,48,0.45);
+      box-shadow: 0 0 0 3px rgba(228,169,48,0.09);
+    }
+    #search::placeholder { color: var(--muted); }
+
+    .filter-scroll {
+      display: flex; gap: 7px;
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; padding-bottom: 2px;
+    }
+    .filter-scroll::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      padding: 7px 15px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      font-size: 12px; font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+    .pill:hover { border-color: var(--border2); color: var(--text); }
+    .pill.active[data-rarity="all"] { background:var(--text);  border-color:var(--text);  color:#07080f; }
+    .pill.active[data-rarity="C"]   { background:var(--C);    border-color:var(--C);    color:#07080f; }
+    .pill.active[data-rarity="R"]   { background:var(--R);    border-color:var(--R);    color:#fff; }
+    .pill.active[data-rarity="RS"]  { background:var(--RS);   border-color:var(--RS);   color:#fff; }
+    .pill.active[data-rarity="SSR"] { background:var(--SSR);  border-color:var(--SSR);  color:#fff; }
+    .pill.active[data-rarity="UR"]  { background:var(--UR);   border-color:var(--UR);   color:#07080f; }
+    .pill.active[data-rarity="SP"]  { background:var(--SP);   border-color:var(--SP);   color:#fff; }
+    .pill.active[data-rarity="AR"]  { background:var(--AR);   border-color:var(--AR);   color:#07080f; }
+    .pill.active[data-rarity="QR"]  { background:var(--QR);   border-color:var(--QR);   color:#07080f; }
+
+    /* ── Result bar ── */
+    .result-bar {
+      position: relative; z-index: 1;
+      padding: 10px 18px;
+      font-size: 12px; color: var(--muted); font-weight: 500;
+    }
+
+    /* ── Grid ── */
+    .grid {
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding: 4px 12px calc(var(--safe-bot) + 32px);
+    }
+    @media (min-width: 480px)  { .grid { grid-template-columns: repeat(3,1fr); } }
+    @media (min-width: 700px)  { .grid { grid-template-columns: repeat(4,1fr); gap:18px; padding:8px 24px 40px; } }
+    @media (min-width: 960px)  { .grid { grid-template-columns: repeat(5,1fr); } }
+    @media (min-width: 1200px) { .grid { grid-template-columns: repeat(6,1fr); } }
+
+    /* ── Card ── */
+    .card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s, border-color 0.28s;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .card:hover, .card:focus-visible { outline:none; transform: translateY(-8px) scale(1.03); }
+    .card[data-rarity="C"]:hover   { border-color:var(--C);   box-shadow:0 20px 48px -8px rgba(136,146,170,0.3); }
+    .card[data-rarity="R"]:hover   { border-color:var(--R);   box-shadow:0 20px 48px -8px rgba(75,159,255,0.35); }
+    .card[data-rarity="RS"]:hover  { border-color:var(--RS);  box-shadow:0 20px 48px -8px rgba(155,109,240,0.35); }
+    .card[data-rarity="SSR"]:hover { border-color:var(--SSR); box-shadow:0 20px 48px -8px rgba(255,107,53,0.35); }
+    .card[data-rarity="UR"]:hover  { border-color:var(--UR);  box-shadow:0 20px 48px -8px rgba(245,200,66,0.4); }
+    .card[data-rarity="SP"]:hover  { border-color:var(--SP);  box-shadow:0 20px 48px -8px rgba(255,75,139,0.35); }
+    .card[data-rarity="AR"]:hover  { border-color:var(--AR);  box-shadow:0 20px 48px -8px rgba(0,229,200,0.3); }
+    .card[data-rarity="QR"]:hover  { border-color:var(--QR);  box-shadow:0 20px 48px -8px rgba(255,128,200,0.3); }
+
+    .card-img {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+    .card-img img {
+      width:100%; height:100%;
+      object-fit: cover; display: block;
+      transition: transform 0.45s ease;
+    }
+    .card:hover .card-img img { transform: scale(1.1); }
+    .card-img::after {
+      content:'';
+      position:absolute; inset:0;
+      background: linear-gradient(to top, rgba(7,8,15,0.93) 0%, rgba(7,8,15,0.15) 48%, transparent 100%);
+      pointer-events:none;
+    }
+
+    .rarity-pill {
+      position:absolute; top:10px; left:10px; z-index:2;
+      padding:3px 9px; border-radius:100px;
+      font-size:10px; font-weight:800; letter-spacing:0.6px; text-transform:uppercase;
+    }
+    .rarity-C   { background:var(--C);   color:#07080f; }
+    .rarity-R   { background:var(--R);   color:#fff; }
+    .rarity-RS  { background:var(--RS);  color:#fff; }
+    .rarity-SSR { background:var(--SSR); color:#fff; }
+    .rarity-UR  {
+      background: linear-gradient(90deg,#f5c842,#ffe97a,#f5c842);
+      background-size:200% 100%;
+      animation: shimmer 2s linear infinite;
+      color:#07080f;
+    }
+    .rarity-SP  { background:var(--SP);  color:#fff; }
+    .rarity-AR  { background:var(--AR);  color:#07080f; }
+    .rarity-QR  { background:var(--QR);  color:#07080f; }
+    @keyframes shimmer {
+      0%   { background-position:-100% 0; }
+      100% { background-position: 100% 0; }
+    }
+
+    .card-label {
+      position:absolute; bottom:0; left:0; right:0; z-index:2;
+      padding:10px 12px 13px;
+    }
+    .card-skin {
+      font-size:13px; font-weight:700; color:#fff;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .card-id { font-size:10px; color:rgba(255,255,255,0.38); margin-top:2px; }
+
+    /* ── Empty ── */
+    .empty { grid-column:1/-1; text-align:center; padding:80px 24px; color:var(--muted); }
+    .empty-icon { font-size:48px; margin-bottom:16px; opacity:0.35; }
+    .empty p { font-size:15px; }
+
+    /* ── Backdrop ── */
+    .backdrop {
+      display:none; position:fixed; inset:0; z-index:100;
+      background:rgba(0,0,0,0.78);
+      backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+      align-items:flex-end; justify-content:center;
+    }
+    @media (min-width:600px) { .backdrop { align-items:center; padding:24px; } }
+    .backdrop.open { display:flex; }
+
+    /* ── Sheet (bottom sheet on mobile, modal on desktop) ── */
+    .sheet {
+      background: var(--surface);
+      border-radius: 24px 24px 0 0;
+      width: 100%;
+      max-height: 92dvh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      position: relative;
+      animation: slideUp 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    @media (min-width:600px) {
+      .sheet { border-radius:24px; max-width:460px; animation:popIn 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+    }
+    @keyframes slideUp {
+      from { transform:translateY(100%); opacity:0; }
+      to   { transform:translateY(0);    opacity:1; }
+    }
+    @keyframes popIn {
+      from { transform:scale(0.9); opacity:0; }
+      to   { transform:scale(1);   opacity:1; }
+    }
+
+    .drag-handle {
+      height:28px; display:flex; align-items:center; justify-content:center;
+    }
+    .drag-handle::before {
+      content:''; width:36px; height:4px;
+      background:rgba(255,255,255,0.14); border-radius:2px;
+    }
+    @media (min-width:600px) { .drag-handle { display:none; } }
+
+    .sheet-img-wrap {
+      position:relative; aspect-ratio:3/4;
+      max-height:46dvh; overflow:hidden;
+    }
+    @media (min-width:600px) { .sheet-img-wrap { max-height:52vh; } }
+    .sheet-img-wrap img { width:100%; height:100%; object-fit:cover; display:block; }
+    .sheet-img-wrap::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(to top,var(--surface) 0%,transparent 55%);
+      pointer-events:none;
+    }
+    .sheet-line { position:absolute; bottom:0; left:0; right:0; height:3px; z-index:2; }
+
+    .sheet-close {
+      position:absolute; top:14px; right:14px; z-index:10;
+      width:34px; height:34px; border-radius:50%;
+      background:rgba(0,0,0,0.55);
+      border:1px solid rgba(255,255,255,0.1);
+      color:#fff; font-size:15px; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      backdrop-filter:blur(8px);
+      transition:background 0.2s;
+    }
+    .sheet-close:hover { background:rgba(255,255,255,0.15); }
+
+    .sheet-body { padding:0 20px calc(var(--safe-bot) + 28px); }
+
+    .sheet-rarity-badge {
+      display:inline-flex; align-items:center;
+      padding:5px 13px; border-radius:100px;
+      font-size:11px; font-weight:800; letter-spacing:0.5px;
+      margin-bottom:10px;
+    }
+    .sheet-hero {
+      font-size:clamp(26px,6vw,36px);
+      font-weight:900; letter-spacing:-0.5px;
+      color:var(--text); line-height:1.05;
+    }
+    .sheet-skin { font-size:15px; color:var(--muted); margin-top:4px; font-weight:500; }
+    .sheet-divider { height:1px; background:var(--border); margin:18px 0; }
+
+    .sheet-meta { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .meta-tile {
+      background:var(--surf2); border:1px solid var(--border);
+      border-radius:14px; padding:13px 15px;
+    }
+    .meta-tile.full { grid-column:1/-1; }
+    .tile-label {
+      font-size:10px; font-weight:700; text-transform:uppercase;
+      letter-spacing:0.9px; color:var(--muted); margin-bottom:5px;
+    }
+    .tile-val { font-size:14px; font-weight:700; color:var(--text); }
+  </style>
+</head>
+<body>
+
+<header class="hero-banner">
+  <div class="hero-badge"><span class="dot"></span>Mobile Legends: Bang Bang</div>
+  <h1 class="hero-title">Layla Collection</h1>
+  <p class="hero-sub">Marksman · Energy Gunner · Gold Lane</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-val">13</div><div class="stat-label">Cards</div></div>
+    <div class="stat"><div class="stat-val">8</div><div class="stat-label">Rarities</div></div>
+    <div class="stat"><div class="stat-val">1</div><div class="stat-label">Hero</div></div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="search-wrap">
+    <span class="search-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+    </span>
+    <input id="search" type="text" placeholder="Search skin or card ID…" autocomplete="off" spellcheck="false" />
+  </div>
+  <div class="filter-scroll" id="filterGroup">
+    <button class="pill active" data-rarity="all">All</button>
+    <button class="pill" data-rarity="C">Common</button>
+    <button class="pill" data-rarity="R">Rare</button>
+    <button class="pill" data-rarity="RS">Rising Star</button>
+    <button class="pill" data-rarity="SSR">SSR</button>
+    <button class="pill" data-rarity="UR">Ultra Rare</button>
+    <button class="pill" data-rarity="SP">Special</button>
+    <button class="pill" data-rarity="AR">AR</button>
+    <button class="pill" data-rarity="QR">QR</button>
+  </div>
+</div>
+
+<div class="result-bar" id="resultBar"></div>
+<div class="grid" id="grid"></div>
+
+<div class="backdrop" id="backdrop">
+  <div class="sheet" id="sheet">
+    <div class="drag-handle"></div>
+    <button class="sheet-close" id="closeBtn" aria-label="Close">✕</button>
+    <div class="sheet-img-wrap">
+      <img id="sheetImg" src="" alt="" />
+      <div class="sheet-line" id="sheetLine"></div>
+    </div>
+    <div class="sheet-body">
+      <div style="margin-top:16px">
+        <div class="sheet-rarity-badge" id="sheetBadge"></div>
+        <div class="sheet-hero" id="sheetHero"></div>
+        <div class="sheet-skin" id="sheetSkin"></div>
+      </div>
+      <div class="sheet-divider"></div>
+      <div class="sheet-meta" id="sheetMeta"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const RC = { C:'#8892aa',R:'#4b9fff',RS:'#9b6df0',SSR:'#ff6b35',UR:'#f5c842',SP:'#ff4b8b',AR:'#00e5c8',QR:'#ff80c8' };
+  const RT = { C:'#07080f',R:'#fff',RS:'#fff',SSR:'#fff',UR:'#07080f',SP:'#fff',AR:'#07080f',QR:'#07080f' };
+
+  const DATA = {"hero":"Layla","role":"Marksman","specialty":"Energy Gunner","cards":[{"id":"ML-AS-C003","file":"681ae0aa-60ce-4a08-9f49-06c876b4f9bb.JPG","hero":"Layla","skin":"Classic","rarity":"C","rarityLabel":"Common"},{"id":"ML-AS-R003","file":"a8f68463-3a92-4c8e-a718-ebe7dac8f0b8.JPG","hero":"Layla","skin":"Green Flash","rarity":"R","rarityLabel":"Rare"},{"id":"ML-AS-RS003","file":"7a1ba7cb-0e66-4ee1-a1ac-9d2a62c03b80.JPG","hero":"Layla","skin":"Night Owl","rarity":"RS","rarityLabel":"Rising Star"},{"id":"ML-AS-SSR003","file":"195d4817-da21-4d9f-8a90-2ea392e71068.JPG","hero":"Layla","skin":"Bunny Girl","rarity":"SSR","rarityLabel":"Super Super Rare"},{"id":"ML-AS-UR005","file":"53dc7ca4-be1c-444a-a9b4-9c1741a2fb85.JPG","hero":"Layla","skin":"Arcane Witch","rarity":"UR","rarityLabel":"Ultra Rare"},{"id":"ML-AS-UR006","file":"e78b5713-451a-457a-a500-6109195ae833.JPG","hero":"Layla","skin":"New Year Blessings","rarity":"UR","rarityLabel":"Ultra Rare"},{"id":"ML-AS-UR007","file":"d5eb2af1-8207-423c-b6de-3d87b106b1c3.JPG","hero":"Layla","skin":"Bloom","rarity":"UR","rarityLabel":"Ultra Rare"},{"id":"ML-AS-SP003","file":"5ca056f0-11f4-401d-a36a-d46ba283bda9.JPG","hero":"Layla","skin":"G-Mech","rarity":"SP","rarityLabel":"Special"},{"id":"ML-AS-SP004","file":"ae033cff-755e-4ad5-a9c2-d1f75ab13534.JPG","hero":"Layla","skin":"Bounty Hunter","rarity":"SP","rarityLabel":"Special"},{"id":"ML-AS-SP005","file":"6cff7921-0262-45dc-ae31-1b4841f6e845.JPG","hero":"Layla","skin":"Saber","rarity":"SP","rarityLabel":"Special"},{"id":"ML-AS-AR002","file":"b9bae260-4529-4cd1-9cac-09dacadcc50f.JPG","hero":"Layla","skin":"Graffiti Queen","rarity":"AR","rarityLabel":"Augmented Reality"},{"id":"ML-AS-AR003","file":"1cba25ea-b3cf-48cb-a37a-bdb727c30410.JPG","hero":"Layla","skin":"Mech Striker","rarity":"AR","rarityLabel":"Augmented Reality"},{"id":"ML-AS-QR003","file":"814248f2-73f8-49ac-b720-621fc9c42c39.JPG","hero":"Layla","skin":"Game Star","rarity":"QR","rarityLabel":"Quick Release"}]};
+
+  let allCards = DATA.cards;
+  let activeRarity = 'all';
+  let searchQuery = '';
+
+  function getFiltered() {
+    return allCards.filter(c => {
+      const matchR = activeRarity === 'all' || c.rarity === activeRarity;
+      const q = searchQuery.toLowerCase();
+      const matchS = !q || c.skin.toLowerCase().includes(q) || c.id.toLowerCase().includes(q);
+      return matchR && matchS;
+    });
+  }
+
+  function render() {
+    const filtered = getFiltered();
+    document.getElementById('resultBar').textContent =
+      filtered.length === allCards.length
+        ? `${allCards.length} cards`
+        : `Showing ${filtered.length} of ${allCards.length}`;
+
+    const grid = document.getElementById('grid');
+    if (!filtered.length) {
+      grid.innerHTML = '<div class="empty"><div class="empty-icon">🔍</div><p>No cards match your search.</p></div>';
+      return;
+    }
+
+    grid.innerHTML = filtered.map(c => `
+      <div class="card" data-id="${c.id}" data-rarity="${c.rarity}" role="button" tabindex="0" aria-label="${c.skin}">
+        <div class="card-img">
+          <span class="rarity-pill rarity-${c.rarity}">${c.rarity}</span>
+          <img src="images/${c.file}" alt="${c.skin}" loading="lazy" decoding="async" />
+          <div class="card-label">
+            <div class="card-skin">${c.skin}</div>
+            <div class="card-id">${c.id}</div>
+          </div>
+        </div>
+      </div>`).join('');
+
+    grid.querySelectorAll('.card').forEach(el => {
+      el.addEventListener('click', () => openSheet(el.dataset.id));
+      el.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') openSheet(el.dataset.id); });
+    });
+  }
+
+  function openSheet(id) {
+    const c = allCards.find(x => x.id === id);
+    if (!c) return;
+    const col = RC[c.rarity] || '#fff';
+    const tc  = RT[c.rarity] || '#fff';
+    document.getElementById('sheetImg').src = `images/${c.file}`;
+    document.getElementById('sheetImg').alt = c.skin;
+    document.getElementById('sheetLine').style.background = col;
+    document.getElementById('sheetBadge').textContent = `${c.rarity} · ${c.rarityLabel}`;
+    document.getElementById('sheetBadge').style.cssText = `background:${col}22;border:1px solid ${col}55;color:${col}`;
+    document.getElementById('sheetHero').textContent = c.hero;
+    document.getElementById('sheetSkin').textContent = c.skin;
+    document.getElementById('sheetMeta').innerHTML = `
+      <div class="meta-tile">
+        <div class="tile-label">Card ID</div>
+        <div class="tile-val" style="font-family:monospace;font-size:12px">${c.id}</div>
+      </div>
+      <div class="meta-tile">
+        <div class="tile-label">Rarity</div>
+        <div class="tile-val" style="color:${col}">${c.rarity}</div>
+      </div>
+      <div class="meta-tile">
+        <div class="tile-label">Role</div>
+        <div class="tile-val">Marksman</div>
+      </div>
+      <div class="meta-tile">
+        <div class="tile-label">Specialty</div>
+        <div class="tile-val">Energy Gunner</div>
+      </div>
+      <div class="meta-tile full">
+        <div class="tile-label">Rarity Tier</div>
+        <div class="tile-val">${c.rarityLabel}</div>
+      </div>`;
+    document.getElementById('backdrop').classList.add('open');
+    document.getElementById('sheet').scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSheet() {
+    document.getElementById('backdrop').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('filterGroup').addEventListener('click', e => {
+    const btn = e.target.closest('.pill');
+    if (!btn) return;
+    document.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeRarity = btn.dataset.rarity;
+    render();
+  });
+
+  let t;
+  document.getElementById('search').addEventListener('input', e => {
+    clearTimeout(t);
+    t = setTimeout(() => { searchQuery = e.target.value; render(); }, 120);
+  });
+
+  document.getElementById('closeBtn').addEventListener('click', closeSheet);
+  document.getElementById('backdrop').addEventListener('click', e => {
+    if (e.target === document.getElementById('backdrop')) closeSheet();
+  });
+  document.addEventListener('keydown', e => { if (e.key==='Escape') closeSheet(); });
+
+  render();
+</script>
+</body>
+</html>
