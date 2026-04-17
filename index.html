@@ -168,6 +168,7 @@
     }
     .pill:hover { border-color: var(--border2); color: var(--text); }
     .pill.active[data-rarity="all"] { background:var(--text);  border-color:var(--text);  color:#07080f; }
+    .pill.active[data-sort="price"] { background:var(--accent); border-color:var(--accent); color:#07080f; }
     .pill.active[data-rarity="C"]   { background:var(--C);    border-color:var(--C);    color:#07080f; }
     .pill.active[data-rarity="R"]   { background:var(--R);    border-color:var(--R);    color:#fff; }
     .pill.active[data-rarity="RS"]  { background:var(--RS);   border-color:var(--RS);   color:#fff; }
@@ -408,6 +409,8 @@
     <button class="pill" data-rarity="AR">AR</button>
     <button class="pill" data-rarity="QR">QR</button>
     <button class="pill" data-rarity="TR">Trainer</button>
+    <span style="width:1px;height:24px;background:var(--border2);flex-shrink:0;align-self:center"></span>
+    <button class="pill" data-sort="price" id="sortPrice">💰 Most Expensive</button>
   </div>
 </div>
 
@@ -441,14 +444,19 @@
   let allCards = [];
   let activeRarity = 'all';
   let searchQuery = '';
+  let sortByPrice = false;
 
   function getFiltered() {
-    return allCards.filter(c => {
+    let result = allCards.filter(c => {
       const matchR = activeRarity === 'all' || c.rarity === activeRarity;
       const q = searchQuery.toLowerCase();
       const matchS = !q || c.skin.toLowerCase().includes(q) || c.id.toLowerCase().includes(q) || c.hero.toLowerCase().includes(q);
       return matchR && matchS;
     });
+    if (sortByPrice) {
+      result = result.slice().sort((a, b) => (b.priceSGD || 0) - (a.priceSGD || 0));
+    }
+    return result;
   }
 
   function render() {
@@ -529,7 +537,13 @@
   document.getElementById('filterGroup').addEventListener('click', e => {
     const btn = e.target.closest('.pill');
     if (!btn) return;
-    document.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
+    if (btn.dataset.sort === 'price') {
+      sortByPrice = !sortByPrice;
+      btn.classList.toggle('active', sortByPrice);
+      render();
+      return;
+    }
+    document.querySelectorAll('.pill[data-rarity]').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     activeRarity = btn.dataset.rarity;
     render();
