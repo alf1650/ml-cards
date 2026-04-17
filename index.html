@@ -517,8 +517,8 @@
         <div class="tile-val" style="color:#4caf50">${c.priceSGD ? 'S$' + c.priceSGD.toFixed(2) : 'N/A'}</div>
       </div>
       <div class="meta-tile">
-        <div class="tile-label">Price (MYR)</div>
-        <div class="tile-val">RM${c.priceMYR ? c.priceMYR.toFixed(2) : 'N/A'}</div>
+        <div class="tile-label">Est. SGD (+5‑10%)</div>
+        <div class="tile-val" style="color:#4caf50">${c.priceSGD ? 'S$' + (c.priceSGD * 1.05).toFixed(2) + ' – ' + (c.priceSGD * 1.10).toFixed(2) : 'N/A'}</div>
       </div>
       <div class="meta-tile full">
         <div class="tile-label">Rarity Tier</div>
