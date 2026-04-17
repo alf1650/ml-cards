@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Layla · ML Card Collection</title>
+  <title>MLBB Card Collection</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
@@ -19,7 +19,7 @@
       --accent:  #e8a930;
       --C:  #8892aa; --R:  #4b9fff; --RS: #9b6df0;
       --SSR:#ff6b35; --UR: #f5c842; --SP: #ff4b8b;
-      --AR: #00e5c8; --QR: #ff80c8;
+      --AR: #00e5c8; --QR: #ff80c8; --TR: #66bb6a;
       --safe-top: env(safe-area-inset-top, 0px);
       --safe-bot: env(safe-area-inset-bottom, 0px);
     }
@@ -176,6 +176,7 @@
     .pill.active[data-rarity="SP"]  { background:var(--SP);   border-color:var(--SP);   color:#fff; }
     .pill.active[data-rarity="AR"]  { background:var(--AR);   border-color:var(--AR);   color:#07080f; }
     .pill.active[data-rarity="QR"]  { background:var(--QR);   border-color:var(--QR);   color:#07080f; }
+    .pill.active[data-rarity="TR"]  { background:var(--TR);   border-color:var(--TR);   color:#07080f; }
 
     /* ── Result bar ── */
     .result-bar {
@@ -217,6 +218,7 @@
     .card[data-rarity="SP"]:hover  { border-color:var(--SP);  box-shadow:0 20px 48px -8px rgba(255,75,139,0.35); }
     .card[data-rarity="AR"]:hover  { border-color:var(--AR);  box-shadow:0 20px 48px -8px rgba(0,229,200,0.3); }
     .card[data-rarity="QR"]:hover  { border-color:var(--QR);  box-shadow:0 20px 48px -8px rgba(255,128,200,0.3); }
+    .card[data-rarity="TR"]:hover  { border-color:var(--TR);  box-shadow:0 20px 48px -8px rgba(102,187,106,0.3); }
 
     .card-img {
       position: relative;
@@ -254,6 +256,7 @@
     .rarity-SP  { background:var(--SP);  color:#fff; }
     .rarity-AR  { background:var(--AR);  color:#07080f; }
     .rarity-QR  { background:var(--QR);  color:#07080f; }
+    .rarity-TR  { background:var(--TR);  color:#07080f; }
     @keyframes shimmer {
       0%   { background-position:-100% 0; }
       100% { background-position: 100% 0; }
@@ -268,6 +271,7 @@
       white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
     }
     .card-id { font-size:10px; color:rgba(255,255,255,0.38); margin-top:2px; }
+    .card-price { font-size:12px; font-weight:700; color:#4caf50; margin-top:3px; }
 
     /* ── Empty ── */
     .empty { grid-column:1/-1; text-align:center; padding:80px 24px; color:var(--muted); }
@@ -375,12 +379,12 @@
 
 <header class="hero-banner">
   <div class="hero-badge"><span class="dot"></span>Mobile Legends: Bang Bang</div>
-  <h1 class="hero-title">Layla Collection</h1>
-  <p class="hero-sub">Marksman · Energy Gunner · Gold Lane</p>
+  <h1 class="hero-title">MLBB Card Collection</h1>
+  <p class="hero-sub">All Series · Prices in SGD</p>
   <div class="hero-stats">
-    <div class="stat"><div class="stat-val">13</div><div class="stat-label">Cards</div></div>
-    <div class="stat"><div class="stat-val">8</div><div class="stat-label">Rarities</div></div>
-    <div class="stat"><div class="stat-val">1</div><div class="stat-label">Hero</div></div>
+    <div class="stat"><div class="stat-val" id="statCards">0</div><div class="stat-label">Cards</div></div>
+    <div class="stat"><div class="stat-val" id="statRarities">0</div><div class="stat-label">Rarities</div></div>
+    <div class="stat"><div class="stat-val" id="statHeroes">0</div><div class="stat-label">Heroes</div></div>
   </div>
 </header>
 
@@ -403,6 +407,7 @@
     <button class="pill" data-rarity="SP">Special</button>
     <button class="pill" data-rarity="AR">AR</button>
     <button class="pill" data-rarity="QR">QR</button>
+    <button class="pill" data-rarity="TR">Trainer</button>
   </div>
 </div>
 
@@ -430,12 +435,10 @@
 </div>
 
 <script>
-  const RC = { C:'#8892aa',R:'#4b9fff',RS:'#9b6df0',SSR:'#ff6b35',UR:'#f5c842',SP:'#ff4b8b',AR:'#00e5c8',QR:'#ff80c8' };
-  const RT = { C:'#07080f',R:'#fff',RS:'#fff',SSR:'#fff',UR:'#07080f',SP:'#fff',AR:'#07080f',QR:'#07080f' };
+  const RC = { C:'#8892aa',R:'#4b9fff',RS:'#9b6df0',SSR:'#ff6b35',UR:'#f5c842',SP:'#ff4b8b',AR:'#00e5c8',QR:'#ff80c8',TR:'#66bb6a' };
+  const RT = { C:'#07080f',R:'#fff',RS:'#fff',SSR:'#fff',UR:'#07080f',SP:'#fff',AR:'#07080f',QR:'#07080f',TR:'#07080f' };
 
-  const DATA = {"hero":"Layla","role":"Marksman","specialty":"Energy Gunner","cards":[{"id":"ML-AS-C003","file":"681ae0aa-60ce-4a08-9f49-06c876b4f9bb.JPG","hero":"Layla","skin":"Classic","rarity":"C","rarityLabel":"Common"},{"id":"ML-AS-R003","file":"a8f68463-3a92-4c8e-a718-ebe7dac8f0b8.JPG","hero":"Layla","skin":"Green Flash","rarity":"R","rarityLabel":"Rare"},{"id":"ML-AS-RS003","file":"7a1ba7cb-0e66-4ee1-a1ac-9d2a62c03b80.JPG","hero":"Layla","skin":"Night Owl","rarity":"RS","rarityLabel":"Rising Star"},{"id":"ML-AS-SSR003","file":"195d4817-da21-4d9f-8a90-2ea392e71068.JPG","hero":"Layla","skin":"Bunny Girl","rarity":"SSR","rarityLabel":"Super Super Rare"},{"id":"ML-AS-UR005","file":"53dc7ca4-be1c-444a-a9b4-9c1741a2fb85.JPG","hero":"Layla","skin":"Arcane Witch","rarity":"UR","rarityLabel":"Ultra Rare"},{"id":"ML-AS-UR006","file":"e78b5713-451a-457a-a500-6109195ae833.JPG","hero":"Layla","skin":"New Year Blessings","rarity":"UR","rarityLabel":"Ultra Rare"},{"id":"ML-AS-UR007","file":"d5eb2af1-8207-423c-b6de-3d87b106b1c3.JPG","hero":"Layla","skin":"Bloom","rarity":"UR","rarityLabel":"Ultra Rare"},{"id":"ML-AS-SP003","file":"5ca056f0-11f4-401d-a36a-d46ba283bda9.JPG","hero":"Layla","skin":"G-Mech","rarity":"SP","rarityLabel":"Special"},{"id":"ML-AS-SP004","file":"ae033cff-755e-4ad5-a9c2-d1f75ab13534.JPG","hero":"Layla","skin":"Bounty Hunter","rarity":"SP","rarityLabel":"Special"},{"id":"ML-AS-SP005","file":"6cff7921-0262-45dc-ae31-1b4841f6e845.JPG","hero":"Layla","skin":"Saber","rarity":"SP","rarityLabel":"Special"},{"id":"ML-AS-AR002","file":"b9bae260-4529-4cd1-9cac-09dacadcc50f.JPG","hero":"Layla","skin":"Graffiti Queen","rarity":"AR","rarityLabel":"Augmented Reality"},{"id":"ML-AS-AR003","file":"1cba25ea-b3cf-48cb-a37a-bdb727c30410.JPG","hero":"Layla","skin":"Mech Striker","rarity":"AR","rarityLabel":"Augmented Reality"},{"id":"ML-AS-QR003","file":"814248f2-73f8-49ac-b720-621fc9c42c39.JPG","hero":"Layla","skin":"Game Star","rarity":"QR","rarityLabel":"Quick Release"}]};
-
-  let allCards = DATA.cards;
+  let allCards = [];
   let activeRarity = 'all';
   let searchQuery = '';
 
@@ -443,7 +446,7 @@
     return allCards.filter(c => {
       const matchR = activeRarity === 'all' || c.rarity === activeRarity;
       const q = searchQuery.toLowerCase();
-      const matchS = !q || c.skin.toLowerCase().includes(q) || c.id.toLowerCase().includes(q);
+      const matchS = !q || c.skin.toLowerCase().includes(q) || c.id.toLowerCase().includes(q) || c.hero.toLowerCase().includes(q);
       return matchR && matchS;
     });
   }
@@ -468,7 +471,8 @@
           <img src="images/${c.file}" alt="${c.skin}" loading="lazy" decoding="async" />
           <div class="card-label">
             <div class="card-skin">${c.skin}</div>
-            <div class="card-id">${c.id}</div>
+            <div class="card-id">${c.hero} · ${c.id}</div>
+            ${c.priceSGD ? `<div class="card-price">S$${c.priceSGD.toFixed(2)}</div>` : ''}
           </div>
         </div>
       </div>`).join('');
@@ -501,12 +505,12 @@
         <div class="tile-val" style="color:${col}">${c.rarity}</div>
       </div>
       <div class="meta-tile">
-        <div class="tile-label">Role</div>
-        <div class="tile-val">Marksman</div>
+        <div class="tile-label">Price (SGD)</div>
+        <div class="tile-val" style="color:#4caf50">${c.priceSGD ? 'S$' + c.priceSGD.toFixed(2) : 'N/A'}</div>
       </div>
       <div class="meta-tile">
-        <div class="tile-label">Specialty</div>
-        <div class="tile-val">Energy Gunner</div>
+        <div class="tile-label">Price (MYR)</div>
+        <div class="tile-val">RM${c.priceMYR ? c.priceMYR.toFixed(2) : 'N/A'}</div>
       </div>
       <div class="meta-tile full">
         <div class="tile-label">Rarity Tier</div>
@@ -543,7 +547,15 @@
   });
   document.addEventListener('keydown', e => { if (e.key==='Escape') closeSheet(); });
 
-  render();
+  fetch('data.json').then(r=>r.json()).then(data => {
+    allCards = data.cards;
+    const heroes = new Set(allCards.map(c => c.hero));
+    const rarities = new Set(allCards.map(c => c.rarity));
+    document.getElementById('statCards').textContent = allCards.length;
+    document.getElementById('statRarities').textContent = rarities.size;
+    document.getElementById('statHeroes').textContent = heroes.size;
+    render();
+  });
 </script>
 </body>
 </html>

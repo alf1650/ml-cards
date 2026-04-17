@@ -1,15 +1,427 @@
 {
-  "hero": "Layla",
-  "role": "Marksman",
-  "specialty": "Energy Gunner",
+  "hero": "All Heroes",
+  "role": "Collection",
+  "specialty": "MLBB Cards",
   "cards": [
+    {
+      "id": "ML-AS-C001",
+      "file": "ML-AS-C001.png",
+      "hero": "Miya",
+      "skin": "Moonlight Archer",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
+    {
+      "id": "ML-AS-C002",
+      "file": "ML-AS-C002.png",
+      "hero": "Eudora",
+      "skin": "Lightning Weaver",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
     {
       "id": "ML-AS-C003",
       "file": "681ae0aa-60ce-4a08-9f49-06c876b4f9bb.JPG",
       "hero": "Layla",
-      "skin": "Classic",
+      "skin": "Energy Gunner",
       "rarity": "C",
-      "rarityLabel": "Common"
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
+    {
+      "id": "ML-AS-C004",
+      "file": "ML-AS-C004.png",
+      "hero": "Kagura",
+      "skin": "Onmyouji Master",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
+    {
+      "id": "ML-AS-C005",
+      "file": "ML-AS-C005.png",
+      "hero": "Lylia",
+      "skin": "Little Witch",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
+    {
+      "id": "ML-AS-C006",
+      "file": "ML-AS-C006.png",
+      "hero": "Freya",
+      "skin": "Valkyrie",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
+    {
+      "id": "ML-AS-C007",
+      "file": "ML-AS-C007.png",
+      "hero": "Karina",
+      "skin": "Shadow Blade",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
+    {
+      "id": "ML-AS-C008",
+      "file": "ML-AS-C008.png",
+      "hero": "Wanwan",
+      "skin": "Agile Tiger",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
+    {
+      "id": "ML-AS-C009",
+      "file": "ML-AS-C009.png",
+      "hero": "Lolita",
+      "skin": "Steel Elf",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
+    {
+      "id": "ML-AS-C010",
+      "file": "ML-AS-C010.png",
+      "hero": "Vale",
+      "skin": "Windtalker",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
+    {
+      "id": "ML-AS-C011",
+      "file": "ML-AS-C011.png",
+      "hero": "Alpha",
+      "skin": "Blade Of Enmity",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
+    {
+      "id": "ML-AS-C012",
+      "file": "ML-AS-C012.png",
+      "hero": "Ixia",
+      "skin": "Arclight Outlaw",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
+    {
+      "id": "ML-AS-C013",
+      "file": "ML-AS-C013.png",
+      "hero": "Zilong",
+      "skin": "Spear Of The Dragon",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
+    },
+    {
+      "id": "ML-AS-C014",
+      "file": "ML-AS-C014.png",
+      "hero": "Estes",
+      "skin": "Moon Elf King",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
+    {
+      "id": "ML-AS-C015",
+      "file": "ML-AS-C015.png",
+      "hero": "Claude",
+      "skin": "Master Thief",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
+    {
+      "id": "ML-AS-C016",
+      "file": "ML-AS-C016.png",
+      "hero": "Melissa",
+      "skin": "Cursed Needle",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
+    {
+      "id": "ML-AS-C017",
+      "file": "ML-AS-C017.png",
+      "hero": "Bruno",
+      "skin": "The Protector",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
+    {
+      "id": "ML-AS-C018",
+      "file": "ML-AS-C018.png",
+      "hero": "Kimmy",
+      "skin": "Hoverjet Outrider",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
+    {
+      "id": "ML-AS-C019",
+      "file": "ML-AS-C019.png",
+      "hero": "Johnson",
+      "skin": "Wild Engine",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
+    {
+      "id": "ML-AS-C020",
+      "file": "ML-AS-C020.png",
+      "hero": "Esmeralda",
+      "skin": "Astrologer",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.01,
+      "priceMYR": 0.03
+    },
+    {
+      "id": "ML-AS-CS001",
+      "file": "ML-AS-CS001.png",
+      "hero": "Miya",
+      "skin": "Moonlight Archer",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-CS002",
+      "file": "ML-AS-CS002.png",
+      "hero": "Eudora",
+      "skin": "Lightning Weaver",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-CS003",
+      "file": "ML-AS-CS003.png",
+      "hero": "Layla",
+      "skin": "Energy Gunner",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-CS004",
+      "file": "ML-AS-CS004.png",
+      "hero": "Kagura",
+      "skin": "Onmyouji Master",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-CS005",
+      "file": "ML-AS-CS005.png",
+      "hero": "Lylia",
+      "skin": "Little Witch",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-CS006",
+      "file": "ML-AS-CS006.png",
+      "hero": "Freya",
+      "skin": "Valkrie",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-CS007",
+      "file": "ML-AS-CS007.png",
+      "hero": "Karina",
+      "skin": "Shadow Blade",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-CS008",
+      "file": "ML-AS-CS008.png",
+      "hero": "Wanwan",
+      "skin": "Agile Tiger",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-CS009",
+      "file": "ML-AS-CS009.png",
+      "hero": "Lolita",
+      "skin": "Steel Elf",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-CS010",
+      "file": "ML-AS-CS010.png",
+      "hero": "Vale",
+      "skin": "Windtalker",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-CS011",
+      "file": "ML-AS-CS011.png",
+      "hero": "Alpha",
+      "skin": "Blade Of Emity",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.06,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-CS012",
+      "file": "ML-AS-CS012.png",
+      "hero": "Ixia",
+      "skin": "Arclight Outlaw",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-CS013",
+      "file": "ML-AS-CS013.png",
+      "hero": "Zilong",
+      "skin": "Spear Of The Dragon",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-CS014",
+      "file": "ML-AS-CS014.png",
+      "hero": "Estes",
+      "skin": "Moon Elf King",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-CS015",
+      "file": "ML-AS-CS015.png",
+      "hero": "Claude",
+      "skin": "Master Thief",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-CS016",
+      "file": "ML-AS-CS016.png",
+      "hero": "Melissa",
+      "skin": "Cursed Needle",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-CS017",
+      "file": "ML-AS-CS017.png",
+      "hero": "Bruno",
+      "skin": "The Protector",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-CS018",
+      "file": "ML-AS-CS018.png",
+      "hero": "Kimmy",
+      "skin": "Hoverjet Outrider",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-CS019",
+      "file": "ML-AS-CS019.png",
+      "hero": "Johnson",
+      "skin": "wild Engine",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-CS020",
+      "file": "ML-AS-CS020.png",
+      "hero": "Esmeralda",
+      "skin": "Astrologer",
+      "rarity": "C",
+      "rarityLabel": "Common",
+      "priceSGD": 0.03,
+      "priceMYR": 0.1
+    },
+    {
+      "id": "ML-AS-R001",
+      "file": "ML-AS-R001.png",
+      "hero": "Miya",
+      "skin": "Burning Bow",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
+    },
+    {
+      "id": "ML-AS-R002",
+      "file": "ML-AS-R002.png",
+      "hero": "Eudora",
+      "skin": "Flame Red Lips",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
     },
     {
       "id": "ML-AS-R003",
@@ -17,95 +429,2329 @@
       "hero": "Layla",
       "skin": "Green Flash",
       "rarity": "R",
-      "rarityLabel": "Rare"
+      "rarityLabel": "Rare",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-R004",
+      "file": "ML-AS-R004.png",
+      "hero": "Kagura",
+      "skin": "Flower Season",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
+    },
+    {
+      "id": "ML-AS-R005",
+      "file": "ML-AS-R005.png",
+      "hero": "Laylia",
+      "skin": "School Idol",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
+    },
+    {
+      "id": "ML-AS-R006",
+      "file": "ML-AS-R006.png",
+      "hero": "Freya",
+      "skin": "Dark Rose",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
+    },
+    {
+      "id": "ML-AS-R007",
+      "file": "ML-AS-R007.png",
+      "hero": "Karina",
+      "skin": "Phantom Blade",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-R008",
+      "file": "ML-AS-R008.png",
+      "hero": "Wanwan",
+      "skin": "Darting Star",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
+    },
+    {
+      "id": "ML-AS-R009",
+      "file": "ML-AS-R009.png",
+      "hero": "Lolita",
+      "skin": "Soldier In Training",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
+    },
+    {
+      "id": "ML-AS-R010",
+      "file": "ML-AS-R010.png",
+      "hero": "Vale",
+      "skin": "Cerulean Winds",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
+    },
+    {
+      "id": "ML-AS-R011",
+      "file": "ML-AS-R011.png",
+      "hero": "Alpha",
+      "skin": "Fierce Dragon",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
+    },
+    {
+      "id": "ML-AS-R012",
+      "file": "ML-AS-R012.png",
+      "hero": "Ixia",
+      "skin": "Shifting Sand",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
+    },
+    {
+      "id": "ML-AS-R013",
+      "file": "ML-AS-R013.png",
+      "hero": "Zilong",
+      "skin": "Elite Warrior",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
+    },
+    {
+      "id": "ML-AS-R014",
+      "file": "ML-AS-R014.png",
+      "hero": "Estes",
+      "skin": "Holy Priest",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
+    },
+    {
+      "id": "ML-AS-R015",
+      "file": "ML-AS-R015.png",
+      "hero": "Claude",
+      "skin": "Golden Bullet",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
+    },
+    {
+      "id": "ML-AS-R016",
+      "file": "ML-AS-R016.png",
+      "hero": "Melissa",
+      "skin": "Twinge Weaver",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
+    },
+    {
+      "id": "ML-AS-R017",
+      "file": "ML-AS-R017.png",
+      "hero": "Bruno",
+      "skin": "Vanguard Elite",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
+    },
+    {
+      "id": "ML-AS-R018",
+      "file": "ML-AS-R018.png",
+      "hero": "Kimmy",
+      "skin": "Steam Researcher",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
+    },
+    {
+      "id": "ML-AS-R019",
+      "file": "ML-AS-R019.png",
+      "hero": "Johnson",
+      "skin": "Fire Chef",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
+    },
+    {
+      "id": "ML-AS-R020",
+      "file": "ML-AS-R020.png",
+      "hero": "Esmeralda",
+      "skin": "Ruddy Dusk",
+      "rarity": "R",
+      "rarityLabel": "Rare",
+      "priceSGD": 0.02,
+      "priceMYR": 0.05
+    },
+    {
+      "id": "ML-AS-RS001",
+      "file": "ML-AS-RS001.png",
+      "hero": "Miya",
+      "skin": "Jungle Ranger",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-RS0010",
+      "file": "ML-AS-RS0010.png",
+      "hero": "Vale",
+      "skin": "Kannagi",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-RS0011",
+      "file": "ML-AS-RS0011.png",
+      "hero": "Alpha",
+      "skin": "Sea Gladiator",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-RS0013",
+      "file": "ML-AS-RS0013.png",
+      "hero": "Zilong",
+      "skin": "Eastern Warrior",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-RS0014",
+      "file": "ML-AS-RS0014.png",
+      "hero": "Estes",
+      "skin": "Crow Bishop",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-RS0015",
+      "file": "ML-AS-RS0015.png",
+      "hero": "Claude",
+      "skin": "Plunderous Pirate",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-RS0016",
+      "file": "ML-AS-RS0016.png",
+      "hero": "Melissa",
+      "skin": "Nightwalker",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-RS0017",
+      "file": "ML-AS-RS0017.png",
+      "hero": "Bruno",
+      "skin": "Best DJ",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-RS0018",
+      "file": "ML-AS-RS0018.png",
+      "hero": "Kimmy",
+      "skin": "Bio Froniter",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-RS0019",
+      "file": "ML-AS-RS0019.png",
+      "hero": "Johnson",
+      "skin": "Jeepeny Racer",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-RS002",
+      "file": "ML-AS-RS002.png",
+      "hero": "Eudora",
+      "skin": "Countess Scarlet",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-RS0020",
+      "file": "ML-AS-RS0020.png",
+      "hero": "Esmeralda",
+      "skin": "Poison Vine",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
     },
     {
       "id": "ML-AS-RS003",
       "file": "7a1ba7cb-0e66-4ee1-a1ac-9d2a62c03b80.JPG",
       "hero": "Layla",
-      "skin": "Night Owl",
+      "skin": "Classic Malefic Gunner",
       "rarity": "RS",
-      "rarityLabel": "Rising Star"
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-RS004",
+      "file": "ML-AS-RS004.png",
+      "hero": "Kagura",
+      "skin": "Cherry Witch",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-RS005",
+      "file": "ML-AS-RS005.png",
+      "hero": "Lylia",
+      "skin": "Star Student",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-RS006",
+      "file": "ML-AS-RS006.png",
+      "hero": "Freya",
+      "skin": "Gladiator",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-RS007",
+      "file": "ML-AS-RS007.png",
+      "hero": "Karina",
+      "skin": "Spider Lily",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-RS008",
+      "file": "ML-AS-RS008.png",
+      "hero": "Wanwan",
+      "skin": "Shoujo Commander",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-RS009",
+      "file": "ML-AS-RS009.png",
+      "hero": "Lolita",
+      "skin": "Special Op",
+      "rarity": "RS",
+      "rarityLabel": "Rising Star",
+      "priceSGD": 0.05,
+      "priceMYR": 0.15
+    },
+    {
+      "id": "ML-AS-SSR*001",
+      "file": "ML-AS-SSR_001.png",
+      "hero": "Miya",
+      "skin": "Moon Priestess",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 56.34,
+      "priceMYR": 173.0
+    },
+    {
+      "id": "ML-AS-SSR*002",
+      "file": "ML-AS-SSR_002.png",
+      "hero": "Eudora",
+      "skin": "Cosmic Voyage",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 61.5,
+      "priceMYR": 189.0
+    },
+    {
+      "id": "ML-AS-SSR*003",
+      "file": "ML-AS-SSR_003.png",
+      "hero": "Layla",
+      "skin": "Bunny Babe",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 50.53,
+      "priceMYR": 155.0
+    },
+    {
+      "id": "ML-AS-SSR*004",
+      "file": "ML-AS-SSR_004.png",
+      "hero": "Kagura",
+      "skin": "Summer Festival",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 63.41,
+      "priceMYR": 199.0
+    },
+    {
+      "id": "ML-AS-SSR*005",
+      "file": "ML-AS-SSR_005.png",
+      "hero": "Lylia",
+      "skin": "Future Star",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 58.48,
+      "priceMYR": 181.0
+    },
+    {
+      "id": "ML-AS-SSR*006",
+      "file": "ML-AS-SSR_006.png",
+      "hero": "Freya",
+      "skin": "Dragon Hunter",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 45.14,
+      "priceMYR": 141.0
+    },
+    {
+      "id": "ML-AS-SSR*007",
+      "file": "ML-AS-SSR_007.png",
+      "hero": "Karina",
+      "skin": "Blood Moon",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 42.55,
+      "priceMYR": 134.0
+    },
+    {
+      "id": "ML-AS-SSR*008",
+      "file": "ML-AS-SSR_008.png",
+      "hero": "Wanwan",
+      "skin": "Teen Pop",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 56.9,
+      "priceMYR": 177.0
+    },
+    {
+      "id": "ML-AS-SSR*009",
+      "file": "ML-AS-SSR_009.png",
+      "hero": "Lolita",
+      "skin": "Astro Mallet",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 55.91,
+      "priceMYR": 177.0
+    },
+    {
+      "id": "ML-AS-SSR*010",
+      "file": "ML-AS-SSR_010.png",
+      "hero": "Vale",
+      "skin": "Soaring devata",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 50.6,
+      "priceMYR": 159.0
+    },
+    {
+      "id": "ML-AS-SSR*011",
+      "file": "ML-AS-SSR_011.png",
+      "hero": "Alpha",
+      "skin": "Star Enforcer",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 43.22,
+      "priceMYR": 133.0
+    },
+    {
+      "id": "ML-AS-SSR*012",
+      "file": "ML-AS-SSR_012.png",
+      "hero": "Ixia",
+      "skin": "Dynamic Streak",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 54.05,
+      "priceMYR": 166.0
+    },
+    {
+      "id": "ML-AS-SSR*013",
+      "file": "ML-AS-SSR_013.png",
+      "hero": "Zilong",
+      "skin": " Storm Rider",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 41.64,
+      "priceMYR": 129.0
+    },
+    {
+      "id": "ML-AS-SSR*014",
+      "file": "ML-AS-SSR_014.png",
+      "hero": "Estes",
+      "skin": " White Crane",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 33.14,
+      "priceMYR": 101.0
+    },
+    {
+      "id": "ML-AS-SSR*015",
+      "file": "ML-AS-SSR_015.png",
+      "hero": "Claude",
+      "skin": "Earth's Mightiest",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 41.62,
+      "priceMYR": 129.0
+    },
+    {
+      "id": "ML-AS-SSR*017",
+      "file": "ML-AS-SSR_017.png",
+      "hero": "Bruno",
+      "skin": "Street Football",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 48.5,
+      "priceMYR": 147.0
+    },
+    {
+      "id": "ML-AS-SSR*018",
+      "file": "ML-AS-SSR_018.png",
+      "hero": "Kimmy",
+      "skin": "Charge Leader",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 46.74,
+      "priceMYR": 145.0
+    },
+    {
+      "id": "ML-AS-SSR*019",
+      "file": "ML-AS-SSR_019.png",
+      "hero": "Johnson",
+      "skin": "Starblazer",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 55.78,
+      "priceMYR": 173.0
+    },
+    {
+      "id": "ML-AS-SSR*020",
+      "file": "ML-AS-SSR_020.png",
+      "hero": "Esmeralda",
+      "skin": "Lady Thief",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 51.84,
+      "priceMYR": 162.0
+    },
+    {
+      "id": "ML-AS-SSR001",
+      "file": "ML-AS-SSR001.png",
+      "hero": "Miya",
+      "skin": "Moon Priestess",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.06,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-SSR002",
+      "file": "ML-AS-SSR002.png",
+      "hero": "Eudora",
+      "skin": "Cosmic Voyage",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.07,
+      "priceMYR": 0.2
     },
     {
       "id": "ML-AS-SSR003",
       "file": "195d4817-da21-4d9f-8a90-2ea392e71068.JPG",
       "hero": "Layla",
-      "skin": "Bunny Girl",
+      "skin": "Bunny Babe",
       "rarity": "SSR",
-      "rarityLabel": "Super Super Rare"
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.06,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-SSR004",
+      "file": "ML-AS-SSR004.png",
+      "hero": "Kagura",
+      "skin": "Summer Festival",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.07,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-SSR005",
+      "file": "ML-AS-SSR005.png",
+      "hero": "Lylia",
+      "skin": "Future Star",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.06,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-SSR006",
+      "file": "ML-AS-SSR006.png",
+      "hero": "Freya",
+      "skin": "Dragon Hunter",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.07,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-SSR007",
+      "file": "ML-AS-SSR007.png",
+      "hero": "Karina",
+      "skin": "Blood Moon",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.06,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-SSR008",
+      "file": "ML-AS-SSR008.png",
+      "hero": "Wanwan",
+      "skin": "Teen Pop",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.06,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-SSR009",
+      "file": "ML-AS-SSR009.png",
+      "hero": "Lolita",
+      "skin": "Astro Mallet",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.06,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-SSR010",
+      "file": "ML-AS-SSR010.png",
+      "hero": "Vale",
+      "skin": "Soaring Devata",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.06,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-SSR011",
+      "file": "ML-AS-SSR011.png",
+      "hero": "Alpha",
+      "skin": "Star Enforcer",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.06,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-SSR012",
+      "file": "ML-AS-SSR012.png",
+      "hero": "Ixia",
+      "skin": "Dynamic Streak",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.06,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-SSR013",
+      "file": "ML-AS-SSR013.png",
+      "hero": "Zilong",
+      "skin": "Storm Rider",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.06,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-SSR014",
+      "file": "ML-AS-SSR014.png",
+      "hero": "Estes",
+      "skin": "White Crane",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.07,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-SSR015",
+      "file": "ML-AS-SSR015.png",
+      "hero": "Claude",
+      "skin": "Earth's Mightiest",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.06,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-SSR017",
+      "file": "ML-AS-SSR017.png",
+      "hero": "Bruno",
+      "skin": "Street Football",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.07,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-SSR018",
+      "file": "ML-AS-SSR018.png",
+      "hero": "Kimmy",
+      "skin": "Charge Leader",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.06,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-SSR019",
+      "file": "ML-AS-SSR019.png",
+      "hero": "Johnson",
+      "skin": "Wild Engine",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.06,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-SSR020",
+      "file": "ML-AS-SSR020.png",
+      "hero": "Esmeralda",
+      "skin": "Lady Thief",
+      "rarity": "SSR",
+      "rarityLabel": "Super Super Rare",
+      "priceSGD": 0.07,
+      "priceMYR": 0.2
+    },
+    {
+      "id": "ML-AS-UR*001",
+      "file": "ML-AS-UR_001.png",
+      "hero": "Miya",
+      "skin": "Modena Butterfly",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 100.22,
+      "priceMYR": 318.0
+    },
+    {
+      "id": "ML-AS-UR*002",
+      "file": "ML-AS-UR_002.png",
+      "hero": "Miya",
+      "skin": "Doom Catalyst",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 107.79,
+      "priceMYR": 341.0
+    },
+    {
+      "id": "ML-AS-UR*003",
+      "file": "ML-AS-UR_003.png",
+      "hero": "Miya",
+      "skin": "Suzuhime",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 98.19,
+      "priceMYR": 311.0
+    },
+    {
+      "id": "ML-AS-UR*004",
+      "file": "ML-AS-UR_004.png",
+      "hero": "Eudora",
+      "skin": "Emerald Enchantress",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 84.97,
+      "priceMYR": 267.0
+    },
+    {
+      "id": "ML-AS-UR*005",
+      "file": "ML-AS-UR_005.png",
+      "hero": "Layla",
+      "skin": "Twilight Waltz",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 82.74,
+      "priceMYR": 260.0
+    },
+    {
+      "id": "ML-AS-UR*006",
+      "file": "ML-AS-UR_006.png",
+      "hero": "Layla",
+      "skin": "Paranormal Operative",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 90.17,
+      "priceMYR": 279.0
+    },
+    {
+      "id": "ML-AS-UR*007",
+      "file": "ML-AS-UR_007.png",
+      "hero": "Layla",
+      "skin": "Cannon And Roses",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 96.34,
+      "priceMYR": 298.0
+    },
+    {
+      "id": "ML-AS-UR*008",
+      "file": "ML-AS-UR_008.png",
+      "hero": "Kagura",
+      "skin": "Water Lily",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 107.63,
+      "priceMYR": 333.0
+    },
+    {
+      "id": "ML-AS-UR*009",
+      "file": "ML-AS-UR_009.png",
+      "hero": "Kagura",
+      "skin": " Jade Blossom",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 124.38,
+      "priceMYR": 379.0
+    },
+    {
+      "id": "ML-AS-UR*010",
+      "file": "ML-AS-UR_010.png",
+      "hero": "Kagura",
+      "skin": "Dragon Maiden",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 96.58,
+      "priceMYR": 303.0
+    },
+    {
+      "id": "ML-AS-UR*011",
+      "file": "ML-AS-UR_011.png",
+      "hero": "Lylia",
+      "skin": "Magitech Arsenal",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 88.91,
+      "priceMYR": 277.0
+    },
+    {
+      "id": "ML-AS-UR*012",
+      "file": "ML-AS-UR_012.png",
+      "hero": "Lylia",
+      "skin": "Haunted Doll",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 84.43,
+      "priceMYR": 264.0
+    },
+    {
+      "id": "ML-AS-UR*013",
+      "file": "ML-AS-UR_013.png",
+      "hero": "Freya",
+      "skin": "Galactic Vanquisher",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 81.39,
+      "priceMYR": 249.0
+    },
+    {
+      "id": "ML-AS-UR*014",
+      "file": "ML-AS-UR_014.png",
+      "hero": "Freya",
+      "skin": "Raven Shogun",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 64.94,
+      "priceMYR": 201.0
+    },
+    {
+      "id": "ML-AS-UR*015",
+      "file": "ML-AS-UR_015.png",
+      "hero": "Freya",
+      "skin": "War Angel",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 88.78,
+      "priceMYR": 275.0
+    },
+    {
+      "id": "ML-AS-UR*016",
+      "file": "ML-AS-UR_016.png",
+      "hero": "Karina",
+      "skin": "Doom Duelist",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 75.94,
+      "priceMYR": 237.0
+    },
+    {
+      "id": "ML-AS-UR*017",
+      "file": "ML-AS-UR_017.png",
+      "hero": "Karina",
+      "skin": "Black Peart",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 65.41,
+      "priceMYR": 207.0
+    },
+    {
+      "id": "ML-AS-UR*018",
+      "file": "ML-AS-UR_018.png",
+      "hero": "Wanwan",
+      "skin": "Pixel Blast",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 114.23,
+      "priceMYR": 356.0
+    },
+    {
+      "id": "ML-AS-UR*019",
+      "file": "ML-AS-UR_019.png",
+      "hero": "Wanwan",
+      "skin": "E-Girl",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 103.55,
+      "priceMYR": 327.0
+    },
+    {
+      "id": "ML-AS-UR*020",
+      "file": "ML-AS-UR_020.png",
+      "hero": "Wanwan",
+      "skin": "Flying Swallow",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 119.09,
+      "priceMYR": 366.0
+    },
+    {
+      "id": "ML-AS-UR*021",
+      "file": "ML-AS-UR_021.png",
+      "hero": "Lolita",
+      "skin": "Starwatcher",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 82.6,
+      "priceMYR": 255.0
+    },
+    {
+      "id": "ML-AS-UR*022",
+      "file": "ML-AS-UR_022.png",
+      "hero": "Lolita",
+      "skin": "Impish Trickster",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 74.11,
+      "priceMYR": 228.0
+    },
+    {
+      "id": "ML-AS-UR*023",
+      "file": "ML-AS-UR_023.png",
+      "hero": "Lolita",
+      "skin": "Lion Dance",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 84.88,
+      "priceMYR": 263.0
+    },
+    {
+      "id": "ML-AS-UR*024",
+      "file": "ML-AS-UR_024.png",
+      "hero": "Vale",
+      "skin": "Supernal Tempest",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 103.56,
+      "priceMYR": 316.0
+    },
+    {
+      "id": "ML-AS-UR*025",
+      "file": "ML-AS-UR_025.png",
+      "hero": "Vale",
+      "skin": "Keeper Of The Winds",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 100.44,
+      "priceMYR": 307.0
+    },
+    {
+      "id": "ML-AS-UR*026",
+      "file": "ML-AS-UR_026.png",
+      "hero": "Vale",
+      "skin": "Concerto Of Light",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 104.65,
+      "priceMYR": 322.0
+    },
+    {
+      "id": "ML-AS-UR*028",
+      "file": "ML-AS-UR_028.png",
+      "hero": "Alpha",
+      "skin": "Revenant Of Roses",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 90.94,
+      "priceMYR": 277.0
+    },
+    {
+      "id": "ML-AS-UR*029",
+      "file": "ML-AS-UR_029.png",
+      "hero": "Alpha",
+      "skin": "Onimusha Commander",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 98.23,
+      "priceMYR": 303.0
+    },
+    {
+      "id": "ML-AS-UR*030",
+      "file": "ML-AS-UR_030.png",
+      "hero": "Zilong",
+      "skin": "Glorious General",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 68.09,
+      "priceMYR": 212.0
+    },
+    {
+      "id": "ML-AS-UR*031",
+      "file": "ML-AS-UR_031.png",
+      "hero": "Zilong",
+      "skin": "Changbanpo Commander",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 74.91,
+      "priceMYR": 232.0
+    },
+    {
+      "id": "ML-AS-UR*032",
+      "file": "ML-AS-UR_032.png",
+      "hero": "Zilong",
+      "skin": "Dragon Of proseperity",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 92.76,
+      "priceMYR": 285.0
+    },
+    {
+      "id": "ML-AS-UR*033",
+      "file": "ML-AS-UR_033.png",
+      "hero": "Estes",
+      "skin": "Arcane Magistrate",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 64.3,
+      "priceMYR": 199.0
+    },
+    {
+      "id": "ML-AS-UR*034",
+      "file": "ML-AS-UR_034.png",
+      "hero": "Estes",
+      "skin": "Galaxy Dominator",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 60.24,
+      "priceMYR": 189.0
+    },
+    {
+      "id": "ML-AS-UR*035",
+      "file": "ML-AS-UR_035.png",
+      "hero": "Estes",
+      "skin": "Blacklist International",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 67.43,
+      "priceMYR": 209.0
+    },
+    {
+      "id": "ML-AS-UR*036",
+      "file": "ML-AS-UR_036.png",
+      "hero": "Claude",
+      "skin": "Challenge's Spark",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 99.25,
+      "priceMYR": 305.0
+    },
+    {
+      "id": "ML-AS-UR*037",
+      "file": "ML-AS-UR_037.png",
+      "hero": "Claude",
+      "skin": "Mecha Dragon",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 103.04,
+      "priceMYR": 319.0
+    },
+    {
+      "id": "ML-AS-UR*038",
+      "file": "ML-AS-UR_038.png",
+      "hero": "Melissa",
+      "skin": "Umbra Bloom",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 105.62,
+      "priceMYR": 323.0
+    },
+    {
+      "id": "ML-AS-UR*039",
+      "file": "ML-AS-UR_039.png",
+      "hero": "Bruno",
+      "skin": "Street Hype",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 71.22,
+      "priceMYR": 219.0
+    },
+    {
+      "id": "ML-AS-UR*040",
+      "file": "ML-AS-UR_040.png",
+      "hero": "Kimmy",
+      "skin": "Astrocat",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 82.44,
+      "priceMYR": 255.0
+    },
+    {
+      "id": "ML-AS-UR*041",
+      "file": "ML-AS-UR_041.png",
+      "hero": "Johnson",
+      "skin": "Wreck King",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 84.14,
+      "priceMYR": 256.0
+    },
+    {
+      "id": "ML-AS-UR*042",
+      "file": "ML-AS-UR_042.png",
+      "hero": "Johnson",
+      "skin": "Sovereign Of Realms",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 89.51,
+      "priceMYR": 281.0
+    },
+    {
+      "id": "ML-AS-UR*043",
+      "file": "ML-AS-UR_043.png",
+      "hero": "Esmeralda",
+      "skin": "Light Envoy",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 80.4,
+      "priceMYR": 249.0
+    },
+    {
+      "id": "ML-AS-UR0",
+      "file": "ML-AS-UR0.png",
+      "hero": "Alpha",
+      "skin": "Mecha-King Perseus*27)",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 94.31,
+      "priceMYR": 292.0
+    },
+    {
+      "id": "ML-AS-UR001",
+      "file": "ML-AS-UR001.png",
+      "hero": "Miya",
+      "skin": "Modena Butterfly",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR002",
+      "file": "ML-AS-UR002.png",
+      "hero": "Miya",
+      "skin": "Doom Catalyst",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR003",
+      "file": "ML-AS-UR003.png",
+      "hero": "Miya",
+      "skin": "Suzuhime",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR004",
+      "file": "ML-AS-UR004.png",
+      "hero": "Eudora",
+      "skin": "Emerald Enchantress",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
     },
     {
       "id": "ML-AS-UR005",
       "file": "53dc7ca4-be1c-444a-a9b4-9c1741a2fb85.JPG",
       "hero": "Layla",
-      "skin": "Arcane Witch",
+      "skin": "Twilight Waltz",
       "rarity": "UR",
-      "rarityLabel": "Ultra Rare"
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
     },
     {
       "id": "ML-AS-UR006",
       "file": "e78b5713-451a-457a-a500-6109195ae833.JPG",
       "hero": "Layla",
-      "skin": "New Year Blessings",
+      "skin": "Paranormal Operative",
       "rarity": "UR",
-      "rarityLabel": "Ultra Rare"
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
     },
     {
       "id": "ML-AS-UR007",
       "file": "d5eb2af1-8207-423c-b6de-3d87b106b1c3.JPG",
       "hero": "Layla",
-      "skin": "Bloom",
+      "skin": "Cannon And Roses",
       "rarity": "UR",
-      "rarityLabel": "Ultra Rare"
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR008",
+      "file": "ML-AS-UR008.png",
+      "hero": "Kagura",
+      "skin": "Water Lily",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR009",
+      "file": "ML-AS-UR009.png",
+      "hero": "Kagura",
+      "skin": " Jade Blossom",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR010",
+      "file": "ML-AS-UR010.png",
+      "hero": "Kagura",
+      "skin": "Dragon Maiden",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR011",
+      "file": "ML-AS-UR011.png",
+      "hero": "Lylia",
+      "skin": "Magitech Arsenal",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR012",
+      "file": "ML-AS-UR012.png",
+      "hero": "Lylia",
+      "skin": "Haunted Doll",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR013",
+      "file": "ML-AS-UR013.png",
+      "hero": "Freya",
+      "skin": "Freya",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.0,
+      "priceMYR": 0.0
+    },
+    {
+      "id": "ML-AS-UR014",
+      "file": "ML-AS-UR014.png",
+      "hero": "Freya",
+      "skin": "Raven Shogun",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR016",
+      "file": "ML-AS-UR016.png",
+      "hero": "Karina",
+      "skin": "Doom Duelist",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR017",
+      "file": "ML-AS-UR017.png",
+      "hero": "Karina",
+      "skin": "Black Peart",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR018",
+      "file": "ML-AS-UR018.png",
+      "hero": "Wanwan",
+      "skin": "Pixel Blast",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR019",
+      "file": "ML-AS-UR019.png",
+      "hero": "Wanwan",
+      "skin": "E-Girl",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR020",
+      "file": "ML-AS-UR020.png",
+      "hero": "Wanwan",
+      "skin": "Flying Swallow",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR021",
+      "file": "ML-AS-UR021.png",
+      "hero": "Lolita",
+      "skin": "Starwatcher",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR022",
+      "file": "ML-AS-UR022.png",
+      "hero": "Lolita",
+      "skin": "Impish Trickster",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR023",
+      "file": "ML-AS-UR023.png",
+      "hero": "Lolita",
+      "skin": "Lion Dance",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR024",
+      "file": "ML-AS-UR024.png",
+      "hero": "Vale",
+      "skin": "Supernal Tempest",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR025",
+      "file": "ML-AS-UR025.png",
+      "hero": "Vale",
+      "skin": "Keeper Of The Winds",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR026",
+      "file": "ML-AS-UR026.png",
+      "hero": "Vale",
+      "skin": "Concerto Of Light",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR027",
+      "file": "ML-AS-UR027.png",
+      "hero": "Alpha",
+      "skin": "Mecha-King Perseus",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR028",
+      "file": "ML-AS-UR028.png",
+      "hero": "Alpha",
+      "skin": "Revenant Of Roses",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR029",
+      "file": "ML-AS-UR029.png",
+      "hero": "Alpha",
+      "skin": "Onimusha Commander",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR030",
+      "file": "ML-AS-UR030.png",
+      "hero": "Zilong",
+      "skin": "Glorious General",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR032",
+      "file": "ML-AS-UR032.png",
+      "hero": "Zilong",
+      "skin": "Dragon Of proseperity",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR033",
+      "file": "ML-AS-UR033.png",
+      "hero": "Estes",
+      "skin": "Arcane Magistrate",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR034",
+      "file": "ML-AS-UR034.png",
+      "hero": "Estes",
+      "skin": "Galaxy Dominator",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR035",
+      "file": "ML-AS-UR035.png",
+      "hero": "Estes",
+      "skin": "Blacklist International",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR036",
+      "file": "ML-AS-UR036.png",
+      "hero": "Claude",
+      "skin": "Challenge's Spark",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR037",
+      "file": "ML-AS-UR037.png",
+      "hero": "Claude",
+      "skin": "Mecha Dragon",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR038",
+      "file": "ML-AS-UR038.png",
+      "hero": "Melissa",
+      "skin": "Umbra Bloom",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR039",
+      "file": "ML-AS-UR039.png",
+      "hero": "Bruno",
+      "skin": "Street Hype",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR040",
+      "file": "ML-AS-UR040.png",
+      "hero": "Kimmy",
+      "skin": "Astrocat",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR041",
+      "file": "ML-AS-UR041.png",
+      "hero": "Johnson",
+      "skin": "Wreck King",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR042",
+      "file": "ML-AS-UR042.png",
+      "hero": "Johnson",
+      "skin": "Sovereign Of Realms",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-UR043",
+      "file": "ML-AS-UR043.png",
+      "hero": "Esmeralda",
+      "skin": "Light Envoy",
+      "rarity": "UR",
+      "rarityLabel": "Ultra Rare",
+      "priceSGD": 0.08,
+      "priceMYR": 0.25
+    },
+    {
+      "id": "ML-AS-SP*001",
+      "file": "ML-AS-SP_001.png",
+      "hero": "Miya",
+      "skin": "Atomic Pop",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 253.25,
+      "priceMYR": 778.0
+    },
+    {
+      "id": "ML-AS-SP*002",
+      "file": "ML-AS-SP_002.png",
+      "hero": "Eudora",
+      "skin": "Atomic Pop",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 252.79,
+      "priceMYR": 800.0
+    },
+    {
+      "id": "ML-AS-SP*003",
+      "file": "ML-AS-SP_003.png",
+      "hero": "Layla",
+      "skin": "Miss-Hikari",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 237.6,
+      "priceMYR": 723.0
+    },
+    {
+      "id": "ML-AS-SP*004",
+      "file": "ML-AS-SP_004.png",
+      "hero": "Layla",
+      "skin": "Blazing Gun",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 261.36,
+      "priceMYR": 799.0
+    },
+    {
+      "id": "ML-AS-SP*005",
+      "file": "ML-AS-SP_005.png",
+      "hero": "Layla",
+      "skin": "Green Flash",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 211.29,
+      "priceMYR": 648.0
+    },
+    {
+      "id": "ML-AS-SP*006",
+      "file": "ML-AS-SP_006.png",
+      "hero": "Kagura",
+      "skin": "Beyond The Clouds",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 226.16,
+      "priceMYR": 701.0
+    },
+    {
+      "id": "ML-AS-SP*007",
+      "file": "ML-AS-SP_007.png",
+      "hero": "Lylia",
+      "skin": "Neobeast",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 269.94,
+      "priceMYR": 836.0
+    },
+    {
+      "id": "ML-AS-SP*008",
+      "file": "ML-AS-SP_008.png",
+      "hero": "Freya",
+      "skin": "S.A.B.E.R ManHunter",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 210.74,
+      "priceMYR": 659.0
+    },
+    {
+      "id": "ML-AS-SP*009",
+      "file": "ML-AS-SP_009.png",
+      "hero": "Karina",
+      "skin": "Gemini Halo",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 174.67,
+      "priceMYR": 533.0
+    },
+    {
+      "id": "ML-AS-SP*010",
+      "file": "ML-AS-SP_010.png",
+      "hero": "Wanwan",
+      "skin": "M-World",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 168.33,
+      "priceMYR": 522.0
+    },
+    {
+      "id": "ML-AS-SP*011",
+      "file": "ML-AS-SP_011.png",
+      "hero": "Vale",
+      "skin": "Blizzard Storm",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 130.26,
+      "priceMYR": 403.0
+    },
+    {
+      "id": "ML-AS-SP*012",
+      "file": "ML-AS-SP_012.png",
+      "hero": "Zilong",
+      "skin": "Empyrean Paladin",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 131.55,
+      "priceMYR": 411.0
+    },
+    {
+      "id": "ML-AS-SP*013",
+      "file": "ML-AS-SP_013.png",
+      "hero": "Estes",
+      "skin": "Sparkle",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 86.98,
+      "priceMYR": 266.0
+    },
+    {
+      "id": "ML-AS-SP*014",
+      "file": "ML-AS-SP_014.png",
+      "hero": "Estes",
+      "skin": "Rattan Dragon",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 78.33,
+      "priceMYR": 244.0
+    },
+    {
+      "id": "ML-AS-SP*015",
+      "file": "ML-AS-SP_015.png",
+      "hero": "Claude",
+      "skin": "Blazing Trace",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 227.71,
+      "priceMYR": 691.0
+    },
+    {
+      "id": "ML-AS-SP*016",
+      "file": "ML-AS-SP_016.png",
+      "hero": "Melissa",
+      "skin": "Sparkle",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 233.44,
+      "priceMYR": 720.0
+    },
+    {
+      "id": "ML-AS-SP*017",
+      "file": "ML-AS-SP_017.png",
+      "hero": "Bruno",
+      "skin": "Firebolt",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 108.16,
+      "priceMYR": 331.0
+    },
+    {
+      "id": "ML-AS-SP*018",
+      "file": "ML-AS-SP_018.png",
+      "hero": "Kimmy",
+      "skin": "Frost Wing",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 218.49,
+      "priceMYR": 693.0
+    },
+    {
+      "id": "ML-AS-SP*019",
+      "file": "ML-AS-SP_019.png",
+      "hero": "Johnson",
+      "skin": "S.A.B.E.R. Automata",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 118.47,
+      "priceMYR": 371.0
+    },
+    {
+      "id": "ML-AS-SP*020",
+      "file": "ML-AS-SP_020.png",
+      "hero": "Esmeralda",
+      "skin": "Blazing Shadow",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 138.11,
+      "priceMYR": 425.0
+    },
+    {
+      "id": "ML-AS-SP*021",
+      "file": "ML-AS-SP_021.png",
+      "hero": "Esmeralda",
+      "skin": "The Foreseer",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 152.46,
+      "priceMYR": 480.0
+    },
+    {
+      "id": "ML-AS-SP001",
+      "file": "ML-AS-SP001.png",
+      "hero": "Miya",
+      "skin": "Atomic Pop",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 11.82,
+      "priceMYR": 36.0
+    },
+    {
+      "id": "ML-AS-SP002",
+      "file": "ML-AS-SP002.png",
+      "hero": "Eudora",
+      "skin": "Atomic Pop",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 11.39,
+      "priceMYR": 35.0
     },
     {
       "id": "ML-AS-SP003",
       "file": "5ca056f0-11f4-401d-a36a-d46ba283bda9.JPG",
       "hero": "Layla",
-      "skin": "G-Mech",
+      "skin": "Miss-Hikari",
       "rarity": "SP",
-      "rarityLabel": "Special"
+      "rarityLabel": "Special",
+      "priceSGD": 14.43,
+      "priceMYR": 45.0
     },
     {
       "id": "ML-AS-SP004",
       "file": "ae033cff-755e-4ad5-a9c2-d1f75ab13534.JPG",
       "hero": "Layla",
-      "skin": "Bounty Hunter",
+      "skin": "Blazing Gun",
       "rarity": "SP",
-      "rarityLabel": "Special"
+      "rarityLabel": "Special",
+      "priceSGD": 14.1,
+      "priceMYR": 43.0
     },
     {
       "id": "ML-AS-SP005",
       "file": "6cff7921-0262-45dc-ae31-1b4841f6e845.JPG",
       "hero": "Layla",
-      "skin": "Saber",
+      "skin": "Green Flash",
       "rarity": "SP",
-      "rarityLabel": "Special"
+      "rarityLabel": "Special",
+      "priceSGD": 12.93,
+      "priceMYR": 40.0
+    },
+    {
+      "id": "ML-AS-SP006",
+      "file": "ML-AS-SP006.png",
+      "hero": "Kagura",
+      "skin": "Beyond The Clouds",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 11.89,
+      "priceMYR": 37.0
+    },
+    {
+      "id": "ML-AS-SP007",
+      "file": "ML-AS-SP007.png",
+      "hero": "Lylia",
+      "skin": "Neobeast",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 15.6,
+      "priceMYR": 48.0
+    },
+    {
+      "id": "ML-AS-SP008",
+      "file": "ML-AS-SP008.png",
+      "hero": "Freya",
+      "skin": "S.A.B.E.R ManHunter",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 11.87,
+      "priceMYR": 36.0
+    },
+    {
+      "id": "ML-AS-SP009",
+      "file": "ML-AS-SP009.png",
+      "hero": "Karina",
+      "skin": "Gemini Halo",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 9.55,
+      "priceMYR": 29.0
+    },
+    {
+      "id": "ML-AS-SP010",
+      "file": "ML-AS-SP010.png",
+      "hero": "Wanwan",
+      "skin": "M-World",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 10.75,
+      "priceMYR": 33.0
+    },
+    {
+      "id": "ML-AS-SP011",
+      "file": "ML-AS-SP011.png",
+      "hero": "Vale",
+      "skin": "Blizzard Storm",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 10.24,
+      "priceMYR": 32.0
+    },
+    {
+      "id": "ML-AS-SP012",
+      "file": "ML-AS-SP012.png",
+      "hero": "Zilong",
+      "skin": "Empyrean Paladin",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 9.56,
+      "priceMYR": 29.0
+    },
+    {
+      "id": "ML-AS-SP013",
+      "file": "ML-AS-SP013.png",
+      "hero": "Estes",
+      "skin": "Sparkle",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 5.55,
+      "priceMYR": 17.0
+    },
+    {
+      "id": "ML-AS-SP014",
+      "file": "ML-AS-SP014.png",
+      "hero": "Estes",
+      "skin": "Rattan Dragon",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 4.77,
+      "priceMYR": 15.0
+    },
+    {
+      "id": "ML-AS-SP015",
+      "file": "ML-AS-SP015.png",
+      "hero": "Claude",
+      "skin": "Blazing Trace",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 8.91,
+      "priceMYR": 28.0
+    },
+    {
+      "id": "ML-AS-SP016",
+      "file": "ML-AS-SP016.png",
+      "hero": "Melissa",
+      "skin": "Sparkle",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 12.33,
+      "priceMYR": 38.0
+    },
+    {
+      "id": "ML-AS-SP017",
+      "file": "ML-AS-SP017.png",
+      "hero": "Bruno",
+      "skin": "Firebolt",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 7.17,
+      "priceMYR": 22.0
+    },
+    {
+      "id": "ML-AS-SP018",
+      "file": "ML-AS-SP018.png",
+      "hero": "Kimmy",
+      "skin": "Frost Wing",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 12.14,
+      "priceMYR": 37.0
+    },
+    {
+      "id": "ML-AS-SP019",
+      "file": "ML-AS-SP019.png",
+      "hero": "Johnson",
+      "skin": "S.A.B.E.R. Automata",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 10.88,
+      "priceMYR": 34.0
+    },
+    {
+      "id": "ML-AS-SP020",
+      "file": "ML-AS-SP020.png",
+      "hero": "Esmeralda",
+      "skin": "Blazing Shadow",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 11.76,
+      "priceMYR": 37.0
+    },
+    {
+      "id": "ML-AS-SP021",
+      "file": "ML-AS-SP021.png",
+      "hero": "Esmeralda",
+      "skin": "The Foreseer",
+      "rarity": "SP",
+      "rarityLabel": "Special",
+      "priceSGD": 6.42,
+      "priceMYR": 20.0
+    },
+    {
+      "id": "ML-AS-AR001",
+      "file": "ML-AS-AR001.png",
+      "hero": "Miya",
+      "skin": "Artist Series Rare",
+      "rarity": "AR",
+      "rarityLabel": "Augmented Reality",
+      "priceSGD": 578.84,
+      "priceMYR": 1800.0
     },
     {
       "id": "ML-AS-AR002",
       "file": "b9bae260-4529-4cd1-9cac-09dacadcc50f.JPG",
       "hero": "Layla",
-      "skin": "Graffiti Queen",
+      "skin": "Artist Series Rare",
       "rarity": "AR",
-      "rarityLabel": "Augmented Reality"
+      "rarityLabel": "Augmented Reality",
+      "priceSGD": 647.53,
+      "priceMYR": 2000.0
     },
     {
       "id": "ML-AS-AR003",
       "file": "1cba25ea-b3cf-48cb-a37a-bdb727c30410.JPG",
       "hero": "Layla",
-      "skin": "Mech Striker",
+      "skin": "Energy Gunner Artist Series Rare",
       "rarity": "AR",
-      "rarityLabel": "Augmented Reality"
+      "rarityLabel": "Augmented Reality",
+      "priceSGD": 419.16,
+      "priceMYR": 1300.0
+    },
+    {
+      "id": "ML-AS-AR004",
+      "file": "ML-AS-AR004.png",
+      "hero": "Lolita",
+      "skin": "Steel Elf Artist Series Rare",
+      "rarity": "AR",
+      "rarityLabel": "Augmented Reality",
+      "priceSGD": 413.03,
+      "priceMYR": 1300.0
+    },
+    {
+      "id": "ML-AS-AR005",
+      "file": "ML-AS-AR005.png",
+      "hero": "Ixia",
+      "skin": "Arclight Outlaw Artist Series Rare",
+      "rarity": "AR",
+      "rarityLabel": "Augmented Reality",
+      "priceSGD": 428.52,
+      "priceMYR": 1350.0
+    },
+    {
+      "id": "ML-AS-AR006",
+      "file": "ML-AS-AR006.png",
+      "hero": "Claude",
+      "skin": "Artist Series Rare",
+      "rarity": "AR",
+      "rarityLabel": "Augmented Reality",
+      "priceSGD": 481.76,
+      "priceMYR": 1493.0
+    },
+    {
+      "id": "ML-AS-AR007",
+      "file": "ML-AS-AR007.png",
+      "hero": "Melissa",
+      "skin": "Artist Series Rare",
+      "rarity": "AR",
+      "rarityLabel": "Augmented Reality",
+      "priceSGD": 591.03,
+      "priceMYR": 1833.0
+    },
+    {
+      "id": "ML-AS-AR008",
+      "file": "ML-AS-AR008.png",
+      "hero": "Bruno",
+      "skin": "The Protector Artist Series Rare",
+      "rarity": "AR",
+      "rarityLabel": "Augmented Reality",
+      "priceSGD": 320.39,
+      "priceMYR": 1000.0
+    },
+    {
+      "id": "ML-AS-AR009",
+      "file": "ML-AS-AR009.png",
+      "hero": "Kimmy",
+      "skin": "Hoverjet Outrider Artist Series Rare",
+      "rarity": "AR",
+      "rarityLabel": "Augmented Reality",
+      "priceSGD": 350.11,
+      "priceMYR": 1100.0
+    },
+    {
+      "id": "ML-AS-AR010",
+      "file": "ML-AS-AR010.png",
+      "hero": "Johnson",
+      "skin": "Wild Engine Artist Series Rare",
+      "rarity": "AR",
+      "rarityLabel": "Augmented Reality",
+      "priceSGD": 405.54,
+      "priceMYR": 1280.0
+    },
+    {
+      "id": "ML-AS-QR001",
+      "file": "ML-AS-QR001.png",
+      "hero": "Miya",
+      "skin": "Miya",
+      "rarity": "QR",
+      "rarityLabel": "Quick Release",
+      "priceSGD": 122.45,
+      "priceMYR": 387.0
+    },
+    {
+      "id": "ML-AS-QR002",
+      "file": "ML-AS-QR002.png",
+      "hero": "Eudora",
+      "skin": "Eudora",
+      "rarity": "QR",
+      "rarityLabel": "Quick Release",
+      "priceSGD": 29.37,
+      "priceMYR": 92.0
     },
     {
       "id": "ML-AS-QR003",
       "file": "814248f2-73f8-49ac-b720-621fc9c42c39.JPG",
       "hero": "Layla",
-      "skin": "Game Star",
+      "skin": "Layla",
       "rarity": "QR",
-      "rarityLabel": "Quick Release"
+      "rarityLabel": "Quick Release",
+      "priceSGD": 102.91,
+      "priceMYR": 318.0
+    },
+    {
+      "id": "ML-AS-QR004",
+      "file": "ML-AS-QR004.png",
+      "hero": "Kagura",
+      "skin": "Kagura",
+      "rarity": "QR",
+      "rarityLabel": "Quick Release",
+      "priceSGD": 62.94,
+      "priceMYR": 193.0
+    },
+    {
+      "id": "ML-AS-QR005",
+      "file": "ML-AS-QR005.png",
+      "hero": "Lylia",
+      "skin": "Lylia",
+      "rarity": "QR",
+      "rarityLabel": "Quick Release",
+      "priceSGD": 86.13,
+      "priceMYR": 267.0
+    },
+    {
+      "id": "ML-AS-QR006",
+      "file": "ML-AS-QR006.png",
+      "hero": "Wanwan",
+      "skin": "Wanwan",
+      "rarity": "QR",
+      "rarityLabel": "Quick Release",
+      "priceSGD": 74.41,
+      "priceMYR": 230.0
+    },
+    {
+      "id": "ML-AS-QR007",
+      "file": "ML-AS-QR007.png",
+      "hero": "Vale",
+      "skin": "Vale",
+      "rarity": "QR",
+      "rarityLabel": "Quick Release",
+      "priceSGD": 43.82,
+      "priceMYR": 135.0
+    },
+    {
+      "id": "ML-AS-QR008",
+      "file": "ML-AS-QR008.png",
+      "hero": "Alpha",
+      "skin": "Alpha",
+      "rarity": "QR",
+      "rarityLabel": "Quick Release",
+      "priceSGD": 36.64,
+      "priceMYR": 115.0
+    },
+    {
+      "id": "ML-AS-QR009",
+      "file": "ML-AS-QR009.png",
+      "hero": "Zilong",
+      "skin": "Zilong",
+      "rarity": "QR",
+      "rarityLabel": "Quick Release",
+      "priceSGD": 42.64,
+      "priceMYR": 130.0
+    },
+    {
+      "id": "ML-AS-QR010",
+      "file": "ML-AS-QR010.png",
+      "hero": "Estes",
+      "skin": "Estes",
+      "rarity": "QR",
+      "rarityLabel": "Quick Release",
+      "priceSGD": 25.71,
+      "priceMYR": 80.0
+    },
+    {
+      "id": "ML-AS-QR011",
+      "file": "ML-AS-QR011.png",
+      "hero": "Melissa",
+      "skin": "Melissa",
+      "rarity": "QR",
+      "rarityLabel": "Quick Release",
+      "priceSGD": 57.07,
+      "priceMYR": 180.0
+    },
+    {
+      "id": "ML-AS-QR012",
+      "file": "ML-AS-QR012.png",
+      "hero": "Esmeralda",
+      "skin": "Esmeralda",
+      "rarity": "QR",
+      "rarityLabel": "Quick Release",
+      "priceSGD": 48.95,
+      "priceMYR": 150.0
+    },
+    {
+      "id": "ML-AS-TR001",
+      "file": "ML-AS-TR001.png",
+      "hero": "Execute",
+      "skin": "Execute",
+      "rarity": "TR",
+      "rarityLabel": "Trainer",
+      "priceSGD": 4.86,
+      "priceMYR": 15.0
+    },
+    {
+      "id": "ML-AS-TR002",
+      "file": "ML-AS-TR002.png",
+      "hero": "Sprint",
+      "skin": "Sprint",
+      "rarity": "TR",
+      "rarityLabel": "Trainer",
+      "priceSGD": 4.9,
+      "priceMYR": 15.0
+    },
+    {
+      "id": "ML-AS-TR003",
+      "file": "ML-AS-TR003.png",
+      "hero": "Reviltalize",
+      "skin": "Reviltalize",
+      "rarity": "TR",
+      "rarityLabel": "Trainer",
+      "priceSGD": 4.83,
+      "priceMYR": 15.0
+    },
+    {
+      "id": "ML-AS-TR004",
+      "file": "ML-AS-TR004.png",
+      "hero": "Retribution",
+      "skin": "Retribution",
+      "rarity": "TR",
+      "rarityLabel": "Trainer",
+      "priceSGD": 4.84,
+      "priceMYR": 15.0
+    },
+    {
+      "id": "ML-AS-TR005",
+      "file": "ML-AS-TR005.png",
+      "hero": "Inspire",
+      "skin": "Inspire",
+      "rarity": "TR",
+      "rarityLabel": "Trainer",
+      "priceSGD": 4.9,
+      "priceMYR": 15.0
+    },
+    {
+      "id": "ML-AS-TR006",
+      "file": "ML-AS-TR006.png",
+      "hero": "Aegis",
+      "skin": "Aegis",
+      "rarity": "TR",
+      "rarityLabel": "Trainer",
+      "priceSGD": 4.92,
+      "priceMYR": 15.0
+    },
+    {
+      "id": "ML-AS-TR007",
+      "file": "ML-AS-TR007.png",
+      "hero": "Purify",
+      "skin": "Purify",
+      "rarity": "TR",
+      "rarityLabel": "Trainer",
+      "priceSGD": 4.73,
+      "priceMYR": 15.0
+    },
+    {
+      "id": "ML-AS-TR008",
+      "file": "ML-AS-TR008.png",
+      "hero": "Flameshot",
+      "skin": "Flameshot",
+      "rarity": "TR",
+      "rarityLabel": "Trainer",
+      "priceSGD": 4.84,
+      "priceMYR": 15.0
+    },
+    {
+      "id": "ML-AS-TR009",
+      "file": "ML-AS-TR009.png",
+      "hero": "Flicker",
+      "skin": "Flicker",
+      "rarity": "TR",
+      "rarityLabel": "Trainer",
+      "priceSGD": 4.92,
+      "priceMYR": 15.0
+    },
+    {
+      "id": "ML-AS-TR010",
+      "file": "ML-AS-TR010.png",
+      "hero": "Arrival",
+      "skin": "Arrival",
+      "rarity": "TR",
+      "rarityLabel": "Trainer",
+      "priceSGD": 4.94,
+      "priceMYR": 15.0
     }
   ]
 }
