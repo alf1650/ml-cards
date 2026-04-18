@@ -169,6 +169,7 @@
     .pill:hover { border-color: var(--border2); color: var(--text); }
     .pill.active[data-rarity="all"] { background:var(--text);  border-color:var(--text);  color:#07080f; }
     .pill.active[data-sort="price"] { background:var(--accent); border-color:var(--accent); color:#07080f; }
+    .pill.active[data-sort="views"] { background:#ff6b35; border-color:#ff6b35; color:#fff; }
     .pill.active[data-rarity="C"]   { background:var(--C);    border-color:var(--C);    color:#07080f; }
     .pill.active[data-rarity="R"]   { background:var(--R);    border-color:var(--R);    color:#fff; }
     .pill.active[data-rarity="RS"]  { background:var(--RS);   border-color:var(--RS);   color:#fff; }
@@ -374,6 +375,121 @@
       letter-spacing:0.9px; color:var(--muted); margin-bottom:5px;
     }
     .tile-val { font-size:14px; font-weight:700; color:var(--text); }
+
+    /* ── Tab bar ── */
+    .tab-bar {
+      position: relative; z-index: 1;
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg2);
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 14px 16px;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 13px; font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s;
+      letter-spacing: 0.3px;
+    }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ── Leaderboard ── */
+    #leaderboardView { display: none; position: relative; z-index: 1; }
+    #leaderboardView.visible { display: block; }
+    .lb-header {
+      padding: 20px 18px 10px;
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--muted);
+    }
+    .lb-list { padding: 0 12px calc(var(--safe-bot) + 32px); display: flex; flex-direction: column; gap: 8px; }
+    .lb-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 10px 14px 10px 10px;
+      cursor: pointer;
+      transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .lb-row:hover { transform: translateX(4px); }
+    .lb-row[data-rarity="C"]:hover  { border-color:var(--C);   box-shadow:0 4px 20px -4px rgba(136,146,170,0.25); }
+    .lb-row[data-rarity="R"]:hover  { border-color:var(--R);   box-shadow:0 4px 20px -4px rgba(75,159,255,0.3); }
+    .lb-row[data-rarity="RS"]:hover { border-color:var(--RS);  box-shadow:0 4px 20px -4px rgba(155,109,240,0.3); }
+    .lb-row[data-rarity="SSR"]:hover{ border-color:var(--SSR); box-shadow:0 4px 20px -4px rgba(255,107,53,0.3); }
+    .lb-row[data-rarity="UR"]:hover { border-color:var(--UR);  box-shadow:0 4px 20px -4px rgba(245,200,66,0.35); }
+    .lb-row[data-rarity="SP"]:hover { border-color:var(--SP);  box-shadow:0 4px 20px -4px rgba(255,75,139,0.3); }
+    .lb-row[data-rarity="AR"]:hover { border-color:var(--AR);  box-shadow:0 4px 20px -4px rgba(0,229,200,0.25); }
+    .lb-row[data-rarity="QR"]:hover { border-color:var(--QR);  box-shadow:0 4px 20px -4px rgba(255,128,200,0.25); }
+    .lb-row[data-rarity="TR"]:hover { border-color:var(--TR);  box-shadow:0 4px 20px -4px rgba(102,187,106,0.25); }
+    .lb-rank {
+      width: 28px; text-align: center; flex-shrink: 0;
+      font-size: 15px; font-weight: 900; color: var(--muted);
+    }
+    .lb-rank.top1 { color: #f5c842; font-size: 20px; }
+    .lb-rank.top2 { color: #9bb0c4; font-size: 18px; }
+    .lb-rank.top3 { color: #cd7f32; font-size: 17px; }
+    .lb-thumb {
+      width: 52px; height: 70px; flex-shrink: 0;
+      border-radius: 10px; overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .lb-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+    .lb-info { flex: 1; min-width: 0; }
+    .lb-skin {
+      font-size: 14px; font-weight: 700; color: var(--text);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .lb-hero { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .lb-rarity-dot {
+      display: inline-block;
+      width: 8px; height: 8px; border-radius: 50%;
+      margin-right: 5px; vertical-align: middle;
+    }
+    .lb-right { flex-shrink: 0; text-align: right; }
+    .lb-count {
+      font-size: 20px; font-weight: 900; color: var(--text);
+      line-height: 1;
+    }
+    .lb-count-label {
+      font-size: 9px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.8px; color: var(--muted); margin-top: 2px;
+    }
+    .lb-bar-wrap {
+      margin-top: 6px;
+      height: 3px; background: var(--border);
+      border-radius: 2px; overflow: hidden;
+    }
+    .lb-bar { height: 100%; border-radius: 2px; transition: width 0.6s ease; }
+    .lb-empty {
+      text-align: center; padding: 80px 24px; color: var(--muted);
+    }
+    .lb-empty-icon { font-size: 48px; margin-bottom: 16px; opacity: 0.35; }
+
+    /* ── View badge ── */
+    .view-badge {
+      position:absolute; bottom:10px; right:10px; z-index:3;
+      display:flex; align-items:center; gap:4px;
+      background:rgba(0,0,0,0.62);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:100px;
+      padding:3px 8px;
+      font-size:10px; font-weight:700; color:rgba(255,255,255,0.7);
+      backdrop-filter:blur(6px);
+      pointer-events:none;
+    }
   </style>
 </head>
 <body>
@@ -389,6 +505,12 @@
   </div>
 </header>
 
+<nav class="tab-bar">
+  <button class="tab-btn active" id="tabCollection">📦 Collection</button>
+  <button class="tab-btn" id="tabLeaderboard">🏆 Top Cards</button>
+</nav>
+
+<div id="collectionView">
 <div class="controls">
   <div class="search-wrap">
     <span class="search-icon">
@@ -411,11 +533,18 @@
     <button class="pill" data-rarity="TR">Trainer</button>
     <span style="width:1px;height:24px;background:var(--border2);flex-shrink:0;align-self:center"></span>
     <button class="pill" data-sort="price" id="sortPrice">💰 Most Expensive</button>
+    <button class="pill" data-sort="views" id="sortViews">🔥 Most Viewed</button>
   </div>
 </div>
 
 <div class="result-bar" id="resultBar"></div>
 <div class="grid" id="grid"></div>
+</div><!-- /collectionView -->
+
+<div id="leaderboardView">
+  <div class="lb-header">Most viewed cards · all time</div>
+  <div class="lb-list" id="lbList"></div>
+</div>
 
 <div class="backdrop" id="backdrop">
   <div class="sheet" id="sheet">
@@ -441,10 +570,43 @@
   const RC = { C:'#8892aa',R:'#4b9fff',RS:'#9b6df0',SSR:'#ff6b35',UR:'#f5c842',SP:'#ff4b8b',AR:'#00e5c8',QR:'#ff80c8',TR:'#66bb6a' };
   const RT = { C:'#07080f',R:'#fff',RS:'#fff',SSR:'#fff',UR:'#07080f',SP:'#fff',AR:'#07080f',QR:'#07080f',TR:'#07080f' };
 
+  // Set this to your deployed worker URL after `wrangler deploy`
+  const WORKER_URL = 'https://ml-cards-worker.holiday-radar-api.workers.dev';
+
+  // In-memory view counts populated from the worker on load
+  let allViews = {};
+
+  function getViewCount(id) {
+    return allViews[id] || 0;
+  }
+
+  async function trackView(id) {
+    allViews[id] = (allViews[id] || 0) + 1; // optimistic update
+    try {
+      const res = await fetch(`${WORKER_URL}/view`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        allViews[id] = data.count; // sync with server truth
+      }
+    } catch { /* offline or worker unavailable — optimistic count stands */ }
+  }
+
+  async function loadViews() {
+    try {
+      const res = await fetch(`${WORKER_URL}/views`);
+      if (res.ok) allViews = await res.json();
+    } catch { /* fall back to empty counts */ }
+  }
+
   let allCards = [];
   let activeRarity = 'all';
   let searchQuery = '';
   let sortByPrice = false;
+  let sortByViews = false;
 
   function getFiltered() {
     let result = allCards.filter(c => {
@@ -455,6 +617,8 @@
     });
     if (sortByPrice) {
       result = result.slice().sort((a, b) => (b.priceSGD || 0) - (a.priceSGD || 0));
+    } else if (sortByViews) {
+      result = result.slice().sort((a, b) => getViewCount(b.id) - getViewCount(a.id));
     }
     return result;
   }
@@ -472,7 +636,9 @@
       return;
     }
 
-    grid.innerHTML = filtered.map(c => `
+    grid.innerHTML = filtered.map(c => {
+      const views = getViewCount(c.id);
+      return `
       <div class="card" data-id="${c.id}" data-rarity="${c.rarity}" role="button" tabindex="0" aria-label="${c.skin}">
         <div class="card-img">
           <span class="rarity-pill rarity-${c.rarity}">${c.rarity}</span>
@@ -482,8 +648,10 @@
             <div class="card-id">${c.hero} · ${c.id}</div>
             ${c.priceSGD ? `<div class="card-price">S$${c.priceSGD.toFixed(2)}</div>` : ''}
           </div>
+          ${views > 0 ? `<div class="view-badge">👁 ${views}</div>` : ''}
         </div>
-      </div>`).join('');
+      </div>`;
+    }).join('');
 
     grid.querySelectorAll('.card').forEach(el => {
       el.addEventListener('click', () => openSheet(el.dataset.id));
@@ -494,6 +662,7 @@
   function openSheet(id) {
     const c = allCards.find(x => x.id === id);
     if (!c) return;
+    trackView(id).then(() => render()); // refresh grid after server confirms count
     const col = RC[c.rarity] || '#fff';
     const tc  = RT[c.rarity] || '#fff';
     document.getElementById('sheetImg').src = `images/${c.file}`;
@@ -516,9 +685,13 @@
         <div class="tile-label">Price (SGD)</div>
         <div class="tile-val" style="color:#4caf50">${c.priceSGD ? 'S$' + c.priceSGD.toFixed(2) : 'N/A'}</div>
       </div>
-      <div class="meta-tile full">
+      <div class="meta-tile">
         <div class="tile-label">Rarity Tier</div>
         <div class="tile-val">${c.rarityLabel}</div>
+      </div>
+      <div class="meta-tile">
+        <div class="tile-label">Times Viewed</div>
+        <div class="tile-val">👁 ${getViewCount(c.id)}</div>
       </div>`;
     document.getElementById('backdrop').classList.add('open');
     document.getElementById('sheet').scrollTop = 0;
@@ -530,12 +703,84 @@
     document.body.style.overflow = '';
   }
 
+  /* ── Leaderboard ── */
+  function renderLeaderboard() {
+    const lbList = document.getElementById('lbList');
+    const ranked = allCards
+      .map(c => ({ ...c, views: getViewCount(c.id) }))
+      .filter(c => c.views > 0)
+      .sort((a, b) => b.views - a.views);
+
+    if (!ranked.length) {
+      lbList.innerHTML = '<div class="lb-empty"><div class="lb-empty-icon">👁</div><p>No views yet — browse some cards!</p></div>';
+      return;
+    }
+
+    const maxViews = ranked[0].views;
+    const rankIcon = ['🥇','🥈','🥉'];
+
+    lbList.innerHTML = ranked.map((c, i) => {
+      const col = RC[c.rarity] || '#fff';
+      const barPct = Math.round((c.views / maxViews) * 100);
+      const rankLabel = i < 3 ? rankIcon[i] : `#${i + 1}`;
+      const rankClass = i === 0 ? 'top1' : i === 1 ? 'top2' : i === 2 ? 'top3' : '';
+      return `
+        <div class="lb-row" data-id="${c.id}" data-rarity="${c.rarity}" role="button" tabindex="0" aria-label="${c.skin}">
+          <div class="lb-rank ${rankClass}">${rankLabel}</div>
+          <div class="lb-thumb"><img src="images/${c.file}" alt="${c.skin}" loading="lazy" /></div>
+          <div class="lb-info">
+            <div class="lb-skin">${c.skin}</div>
+            <div class="lb-hero">
+              <span class="lb-rarity-dot" style="background:${col}"></span>${c.hero} · <span style="color:${col}">${c.rarity}</span>
+            </div>
+            <div class="lb-bar-wrap">
+              <div class="lb-bar" style="width:${barPct}%;background:${col}"></div>
+            </div>
+          </div>
+          <div class="lb-right">
+            <div class="lb-count">${c.views}</div>
+            <div class="lb-count-label">views</div>
+          </div>
+        </div>`;
+    }).join('');
+
+    lbList.querySelectorAll('.lb-row').forEach(el => {
+      el.addEventListener('click', () => openSheet(el.dataset.id));
+      el.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') openSheet(el.dataset.id); });
+    });
+  }
+
+  let activeTab = 'collection';
+
+  function showTab(tab) {
+    activeTab = tab;
+    const isLb = tab === 'leaderboard';
+    document.getElementById('collectionView').style.display = isLb ? 'none' : '';
+    document.getElementById('leaderboardView').classList.toggle('visible', isLb);
+    document.getElementById('tabCollection').classList.toggle('active', !isLb);
+    document.getElementById('tabLeaderboard').classList.toggle('active', isLb);
+    if (isLb) renderLeaderboard();
+  }
+
+  document.getElementById('tabCollection').addEventListener('click', () => showTab('collection'));
+  document.getElementById('tabLeaderboard').addEventListener('click', () => showTab('leaderboard'));
+
   document.getElementById('filterGroup').addEventListener('click', e => {
     const btn = e.target.closest('.pill');
     if (!btn) return;
     if (btn.dataset.sort === 'price') {
       sortByPrice = !sortByPrice;
+      sortByViews = false;
       btn.classList.toggle('active', sortByPrice);
+      document.getElementById('sortViews').classList.remove('active');
+      render();
+      return;
+    }
+    if (btn.dataset.sort === 'views') {
+      sortByViews = !sortByViews;
+      sortByPrice = false;
+      btn.classList.toggle('active', sortByViews);
+      document.getElementById('sortPrice').classList.remove('active');
       render();
       return;
     }
@@ -557,7 +802,11 @@
   });
   document.addEventListener('keydown', e => { if (e.key==='Escape') closeSheet(); });
 
-  fetch('data.json').then(r=>r.json()).then(data => {
+  (async () => {
+    const [data] = await Promise.all([
+      fetch('data.json').then(r => r.json()),
+      loadViews(),
+    ]);
     allCards = data.cards;
     const heroes = new Set(allCards.map(c => c.hero));
     const rarities = new Set(allCards.map(c => c.rarity));
@@ -565,7 +814,7 @@
     document.getElementById('statRarities').textContent = rarities.size;
     document.getElementById('statHeroes').textContent = heroes.size;
     render();
-  });
+  })();
 </script>
 </body>
 </html>
