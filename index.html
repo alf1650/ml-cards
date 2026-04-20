@@ -112,6 +112,7 @@
     .stat:last-child { border-right: none; }
     .stat-val { font-size: 22px; font-weight: 800; color: var(--accent); }
     .stat-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-top: 3px; }
+    .hero-updated { font-size: 11px; color: var(--muted); margin-top: 6px; opacity: 0.75; }
 
     /* ── Controls ── */
     .controls {
@@ -498,6 +499,7 @@
   <div class="hero-badge"><span class="dot"></span>Mobile Legends: Bang Bang</div>
   <h1 class="hero-title">MLBB Card Collection</h1>
   <p class="hero-sub">All Series · Prices in SGD</p>
+  <p class="hero-updated" id="heroUpdated"></p>
   <div class="hero-stats">
     <div class="stat"><div class="stat-val" id="statCards">0</div><div class="stat-label">Cards</div></div>
     <div class="stat"><div class="stat-val" id="statRarities">0</div><div class="stat-label">Rarities</div></div>
@@ -813,6 +815,11 @@
     document.getElementById('statCards').textContent = allCards.length;
     document.getElementById('statRarities').textContent = rarities.size;
     document.getElementById('statHeroes').textContent = heroes.size;
+    if (data.lastUpdated) {
+      const d = new Date(data.lastUpdated);
+      const fmt = d.toLocaleString('en-SG', { timeZone: 'Asia/Singapore', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true });
+      document.getElementById('heroUpdated').textContent = `Prices updated ${fmt} SGT`;
+    }
     render();
   })();
 </script>

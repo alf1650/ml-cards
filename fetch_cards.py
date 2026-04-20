@@ -11,13 +11,14 @@ import random
 import re
 import time
 import urllib.request
+from datetime import datetime, timezone, timedelta
 
 BASE_URL = "https://www.ccgmarket.org/products.json"
 IMAGES_DIR = os.path.join(os.path.dirname(__file__), "images")
 DATA_FILE = os.path.join(os.path.dirname(__file__), "data.json")
 
 # MYR to SGD conversion rate (approximate)
-MYR_TO_SGD = 0.30
+MYR_TO_SGD = 0.3221
 
 # Rarity mapping based on card ID prefix
 RARITY_MAP = {
@@ -206,10 +207,13 @@ def main():
     cards = unique_cards
 
     # Build output data
+    SGT = timezone(timedelta(hours=8))
+    now_sgt = datetime.now(SGT)
     output = {
         "hero": "All Heroes",
         "role": "Collection",
         "specialty": "MLBB Cards",
+        "lastUpdated": now_sgt.strftime("%Y-%m-%dT%H:%M:%S+08:00"),
         "cards": cards,
     }
 
