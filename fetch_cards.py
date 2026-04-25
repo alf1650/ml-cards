@@ -17,8 +17,28 @@ BASE_URL = "https://www.ccgmarket.org/products.json"
 IMAGES_DIR = os.path.join(os.path.dirname(__file__), "images")
 DATA_FILE = os.path.join(os.path.dirname(__file__), "data.json")
 
-# MYR to SGD conversion rate (approximate)
-MYR_TO_SGD = 0.3221
+# MYR to SGD conversion rate — fetched live, falls back to last-known rate.
+MYR_TO_SGD_FALLBACK = 0.3221
+
+
+def fetch_myr_to_sgd() -> float:
+    """Fetch current MYR→SGD rate. Falls back to a recent constant on failure."""
+    try:
+        req = urllib.request.Request(
+            "https://open.er-api.com/v6/latest/MYR",
+            headers={"User-Agent": "Mozilla/5.0"},
+        )
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode())
+        rate = float(data["rates"]["SGD"])
+        print(f"Live MYR→SGD rate: {rate:.4f}")
+        return rate
+    except Exception as e:
+        print(f"WARN: FX fetch failed ({e}); using fallback {MYR_TO_SGD_FALLBACK}")
+        return MYR_TO_SGD_FALLBACK
+
+
+MYR_TO_SGD = fetch_myr_to_sgd()
 
 # Rarity mapping based on card ID prefix
 RARITY_MAP = {
