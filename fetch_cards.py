@@ -108,10 +108,15 @@ def extract_hero_and_skin(title, card_id):
     return hero, skin
 
 
-def convert_price(myr_price):
-    """Convert MYR price to SGD with random 5-10% markup."""
+def convert_price(myr_price, card_id):
+    """Convert MYR price to SGD with a deterministic 5-10% markup per card.
+
+    Seeding by card_id keeps prices stable across runs so the weekly
+    refresh only changes prices when MYR or the source price changes.
+    """
     sgd = float(myr_price) * MYR_TO_SGD
-    markup = random.uniform(1.05, 1.10)  # 5-10% markup
+    rng = random.Random(card_id)
+    markup = rng.uniform(1.05, 1.10)  # 5-10% markup
     return round(sgd * markup, 2)
 
 
@@ -161,7 +166,7 @@ def main():
         # Get price from first variant
         variants = product.get("variants", [])
         myr_price = variants[0].get("price", "0") if variants else "0"
-        sgd_price = convert_price(myr_price)
+        sgd_price = convert_price(myr_price, card_id)
 
         # Get image
         images = product.get("images", [])

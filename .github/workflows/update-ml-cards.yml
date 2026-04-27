@@ -1,0 +1,35 @@
+name: Update ML cards
+
+on:
+  schedule:
+    # Every Sunday 02:00 SGT (Sat 18:00 UTC)
+    - cron: "0 18 * * 6"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run fetch_cards.py
+        run: python fetch_cards.py
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name  "ml-cards-bot"
+          git config user.email "ml-cards-bot@users.noreply.github.com"
+          git add data.json images
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "chore: weekly refresh [skip ci]"
+            git push
+          fi
