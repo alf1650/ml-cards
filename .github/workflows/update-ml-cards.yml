@@ -31,5 +31,11 @@ jobs:
             echo "No changes."
           else
             git commit -m "chore: weekly refresh [skip ci]"
-            git push
+            # Retry push with rebase in case the remote moved during the run
+            for i in 1 2 3; do
+              git pull --rebase --autostash origin main && git push && exit 0
+              echo "Push attempt $i failed, retrying..."
+              sleep 3
+            done
+            exit 1
           fi
