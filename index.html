@@ -815,7 +815,7 @@
 
   (async () => {
     const [data] = await Promise.all([
-      fetch('data.json').then(r => r.json()),
+      fetch('data.json', { cache: 'no-store' }).then(r => r.json()),
       loadViews(),
     ]);
     allCards = data.cards;
