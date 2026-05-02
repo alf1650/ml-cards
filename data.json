@@ -2,7 +2,7 @@
   "hero": "All Heroes",
   "role": "Collection",
   "specialty": "MLBB Cards",
-  "lastUpdated": "2026-04-28T00:02:54+08:00",
+  "lastUpdated": "2026-05-02T10:03:38+08:00",
   "cards": [
     {
       "id": "ML-AS-C001",
@@ -271,7 +271,7 @@
       "skin": "Shadow Blade",
       "rarity": "C",
       "rarityLabel": "Common",
-      "priceSGD": 0.04,
+      "priceSGD": 0.03,
       "priceMYR": 0.1
     },
     {
@@ -801,7 +801,7 @@
       "skin": "Moon Priestess",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 59.8,
+      "priceSGD": 59.58,
       "priceMYR": 173.0
     },
     {
@@ -811,7 +811,7 @@
       "skin": "Cosmic Voyage",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 65.68,
+      "priceSGD": 65.44,
       "priceMYR": 189.0
     },
     {
@@ -821,7 +821,7 @@
       "skin": "Bunny Babe",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 53.33,
+      "priceSGD": 53.14,
       "priceMYR": 155.0
     },
     {
@@ -831,7 +831,7 @@
       "skin": "Summer Festival",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 68.47,
+      "priceSGD": 68.22,
       "priceMYR": 199.0
     },
     {
@@ -841,7 +841,7 @@
       "skin": "Future Star",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 62.95,
+      "priceSGD": 62.72,
       "priceMYR": 181.0
     },
     {
@@ -851,7 +851,7 @@
       "skin": "Dragon Hunter",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 48.84,
+      "priceSGD": 48.66,
       "priceMYR": 141.0
     },
     {
@@ -861,7 +861,7 @@
       "skin": "Blood Moon",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 45.55,
+      "priceSGD": 45.38,
       "priceMYR": 134.0
     },
     {
@@ -871,7 +871,7 @@
       "skin": "Teen Pop",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 60.49,
+      "priceSGD": 60.27,
       "priceMYR": 177.0
     },
     {
@@ -881,7 +881,7 @@
       "skin": "Astro Mallet",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 62.67,
+      "priceSGD": 62.44,
       "priceMYR": 177.0
     },
     {
@@ -891,7 +891,7 @@
       "skin": "Soaring devata",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 55.88,
+      "priceSGD": 55.68,
       "priceMYR": 159.0
     },
     {
@@ -901,7 +901,7 @@
       "skin": "Star Enforcer",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 45.46,
+      "priceSGD": 45.29,
       "priceMYR": 133.0
     },
     {
@@ -911,7 +911,7 @@
       "skin": "Dynamic Streak",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 56.55,
+      "priceSGD": 56.35,
       "priceMYR": 166.0
     },
     {
@@ -921,7 +921,7 @@
       "skin": " Storm Rider",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 45.61,
+      "priceSGD": 45.44,
       "priceMYR": 129.0
     },
     {
@@ -931,7 +931,7 @@
       "skin": " White Crane",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 35.53,
+      "priceSGD": 35.4,
       "priceMYR": 101.0
     },
     {
@@ -941,7 +941,7 @@
       "skin": "Earth's Mightiest",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 44.53,
+      "priceSGD": 44.36,
       "priceMYR": 129.0
     },
     {
@@ -951,7 +951,7 @@
       "skin": "Street Football",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 51.26,
+      "priceSGD": 51.08,
       "priceMYR": 147.0
     },
     {
@@ -961,7 +961,7 @@
       "skin": "Charge Leader",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 49.35,
+      "priceSGD": 49.18,
       "priceMYR": 145.0
     },
     {
@@ -971,7 +971,7 @@
       "skin": "Starblazer",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 60.38,
+      "priceSGD": 60.16,
       "priceMYR": 173.0
     },
     {
@@ -981,7 +981,7 @@
       "skin": "Lady Thief",
       "rarity": "SSR",
       "rarityLabel": "Super Super Rare",
-      "priceSGD": 57.27,
+      "priceSGD": 57.07,
       "priceMYR": 162.0
     },
     {
@@ -1181,7 +1181,7 @@
       "skin": "Modena Butterfly",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 111.99,
+      "priceSGD": 111.58,
       "priceMYR": 318.0
     },
     {
@@ -1191,7 +1191,7 @@
       "skin": "Doom Catalyst",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 117.94,
+      "priceSGD": 117.51,
       "priceMYR": 341.0
     },
     {
@@ -1201,7 +1201,7 @@
       "skin": "Suzuhime",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 105.77,
+      "priceSGD": 105.38,
       "priceMYR": 311.0
     },
     {
@@ -1211,7 +1211,7 @@
       "skin": "Emerald Enchantress",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 90.85,
+      "priceSGD": 90.52,
       "priceMYR": 267.0
     },
     {
@@ -1221,7 +1221,7 @@
       "skin": "Twilight Waltz",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 89.72,
+      "priceSGD": 89.39,
       "priceMYR": 260.0
     },
     {
@@ -1231,7 +1231,7 @@
       "skin": "Paranormal Operative",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 98.39,
+      "priceSGD": 98.04,
       "priceMYR": 279.0
     },
     {
@@ -1241,7 +1241,7 @@
       "skin": "Cannon And Roses",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 100.81,
+      "priceSGD": 100.45,
       "priceMYR": 298.0
     },
     {
@@ -1251,7 +1251,7 @@
       "skin": "Water Lily",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 115.2,
+      "priceSGD": 114.78,
       "priceMYR": 333.0
     },
     {
@@ -1261,7 +1261,7 @@
       "skin": " Jade Blossom",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 132.88,
+      "priceSGD": 132.4,
       "priceMYR": 379.0
     },
     {
@@ -1271,7 +1271,7 @@
       "skin": "Dragon Maiden",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 105.27,
+      "priceSGD": 104.89,
       "priceMYR": 303.0
     },
     {
@@ -1281,7 +1281,7 @@
       "skin": "Magitech Arsenal",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 94.83,
+      "priceSGD": 94.49,
       "priceMYR": 277.0
     },
     {
@@ -1291,7 +1291,7 @@
       "skin": "Haunted Doll",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 91.21,
+      "priceSGD": 90.88,
       "priceMYR": 264.0
     },
     {
@@ -1301,7 +1301,7 @@
       "skin": "Galactic Vanquisher",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 87.01,
+      "priceSGD": 86.69,
       "priceMYR": 249.0
     },
     {
@@ -1311,7 +1311,7 @@
       "skin": "Raven Shogun",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 68.6,
+      "priceSGD": 68.35,
       "priceMYR": 201.0
     },
     {
@@ -1321,7 +1321,7 @@
       "skin": "War Angel",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 96.41,
+      "priceSGD": 96.06,
       "priceMYR": 275.0
     },
     {
@@ -1331,7 +1331,7 @@
       "skin": "Doom Duelist",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 82.8,
+      "priceSGD": 82.5,
       "priceMYR": 237.0
     },
     {
@@ -1341,7 +1341,7 @@
       "skin": "Black Peart",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 71.18,
+      "priceSGD": 70.92,
       "priceMYR": 207.0
     },
     {
@@ -1351,7 +1351,7 @@
       "skin": "Pixel Blast",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 122.07,
+      "priceSGD": 121.63,
       "priceMYR": 356.0
     },
     {
@@ -1361,7 +1361,7 @@
       "skin": "E-Girl",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 114.95,
+      "priceSGD": 114.54,
       "priceMYR": 327.0
     },
     {
@@ -1371,7 +1371,7 @@
       "skin": "Flying Swallow",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 127.4,
+      "priceSGD": 126.94,
       "priceMYR": 366.0
     },
     {
@@ -1381,7 +1381,7 @@
       "skin": "Starwatcher",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 88.03,
+      "priceSGD": 87.71,
       "priceMYR": 255.0
     },
     {
@@ -1391,7 +1391,7 @@
       "skin": "Impish Trickster",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 79.56,
+      "priceSGD": 79.27,
       "priceMYR": 228.0
     },
     {
@@ -1401,7 +1401,7 @@
       "skin": "Lion Dance",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 91.52,
+      "priceSGD": 91.19,
       "priceMYR": 263.0
     },
     {
@@ -1411,7 +1411,7 @@
       "skin": "Supernal Tempest",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 109.21,
+      "priceSGD": 108.82,
       "priceMYR": 316.0
     },
     {
@@ -1421,7 +1421,7 @@
       "skin": "Keeper Of The Winds",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 104.12,
+      "priceSGD": 103.75,
       "priceMYR": 307.0
     },
     {
@@ -1431,7 +1431,7 @@
       "skin": "Concerto Of Light",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 113.03,
+      "priceSGD": 112.62,
       "priceMYR": 322.0
     },
     {
@@ -1441,7 +1441,7 @@
       "skin": "Revenant Of Roses",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 94.67,
+      "priceSGD": 94.33,
       "priceMYR": 277.0
     },
     {
@@ -1451,7 +1451,7 @@
       "skin": "Onimusha Commander",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 105.6,
+      "priceSGD": 105.21,
       "priceMYR": 303.0
     },
     {
@@ -1461,7 +1461,7 @@
       "skin": "Glorious General",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 72.84,
+      "priceSGD": 72.57,
       "priceMYR": 212.0
     },
     {
@@ -1471,7 +1471,7 @@
       "skin": "Changbanpo Commander",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 78.54,
+      "priceSGD": 78.26,
       "priceMYR": 232.0
     },
     {
@@ -1481,7 +1481,7 @@
       "skin": "Dragon Of proseperity",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 100.16,
+      "priceSGD": 99.8,
       "priceMYR": 285.0
     },
     {
@@ -1491,7 +1491,7 @@
       "skin": "Arcane Magistrate",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 67.48,
+      "priceSGD": 67.24,
       "priceMYR": 199.0
     },
     {
@@ -1501,7 +1501,7 @@
       "skin": "Galaxy Dominator",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 66.42,
+      "priceSGD": 66.18,
       "priceMYR": 189.0
     },
     {
@@ -1511,7 +1511,7 @@
       "skin": "Blacklist International",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 71.55,
+      "priceSGD": 71.29,
       "priceMYR": 209.0
     },
     {
@@ -1521,7 +1521,7 @@
       "skin": "Challenge's Spark",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 103.6,
+      "priceSGD": 103.23,
       "priceMYR": 305.0
     },
     {
@@ -1531,7 +1531,7 @@
       "skin": "Mecha Dragon",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 111.42,
+      "priceSGD": 111.02,
       "priceMYR": 319.0
     },
     {
@@ -1541,7 +1541,7 @@
       "skin": "Umbra Bloom",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 112.76,
+      "priceSGD": 112.35,
       "priceMYR": 323.0
     },
     {
@@ -1551,7 +1551,7 @@
       "skin": "Street Hype",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 77.56,
+      "priceSGD": 77.28,
       "priceMYR": 219.0
     },
     {
@@ -1561,7 +1561,7 @@
       "skin": "Astrocat",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 89.88,
+      "priceSGD": 89.55,
       "priceMYR": 255.0
     },
     {
@@ -1571,7 +1571,7 @@
       "skin": "Wreck King",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 87.52,
+      "priceSGD": 87.21,
       "priceMYR": 256.0
     },
     {
@@ -1581,7 +1581,7 @@
       "skin": "Sovereign Of Realms",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 99.43,
+      "priceSGD": 99.07,
       "priceMYR": 281.0
     },
     {
@@ -1591,7 +1591,7 @@
       "skin": "Light Envoy",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 85.95,
+      "priceSGD": 85.64,
       "priceMYR": 249.0
     },
     {
@@ -1601,7 +1601,7 @@
       "skin": "Mecha-King Perseus*27)",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 100.11,
+      "priceSGD": 99.74,
       "priceMYR": 292.0
     },
     {
@@ -1681,7 +1681,7 @@
       "skin": "Water Lily",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 0.09,
+      "priceSGD": 0.08,
       "priceMYR": 0.25
     },
     {
@@ -1881,7 +1881,7 @@
       "skin": "Onimusha Commander",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 0.09,
+      "priceSGD": 0.08,
       "priceMYR": 0.25
     },
     {
@@ -1931,7 +1931,7 @@
       "skin": "Blacklist International",
       "rarity": "UR",
       "rarityLabel": "Ultra Rare",
-      "priceSGD": 0.09,
+      "priceSGD": 0.08,
       "priceMYR": 0.25
     },
     {
@@ -2021,7 +2021,7 @@
       "skin": "Atomic Pop",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 263.59,
+      "priceSGD": 262.64,
       "priceMYR": 778.0
     },
     {
@@ -2031,7 +2031,7 @@
       "skin": "Atomic Pop",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 272.98,
+      "priceSGD": 271.99,
       "priceMYR": 800.0
     },
     {
@@ -2041,7 +2041,7 @@
       "skin": "Miss-Hikari",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 251.28,
+      "priceSGD": 250.37,
       "priceMYR": 723.0
     },
     {
@@ -2051,7 +2051,7 @@
       "skin": "Blazing Gun",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 279.02,
+      "priceSGD": 278.01,
       "priceMYR": 799.0
     },
     {
@@ -2061,7 +2061,7 @@
       "skin": "Green Flash",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 222.8,
+      "priceSGD": 221.99,
       "priceMYR": 648.0
     },
     {
@@ -2071,7 +2071,7 @@
       "skin": "Beyond The Clouds",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 245.49,
+      "priceSGD": 244.6,
       "priceMYR": 701.0
     },
     {
@@ -2081,7 +2081,7 @@
       "skin": "Neobeast",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 294.27,
+      "priceSGD": 293.21,
       "priceMYR": 836.0
     },
     {
@@ -2091,7 +2091,7 @@
       "skin": "S.A.B.E.R ManHunter",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 227.45,
+      "priceSGD": 226.63,
       "priceMYR": 659.0
     },
     {
@@ -2101,7 +2101,7 @@
       "skin": "Gemini Halo",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 182.72,
+      "priceSGD": 182.06,
       "priceMYR": 533.0
     },
     {
@@ -2111,7 +2111,7 @@
       "skin": "M-World",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 183.51,
+      "priceSGD": 182.85,
       "priceMYR": 522.0
     },
     {
@@ -2121,7 +2121,7 @@
       "skin": "Blizzard Storm",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 138.28,
+      "priceSGD": 137.78,
       "priceMYR": 403.0
     },
     {
@@ -2131,7 +2131,7 @@
       "skin": "Empyrean Paladin",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 141.3,
+      "priceSGD": 140.79,
       "priceMYR": 411.0
     },
     {
@@ -2141,7 +2141,7 @@
       "skin": "Sparkle",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 93.89,
+      "priceSGD": 93.55,
       "priceMYR": 266.0
     },
     {
@@ -2151,7 +2151,7 @@
       "skin": "Rattan Dragon",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 86.23,
+      "priceSGD": 85.91,
       "priceMYR": 244.0
     },
     {
@@ -2161,7 +2161,7 @@
       "skin": "Blazing Trace",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 233.71,
+      "priceSGD": 232.86,
       "priceMYR": 691.0
     },
     {
@@ -2171,7 +2171,7 @@
       "skin": "Sparkle",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 252.37,
+      "priceSGD": 251.45,
       "priceMYR": 720.0
     },
     {
@@ -2181,7 +2181,7 @@
       "skin": "Firebolt",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 113.52,
+      "priceSGD": 113.11,
       "priceMYR": 331.0
     },
     {
@@ -2191,7 +2191,7 @@
       "skin": "Frost Wing",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 244.47,
+      "priceSGD": 243.59,
       "priceMYR": 693.0
     },
     {
@@ -2201,7 +2201,7 @@
       "skin": "S.A.B.E.R. Automata",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 129.4,
+      "priceSGD": 128.93,
       "priceMYR": 371.0
     },
     {
@@ -2211,7 +2211,7 @@
       "skin": "Blazing Shadow",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 147.53,
+      "priceSGD": 146.99,
       "priceMYR": 425.0
     },
     {
@@ -2221,7 +2221,7 @@
       "skin": "The Foreseer",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 162.87,
+      "priceSGD": 162.28,
       "priceMYR": 480.0
     },
     {
@@ -2231,7 +2231,7 @@
       "skin": "Atomic Pop",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 12.59,
+      "priceSGD": 12.55,
       "priceMYR": 36.0
     },
     {
@@ -2241,7 +2241,7 @@
       "skin": "Atomic Pop",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 12.18,
+      "priceSGD": 12.14,
       "priceMYR": 35.0
     },
     {
@@ -2251,7 +2251,7 @@
       "skin": "Miss-Hikari",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 15.55,
+      "priceSGD": 15.5,
       "priceMYR": 45.0
     },
     {
@@ -2261,7 +2261,7 @@
       "skin": "Blazing Gun",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 14.57,
+      "priceSGD": 14.52,
       "priceMYR": 43.0
     },
     {
@@ -2271,7 +2271,7 @@
       "skin": "Green Flash",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 13.82,
+      "priceSGD": 13.77,
       "priceMYR": 40.0
     },
     {
@@ -2281,7 +2281,7 @@
       "skin": "Beyond The Clouds",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 12.9,
+      "priceSGD": 12.85,
       "priceMYR": 37.0
     },
     {
@@ -2291,7 +2291,7 @@
       "skin": "Neobeast",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 16.48,
+      "priceSGD": 16.42,
       "priceMYR": 48.0
     },
     {
@@ -2301,7 +2301,7 @@
       "skin": "S.A.B.E.R ManHunter",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 12.67,
+      "priceSGD": 12.63,
       "priceMYR": 36.0
     },
     {
@@ -2311,7 +2311,7 @@
       "skin": "Gemini Halo",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 10.23,
+      "priceSGD": 10.19,
       "priceMYR": 29.0
     },
     {
@@ -2321,7 +2321,7 @@
       "skin": "M-World",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 11.57,
+      "priceSGD": 11.53,
       "priceMYR": 33.0
     },
     {
@@ -2331,7 +2331,7 @@
       "skin": "Blizzard Storm",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 10.99,
+      "priceSGD": 10.95,
       "priceMYR": 32.0
     },
     {
@@ -2341,7 +2341,7 @@
       "skin": "Empyrean Paladin",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 10.02,
+      "priceSGD": 9.99,
       "priceMYR": 29.0
     },
     {
@@ -2351,7 +2351,7 @@
       "skin": "Sparkle",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 5.89,
+      "priceSGD": 5.87,
       "priceMYR": 17.0
     },
     {
@@ -2361,7 +2361,7 @@
       "skin": "Rattan Dragon",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 5.17,
+      "priceSGD": 5.15,
       "priceMYR": 15.0
     },
     {
@@ -2371,7 +2371,7 @@
       "skin": "Blazing Trace",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 9.91,
+      "priceSGD": 9.88,
       "priceMYR": 28.0
     },
     {
@@ -2381,7 +2381,7 @@
       "skin": "Sparkle",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 13.02,
+      "priceSGD": 12.98,
       "priceMYR": 38.0
     },
     {
@@ -2391,7 +2391,7 @@
       "skin": "Firebolt",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 7.65,
+      "priceSGD": 7.62,
       "priceMYR": 22.0
     },
     {
@@ -2401,7 +2401,7 @@
       "skin": "Frost Wing",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 12.77,
+      "priceSGD": 12.72,
       "priceMYR": 37.0
     },
     {
@@ -2411,7 +2411,7 @@
       "skin": "S.A.B.E.R. Automata",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 11.66,
+      "priceSGD": 11.61,
       "priceMYR": 34.0
     },
     {
@@ -2421,7 +2421,7 @@
       "skin": "Blazing Shadow",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 13.02,
+      "priceSGD": 12.97,
       "priceMYR": 37.0
     },
     {
@@ -2431,7 +2431,7 @@
       "skin": "The Foreseer",
       "rarity": "SP",
       "rarityLabel": "Special",
-      "priceSGD": 6.8,
+      "priceSGD": 6.78,
       "priceMYR": 20.0
     },
     {
@@ -2441,7 +2441,7 @@
       "skin": "Artist Series Rare",
       "rarity": "AR",
       "rarityLabel": "Augmented Reality",
-      "priceSGD": 634.21,
+      "priceSGD": 631.91,
       "priceMYR": 1800.0
     },
     {
@@ -2451,7 +2451,7 @@
       "skin": "Artist Series Rare",
       "rarity": "AR",
       "rarityLabel": "Augmented Reality",
-      "priceSGD": 689.29,
+      "priceSGD": 686.8,
       "priceMYR": 2000.0
     },
     {
@@ -2461,7 +2461,7 @@
       "skin": "Energy Gunner Artist Series Rare",
       "rarity": "AR",
       "rarityLabel": "Augmented Reality",
-      "priceSGD": 459.95,
+      "priceSGD": 458.29,
       "priceMYR": 1300.0
     },
     {
@@ -2471,7 +2471,7 @@
       "skin": "Steel Elf Artist Series Rare",
       "rarity": "AR",
       "rarityLabel": "Augmented Reality",
-      "priceSGD": 458.64,
+      "priceSGD": 456.98,
       "priceMYR": 1300.0
     },
     {
@@ -2481,7 +2481,7 @@
       "skin": "Arclight Outlaw Artist Series Rare",
       "rarity": "AR",
       "rarityLabel": "Augmented Reality",
-      "priceSGD": 461.45,
+      "priceSGD": 459.78,
       "priceMYR": 1350.0
     },
     {
@@ -2491,7 +2491,7 @@
       "skin": "Artist Series Rare",
       "rarity": "AR",
       "rarityLabel": "Augmented Reality",
-      "priceSGD": 525.52,
+      "priceSGD": 523.62,
       "priceMYR": 1493.0
     },
     {
@@ -2501,7 +2501,7 @@
       "skin": "Artist Series Rare",
       "rarity": "AR",
       "rarityLabel": "Augmented Reality",
-      "priceSGD": 638.25,
+      "priceSGD": 635.94,
       "priceMYR": 1833.0
     },
     {
@@ -2511,7 +2511,7 @@
       "skin": "The Protector Artist Series Rare",
       "rarity": "AR",
       "rarityLabel": "Augmented Reality",
-      "priceSGD": 354.06,
+      "priceSGD": 352.78,
       "priceMYR": 1000.0
     },
     {
@@ -2521,7 +2521,7 @@
       "skin": "Hoverjet Outrider Artist Series Rare",
       "rarity": "AR",
       "rarityLabel": "Augmented Reality",
-      "priceSGD": 375.01,
+      "priceSGD": 373.65,
       "priceMYR": 1100.0
     },
     {
@@ -2531,7 +2531,7 @@
       "skin": "Wild Engine Artist Series Rare",
       "rarity": "AR",
       "rarityLabel": "Augmented Reality",
-      "priceSGD": 446.03,
+      "priceSGD": 444.42,
       "priceMYR": 1280.0
     },
     {
@@ -2541,7 +2541,7 @@
       "skin": "Miya",
       "rarity": "QR",
       "rarityLabel": "Quick Release",
-      "priceSGD": 131.08,
+      "priceSGD": 130.6,
       "priceMYR": 387.0
     },
     {
@@ -2551,7 +2551,7 @@
       "skin": "Eudora",
       "rarity": "QR",
       "rarityLabel": "Quick Release",
-      "priceSGD": 31.64,
+      "priceSGD": 31.53,
       "priceMYR": 92.0
     },
     {
@@ -2561,7 +2561,7 @@
       "skin": "Layla",
       "rarity": "QR",
       "rarityLabel": "Quick Release",
-      "priceSGD": 111.84,
+      "priceSGD": 111.43,
       "priceMYR": 318.0
     },
     {
@@ -2571,7 +2571,7 @@
       "skin": "Kagura",
       "rarity": "QR",
       "rarityLabel": "Quick Release",
-      "priceSGD": 66.26,
+      "priceSGD": 66.02,
       "priceMYR": 193.0
     },
     {
@@ -2581,7 +2581,7 @@
       "skin": "Lylia",
       "rarity": "QR",
       "rarityLabel": "Quick Release",
-      "priceSGD": 92.02,
+      "priceSGD": 91.69,
       "priceMYR": 267.0
     },
     {
@@ -2591,7 +2591,7 @@
       "skin": "Wanwan",
       "rarity": "QR",
       "rarityLabel": "Quick Release",
-      "priceSGD": 80.83,
+      "priceSGD": 80.54,
       "priceMYR": 230.0
     },
     {
@@ -2601,7 +2601,7 @@
       "skin": "Vale",
       "rarity": "QR",
       "rarityLabel": "Quick Release",
-      "priceSGD": 46.85,
+      "priceSGD": 46.68,
       "priceMYR": 135.0
     },
     {
@@ -2611,7 +2611,7 @@
       "skin": "Alpha",
       "rarity": "QR",
       "rarityLabel": "Quick Release",
-      "priceSGD": 40.45,
+      "priceSGD": 40.3,
       "priceMYR": 115.0
     },
     {
@@ -2621,7 +2621,7 @@
       "skin": "Zilong",
       "rarity": "QR",
       "rarityLabel": "Quick Release",
-      "priceSGD": 45.15,
+      "priceSGD": 44.99,
       "priceMYR": 130.0
     },
     {
@@ -2631,7 +2631,7 @@
       "skin": "Estes",
       "rarity": "QR",
       "rarityLabel": "Quick Release",
-      "priceSGD": 27.77,
+      "priceSGD": 27.67,
       "priceMYR": 80.0
     },
     {
@@ -2641,7 +2641,7 @@
       "skin": "Melissa",
       "rarity": "QR",
       "rarityLabel": "Quick Release",
-      "priceSGD": 62.71,
+      "priceSGD": 62.48,
       "priceMYR": 180.0
     },
     {
@@ -2651,7 +2651,7 @@
       "skin": "Esmeralda",
       "rarity": "QR",
       "rarityLabel": "Quick Release",
-      "priceSGD": 51.65,
+      "priceSGD": 51.46,
       "priceMYR": 150.0
     },
     {
@@ -2661,7 +2661,7 @@
       "skin": "Execute",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceSGD": 5.19,
+      "priceSGD": 5.17,
       "priceMYR": 15.0
     },
     {
@@ -2671,7 +2671,7 @@
       "skin": "Sprint",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceSGD": 5.25,
+      "priceSGD": 5.24,
       "priceMYR": 15.0
     },
     {
@@ -2681,7 +2681,7 @@
       "skin": "Reviltalize",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceSGD": 5.11,
+      "priceSGD": 5.1,
       "priceMYR": 15.0
     },
     {
@@ -2691,7 +2691,7 @@
       "skin": "Retribution",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceSGD": 5.3,
+      "priceSGD": 5.28,
       "priceMYR": 15.0
     },
     {
@@ -2701,7 +2701,7 @@
       "skin": "Inspire",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceSGD": 5.2,
+      "priceSGD": 5.18,
       "priceMYR": 15.0
     },
     {
@@ -2711,7 +2711,7 @@
       "skin": "Aegis",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceSGD": 5.29,
+      "priceSGD": 5.27,
       "priceMYR": 15.0
     },
     {
@@ -2721,7 +2721,7 @@
       "skin": "Purify",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceSGD": 5.12,
+      "priceSGD": 5.1,
       "priceMYR": 15.0
     },
     {
@@ -2731,7 +2731,7 @@
       "skin": "Flameshot",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceSGD": 5.18,
+      "priceSGD": 5.16,
       "priceMYR": 15.0
     },
     {
@@ -2741,7 +2741,7 @@
       "skin": "Flicker",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceSGD": 5.16,
+      "priceSGD": 5.14,
       "priceMYR": 15.0
     },
     {
@@ -2751,7 +2751,7 @@
       "skin": "Arrival",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceSGD": 5.25,
+      "priceSGD": 5.23,
       "priceMYR": 15.0
     }
   ]
