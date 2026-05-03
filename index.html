@@ -560,6 +560,7 @@
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
       margin-bottom: 2px;
     }
+    .tt-flag { font-size: 11px; font-weight: 400; opacity: 0.85; }
     .tt-handle {
       font-size: 10px; color: var(--muted);
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
@@ -911,6 +912,14 @@
     return '<span class="unknown-badge">? Unknown</span>';
   }
 
+  function regionFlag(region) {
+    if (!region) return '';
+    // Convert ISO 3166-1 alpha-2 code to flag emoji (regional indicator symbols)
+    return region.toUpperCase().replace(/./g, c =>
+      String.fromCodePoint(0x1F1E6 - 65 + c.charCodeAt(0))
+    );
+  }
+
   function renderLiveTiles(statusMap) {
     const grid = document.getElementById('liveGrid');
     const sorted = [...TIKTOK_ACCOUNTS].sort((a, b) => {
@@ -923,11 +932,12 @@
     grid.innerHTML = sorted.map(({ username, display }) => {
       const status = statusMap[username];
       const live = status ? status.live : null;
+      const flag = regionFlag(status?.region);
       return `
         <div class="tt-tile">
           <a href="https://www.tiktok.com/@${username}/live" target="_blank" rel="noopener noreferrer">
             <div class="tt-avatar">🌄</div>
-            <div class="tt-name">${display}</div>
+            <div class="tt-name">${display}${flag ? ` <span class="tt-flag">${flag}</span>` : ''}</div>
             <div class="tt-handle">@${username}</div>
             <div class="tt-status">${statusBadge(live)}</div>
           </a>
