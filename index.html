@@ -392,9 +392,14 @@
       display: flex;
       border-bottom: 1px solid var(--border);
       background: var(--bg2);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
+    .tab-bar::-webkit-scrollbar { display: none; }
     .tab-btn {
-      flex: 1;
+      flex: 1 0 0;
+      min-width: 110px;
       padding: 14px 16px;
       background: none;
       border: none;
@@ -402,9 +407,20 @@
       color: var(--muted);
       font-family: inherit;
       font-size: 13px; font-weight: 700;
+      white-space: nowrap;
       cursor: pointer;
       transition: all 0.18s;
       letter-spacing: 0.3px;
+    }
+    @media (max-width: 420px) {
+      .tab-btn {
+        font-size: 12px;
+        min-width: 104px;
+        padding: 12px 12px;
+      }
+      .live-header { padding: 14px 14px 8px; }
+      .live-refresh-bar { padding: 8px 14px 0; }
+      .live-grid { padding-left: 10px; padding-right: 10px; }
     }
     .tab-btn:hover { color: var(--text); }
     .tab-btn.active {
@@ -501,8 +517,9 @@
       pointer-events:none;
     }
 
-    /* ── Live section ── */
-    #liveView { position:relative; z-index:1; }
+    /* ── Live tab ── */
+    #liveView { display:none; position:relative; z-index:1; }
+    #liveView.visible { display:block; }
     .live-header {
       padding: 20px 18px 10px;
       font-size: 11px; font-weight: 700;
@@ -592,11 +609,6 @@
   <div class="hero-badge"><span class="dot"></span>Mobile Legends: Bang Bang</div>
   <h1 class="hero-title">MLBB Card Collection</h1>
   <p class="hero-sub">All Series · Prices in USD</p>
-  <div id="liveView">
-    <div class="live-header">TikTok live status · refreshes every 2 min</div>
-    <div class="live-refresh-bar" id="liveRefreshBar"></div>
-    <div class="live-grid" id="liveGrid"></div>
-  </div>
   <p class="hero-updated" id="heroUpdated"></p>
   <div class="hero-stats">
     <div class="stat"><div class="stat-val" id="statCards">0</div><div class="stat-label">Cards</div></div>
@@ -606,9 +618,16 @@
 </header>
 
 <nav class="tab-bar">
-  <button class="tab-btn active" id="tabCollection">📦 Collection</button>
+  <button class="tab-btn active" id="tabLive">🔴 TikTok Live</button>
+  <button class="tab-btn" id="tabCollection">📦 Collection</button>
   <button class="tab-btn" id="tabLeaderboard">🏆 Top Cards</button>
 </nav>
+
+<div id="liveView">
+  <div class="live-header">TikTok live status · refreshes every 2 min</div>
+  <div class="live-refresh-bar" id="liveRefreshBar"></div>
+  <div class="live-grid" id="liveGrid"></div>
+</div>
 
 <div id="collectionView">
 <div class="controls">
@@ -868,11 +887,21 @@
 
   function showTab(tab) {
     const isLb = tab === 'leaderboard';
-    document.getElementById('collectionView').style.display = isLb ? 'none' : '';
+    const isLive = tab === 'live';
+    document.getElementById('collectionView').style.display = (isLb || isLive) ? 'none' : '';
     document.getElementById('leaderboardView').classList.toggle('visible', isLb);
-    document.getElementById('tabCollection').classList.toggle('active', !isLb);
+    document.getElementById('liveView').classList.toggle('visible', isLive);
+    document.getElementById('tabLive').classList.toggle('active', isLive);
+    document.getElementById('tabCollection').classList.toggle('active', !isLb && !isLive);
     document.getElementById('tabLeaderboard').classList.toggle('active', isLb);
     if (isLb) renderLeaderboard();
+    if (isLive) {
+      loadAndRenderLive();
+      clearInterval(liveRefreshTimer);
+      liveRefreshTimer = setInterval(loadAndRenderLive, 2 * 60 * 1000);
+    } else {
+      clearInterval(liveRefreshTimer);
+    }
   }
 
   /* ── TikTok Live ── */
@@ -918,6 +947,7 @@
     }
   }
 
+  document.getElementById('tabLive').addEventListener('click', () => showTab('live'));
   document.getElementById('tabCollection').addEventListener('click', () => showTab('collection'));
   document.getElementById('tabLeaderboard').addEventListener('click', () => showTab('leaderboard'));
 
@@ -974,9 +1004,7 @@
       const fmt = d.toLocaleString('en-SG', { timeZone: 'Asia/Singapore', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true });
       document.getElementById('heroUpdated').textContent = `Prices updated ${fmt} SGT`;
     }
-    loadAndRenderLive();
-    clearInterval(liveRefreshTimer);
-    liveRefreshTimer = setInterval(loadAndRenderLive, 2 * 60 * 1000);
+    showTab('live');
     render();
   })();
 </script>
