@@ -936,7 +936,7 @@
     grid.innerHTML = sorted.map(({ username, display, country }) => {
       const status = statusMap[username];
       const live = status ? status.live : null;
-      const flag = regionFlag(status?.region || country);
+      const flag = regionFlag(country || status?.region);
       return `
         <div class="tt-tile">
           <a href="https://www.tiktok.com/@${username}/live" target="_blank" rel="noopener noreferrer">
