@@ -17,12 +17,13 @@ BASE_URL = "https://www.ccgmarket.org/products.json"
 IMAGES_DIR = os.path.join(os.path.dirname(__file__), "images")
 DATA_FILE = os.path.join(os.path.dirname(__file__), "data.json")
 
-# MYR to SGD conversion rate — fetched live, falls back to last-known rate.
+# MYR to SGD/USD conversion rates — fetched live, fall back to last-known rates.
 MYR_TO_SGD_FALLBACK = 0.3221
+MYR_TO_USD_FALLBACK = 0.2382
 
 
-def fetch_myr_to_sgd() -> float:
-    """Fetch current MYR→SGD rate. Falls back to a recent constant on failure."""
+def fetch_myr_rates() -> tuple:
+    """Fetch current MYR→SGD and MYR→USD rates. Falls back to constants on failure."""
     try:
         req = urllib.request.Request(
             "https://open.er-api.com/v6/latest/MYR",
@@ -30,15 +31,16 @@ def fetch_myr_to_sgd() -> float:
         )
         with urllib.request.urlopen(req, timeout=15) as resp:
             data = json.loads(resp.read().decode())
-        rate = float(data["rates"]["SGD"])
-        print(f"Live MYR→SGD rate: {rate:.4f}")
-        return rate
+        sgd = float(data["rates"]["SGD"])
+        usd = float(data["rates"]["USD"])
+        print(f"Live MYR→SGD rate: {sgd:.4f}  MYR→USD rate: {usd:.4f}")
+        return sgd, usd
     except Exception as e:
-        print(f"WARN: FX fetch failed ({e}); using fallback {MYR_TO_SGD_FALLBACK}")
-        return MYR_TO_SGD_FALLBACK
+        print(f"WARN: FX fetch failed ({e}); using fallbacks SGD={MYR_TO_SGD_FALLBACK} USD={MYR_TO_USD_FALLBACK}")
+        return MYR_TO_SGD_FALLBACK, MYR_TO_USD_FALLBACK
 
 
-MYR_TO_SGD = fetch_myr_to_sgd()
+MYR_TO_SGD, MYR_TO_USD = fetch_myr_rates()
 
 # Rarity mapping based on card ID prefix
 RARITY_MAP = {
@@ -109,15 +111,18 @@ def extract_hero_and_skin(title, card_id):
 
 
 def convert_price(myr_price, card_id):
-    """Convert MYR price to SGD with a deterministic 5-10% markup per card.
+    """Convert MYR price to SGD and USD with a deterministic 5-10% markup per card.
 
     Seeding by card_id keeps prices stable across runs so the weekly
     refresh only changes prices when MYR or the source price changes.
+    Returns (priceSGD, priceUSD).
     """
-    sgd = float(myr_price) * MYR_TO_SGD
+    myr = float(myr_price)
     rng = random.Random(card_id)
     markup = rng.uniform(1.05, 1.10)  # 5-10% markup
-    return round(sgd * markup, 2)
+    sgd = round(myr * MYR_TO_SGD * markup, 2)
+    usd = round(myr * MYR_TO_USD * markup, 2)
+    return sgd, usd
 
 
 def download_image(url, filename):
@@ -166,7 +171,7 @@ def main():
         # Get price from first variant
         variants = product.get("variants", [])
         myr_price = variants[0].get("price", "0") if variants else "0"
-        sgd_price = convert_price(myr_price, card_id)
+        sgd_price, usd_price = convert_price(myr_price, card_id)
 
         # Get image
         images = product.get("images", [])
@@ -193,6 +198,7 @@ def main():
                 "rarity": rarity,
                 "rarityLabel": rarity_label,
                 "priceSGD": sgd_price,
+                "priceUSD": usd_price,
                 "priceMYR": float(myr_price),
             }
         else:
@@ -209,6 +215,7 @@ def main():
                 "rarity": rarity,
                 "rarityLabel": rarity_label,
                 "priceSGD": sgd_price,
+                "priceUSD": usd_price,
                 "priceMYR": float(myr_price),
             }
 
@@ -247,7 +254,7 @@ def main():
 
     print(f"\n✅ Done! {len(cards)} cards saved to data.json")
     print(f"   Heroes: {', '.join(sorted(heroes_seen))}")
-    print(f"   Prices converted from MYR → SGD with 5-10% markup")
+    print(f"   Prices converted from MYR → SGD & USD with 5-10% markup")
 
 
 if __name__ == "__main__":

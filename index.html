@@ -500,6 +500,91 @@
       backdrop-filter:blur(6px);
       pointer-events:none;
     }
+
+    /* ── Live tab ── */
+    #liveView { display:none; position:relative; z-index:1; }
+    #liveView.visible { display:block; }
+    .live-header {
+      padding: 20px 18px 10px;
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--muted);
+    }
+    .live-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding: 4px 12px calc(var(--safe-bot) + 32px);
+    }
+    @media (min-width: 480px)  { .live-grid { grid-template-columns: repeat(3,1fr); } }
+    @media (min-width: 700px)  { .live-grid { grid-template-columns: repeat(4,1fr); gap:18px; padding:8px 24px 40px; } }
+    @media (min-width: 960px)  { .live-grid { grid-template-columns: repeat(5,1fr); } }
+    .tt-tile {
+      display: flex; flex-direction: column;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s, border-color 0.28s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .tt-tile:hover { transform: translateY(-6px) scale(1.03); border-color: var(--border2); box-shadow: 0 16px 40px -8px rgba(0,0,0,0.5); }
+    .tt-tile a { text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%; padding: 18px 16px 16px; }
+    .tt-avatar {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--surf2);
+      border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin-bottom: 12px; flex-shrink: 0;
+    }
+    .tt-name {
+      font-size: 13px; font-weight: 700; color: var(--text);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      margin-bottom: 4px;
+    }
+    .tt-handle {
+      font-size: 11px; color: var(--muted);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      margin-bottom: 12px;
+    }
+    .tt-status { margin-top: auto; }
+    .live-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,59,48,0.15);
+      border: 1px solid rgba(255,59,48,0.4);
+      border-radius: 100px;
+      padding: 5px 12px;
+      font-size: 11px; font-weight: 800; letter-spacing: 0.8px;
+      text-transform: uppercase; color: #ff3b30;
+    }
+    .live-badge .dot {
+      width: 7px; height: 7px;
+      background: #ff3b30; border-radius: 50%;
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+    .offline-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 12px;
+      font-size: 11px; font-weight: 700; color: var(--muted);
+    }
+    .unknown-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 12px;
+      font-size: 11px; font-weight: 700; color: var(--muted);
+      opacity: 0.6;
+    }
+    .live-refresh-bar {
+      padding: 10px 18px 0;
+      font-size: 11px; color: var(--muted);
+    }
   </style>
 </head>
 <body>
@@ -507,7 +592,7 @@
 <header class="hero-banner">
   <div class="hero-badge"><span class="dot"></span>Mobile Legends: Bang Bang</div>
   <h1 class="hero-title">MLBB Card Collection</h1>
-  <p class="hero-sub">All Series · Prices in SGD</p>
+  <p class="hero-sub">All Series · Prices in USD</p>
   <p class="hero-updated" id="heroUpdated"></p>
   <div class="hero-stats">
     <div class="stat"><div class="stat-val" id="statCards">0</div><div class="stat-label">Cards</div></div>
@@ -519,6 +604,7 @@
 <nav class="tab-bar">
   <button class="tab-btn active" id="tabCollection">📦 Collection</button>
   <button class="tab-btn" id="tabLeaderboard">🏆 Top Cards</button>
+  <button class="tab-btn" id="tabLive">🔴 Live</button>
 </nav>
 
 <div id="collectionView">
@@ -557,6 +643,12 @@
   <div class="lb-list" id="lbList"></div>
 </div>
 
+<div id="liveView">
+  <div class="live-header">TikTok live status · refreshes every 2 min</div>
+  <div class="live-refresh-bar" id="liveRefreshBar"></div>
+  <div class="live-grid" id="liveGrid"></div>
+</div>
+
 <div class="backdrop" id="backdrop">
   <div class="sheet" id="sheet">
     <div class="drag-handle"></div>
@@ -583,6 +675,19 @@
 
   // Set this to your deployed worker URL after `wrangler deploy`
   const WORKER_URL = 'https://ml-cards-worker.holiday-radar-api.workers.dev';
+  const TIKTOK_WORKER_URL = 'https://tiktok-live-worker.holiday-radar-api.workers.dev';
+
+  const TIKTOK_ACCOUNTS = [
+    { username: 'nocap.tcg',              display: 'NoCap TCG' },
+    { username: '3brotherstcg',           display: '3 Brothers TCG' },
+    { username: 'assemble.tcg',           display: 'Assemble TCG' },
+    { username: 'tylorcollectible',       display: 'Tylor Collectible' },
+    { username: 'kctcg53',               display: 'KC TCG' },
+    { username: 'metarealms13',           display: 'Meta Realms' },
+    { username: 'mlbbccg',               display: 'MLBB CCG' },
+    { username: 'knight_collectibles09', display: 'Knight Collectibles' },
+    { username: 'vortexempirex',         display: 'Vortex Empire' },
+  ];
 
   // In-memory view counts populated from the worker on load
   let allViews = {};
@@ -657,7 +762,7 @@
           <div class="card-label">
             <div class="card-skin">${c.skin}</div>
             <div class="card-id">${c.hero} · ${c.id}</div>
-            ${c.priceSGD ? `<div class="card-price">S$${c.priceSGD.toFixed(2)}</div>` : ''}
+            ${c.priceUSD ? `<div class="card-price">$${c.priceUSD.toFixed(2)}</div>` : (c.priceSGD ? `<div class="card-price">$${(c.priceSGD * 0.74).toFixed(2)}</div>` : '')}
           </div>
           ${views > 0 ? `<div class="view-badge">👁 ${views}</div>` : ''}
         </div>
@@ -693,8 +798,8 @@
         <div class="tile-val" style="color:${col}">${c.rarity}</div>
       </div>
       <div class="meta-tile">
-        <div class="tile-label">Price (SGD)</div>
-        <div class="tile-val" style="color:#4caf50">${c.priceSGD ? 'S$' + c.priceSGD.toFixed(2) : 'N/A'}</div>
+        <div class="tile-label">Price (USD)</div>
+        <div class="tile-val" style="color:#4caf50">${c.priceUSD ? '$' + c.priceUSD.toFixed(2) : (c.priceSGD ? '$' + (c.priceSGD * 0.74).toFixed(2) : 'N/A')}</div>
       </div>
       <div class="meta-tile">
         <div class="tile-label">Rarity Tier</div>
@@ -762,19 +867,74 @@
   }
 
   let activeTab = 'collection';
+  let liveRefreshTimer = null;
 
   function showTab(tab) {
     activeTab = tab;
-    const isLb = tab === 'leaderboard';
-    document.getElementById('collectionView').style.display = isLb ? 'none' : '';
+    const isLb   = tab === 'leaderboard';
+    const isLive = tab === 'live';
+    document.getElementById('collectionView').style.display = (isLb || isLive) ? 'none' : '';
     document.getElementById('leaderboardView').classList.toggle('visible', isLb);
-    document.getElementById('tabCollection').classList.toggle('active', !isLb);
+    document.getElementById('liveView').classList.toggle('visible', isLive);
+    document.getElementById('tabCollection').classList.toggle('active', !isLb && !isLive);
     document.getElementById('tabLeaderboard').classList.toggle('active', isLb);
+    document.getElementById('tabLive').classList.toggle('active', isLive);
     if (isLb) renderLeaderboard();
+    if (isLive) {
+      loadAndRenderLive();
+      clearInterval(liveRefreshTimer);
+      liveRefreshTimer = setInterval(loadAndRenderLive, 2 * 60 * 1000);
+    } else {
+      clearInterval(liveRefreshTimer);
+    }
+  }
+
+  /* ── TikTok Live ── */
+  function statusBadge(live) {
+    if (live === true)  return '<span class="live-badge"><span class="dot"></span>Live</span>';
+    if (live === false) return '<span class="offline-badge">⚫ Offline</span>';
+    return '<span class="unknown-badge">? Unknown</span>';
+  }
+
+  function renderLiveTiles(statusMap) {
+    const grid = document.getElementById('liveGrid');
+    grid.innerHTML = TIKTOK_ACCOUNTS.map(({ username, display }) => {
+      const status = statusMap[username];
+      const live = status ? status.live : null;
+      return `
+        <div class="tt-tile">
+          <a href="https://www.tiktok.com/@${username}/live" target="_blank" rel="noopener noreferrer">
+            <div class="tt-avatar">🌄</div>
+            <div class="tt-name">${display}</div>
+            <div class="tt-handle">@${username}</div>
+            <div class="tt-status">${statusBadge(live)}</div>
+          </a>
+        </div>`;
+    }).join('');
+  }
+
+  async function loadAndRenderLive() {
+    const bar = document.getElementById('liveRefreshBar');
+    bar.textContent = 'Checking status…';
+    renderLiveTiles({});
+    try {
+      const usernames = TIKTOK_ACCOUNTS.map(a => a.username).join(',');
+      const res = await fetch(`${TIKTOK_WORKER_URL}/live-status?usernames=${usernames}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const statusMap = await res.json();
+      renderLiveTiles(statusMap);
+      const liveCount = Object.values(statusMap).filter(s => s.live === true).length;
+      const now = new Date().toLocaleTimeString('en-SG', { hour: '2-digit', minute: '2-digit' });
+      bar.textContent = `${liveCount} live now · last checked ${now} · auto-refreshes every 2 min`;
+    } catch (e) {
+      bar.textContent = `Could not fetch live status (${e.message})`;
+      renderLiveTiles({});
+    }
   }
 
   document.getElementById('tabCollection').addEventListener('click', () => showTab('collection'));
   document.getElementById('tabLeaderboard').addEventListener('click', () => showTab('leaderboard'));
+  document.getElementById('tabLive').addEventListener('click', () => showTab('live'));
 
   document.getElementById('filterGroup').addEventListener('click', e => {
     const btn = e.target.closest('.pill');
