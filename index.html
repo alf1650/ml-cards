@@ -695,20 +695,20 @@
   const TIKTOK_WORKER_URL = 'https://tiktok-live-worker.holiday-radar-api.workers.dev';
 
   const TIKTOK_ACCOUNTS = [
-    { username: 'nocap.tcg',              display: 'NoCap TCG' },
-    { username: '3brotherstcg',           display: '3 Brothers TCG' },
-    { username: 'assemble.tcg',           display: 'Assemble TCG' },
-    { username: 'tylorcollectible',       display: 'Tylor Collectible' },
-    { username: 'kctcg53',                display: 'KC TCG' },
-    { username: 'metarealms13',           display: 'Meta Realms' },
-    { username: 'metalab13',              display: 'MetaLab 13' },
-    { username: 'mlbbccg',                display: 'MLBB CCG' },
-    { username: 'knight_collectibles09', display: 'Knight Collectibles' },
-    { username: 'vortexempirex',          display: 'Vortex Empire' },
-    { username: 'pocketfarms',            display: 'PocketFarms' },
-    { username: 'mamakshop49',            display: 'KihuatBreaks' },
-    { username: 'kc.rips',                display: 'KC Rips' },
-    { username: 'tumbukpringle2',         display: 'TumbukPringle' },
+    { username: 'nocap.tcg',              display: 'NoCap TCG', country: 'MY' },
+    { username: '3brotherstcg',           display: '3 Brothers TCG', country: 'MY' },
+    { username: 'assemble.tcg',           display: 'Assemble TCG', country: 'MY' },
+    { username: 'tylorcollectible',       display: 'Tylor Collectible', country: 'MY' },
+    { username: 'kctcg53',                display: 'KC TCG', country: 'MY' },
+    { username: 'metarealms13',           display: 'Meta Realms', country: 'MY' },
+    { username: 'metalab13',              display: 'MetaLab 13', country: 'MY' },
+    { username: 'mlbbccg',                display: 'MLBB CCG', country: 'MY' },
+    { username: 'knight_collectibles09', display: 'Knight Collectibles', country: 'MY' },
+    { username: 'vortexempirex',          display: 'Vortex Empire', country: 'MY' },
+    { username: 'pocketfarms',            display: 'PocketFarms', country: 'SG' },
+    { username: 'mamakshop49',            display: 'KihuatBreaks', country: 'SG' },
+    { username: 'kc.rips',                display: 'KC Rips', country: 'SG' },
+    { username: 'tumbukpringle2',         display: 'TumbukPringle', country: 'SG' },
   ];
 
   // In-memory view counts populated from the worker on load
@@ -933,10 +933,10 @@
       if (lb === true && la !== true) return 1;
       return 0;
     });
-    grid.innerHTML = sorted.map(({ username, display }) => {
+    grid.innerHTML = sorted.map(({ username, display, country }) => {
       const status = statusMap[username];
       const live = status ? status.live : null;
-      const flag = regionFlag(status?.region);
+      const flag = regionFlag(status?.region || country);
       return `
         <div class="tt-tile">
           <a href="https://www.tiktok.com/@${username}/live" target="_blank" rel="noopener noreferrer">
