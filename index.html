@@ -501,9 +501,8 @@
       pointer-events:none;
     }
 
-    /* ── Live tab ── */
-    #liveView { display:none; position:relative; z-index:1; }
-    #liveView.visible { display:block; }
+    /* ── Live section ── */
+    #liveView { position:relative; z-index:1; }
     .live-header {
       padding: 20px 18px 10px;
       font-size: 11px; font-weight: 700;
@@ -604,10 +603,15 @@
 <nav class="tab-bar">
   <button class="tab-btn active" id="tabCollection">📦 Collection</button>
   <button class="tab-btn" id="tabLeaderboard">🏆 Top Cards</button>
-  <button class="tab-btn" id="tabLive">🔴 Live</button>
 </nav>
 
 <div id="collectionView">
+<div id="liveView">
+  <div class="live-header">TikTok live status · refreshes every 2 min</div>
+  <div class="live-refresh-bar" id="liveRefreshBar"></div>
+  <div class="live-grid" id="liveGrid"></div>
+</div>
+
 <div class="controls">
   <div class="search-wrap">
     <span class="search-icon">
@@ -641,12 +645,6 @@
 <div id="leaderboardView">
   <div class="lb-header">Most viewed cards · all time</div>
   <div class="lb-list" id="lbList"></div>
-</div>
-
-<div id="liveView">
-  <div class="live-header">TikTok live status · refreshes every 2 min</div>
-  <div class="live-refresh-bar" id="liveRefreshBar"></div>
-  <div class="live-grid" id="liveGrid"></div>
 </div>
 
 <div class="backdrop" id="backdrop">
@@ -866,27 +864,15 @@
     });
   }
 
-  let activeTab = 'collection';
   let liveRefreshTimer = null;
 
   function showTab(tab) {
-    activeTab = tab;
-    const isLb   = tab === 'leaderboard';
-    const isLive = tab === 'live';
-    document.getElementById('collectionView').style.display = (isLb || isLive) ? 'none' : '';
+    const isLb = tab === 'leaderboard';
+    document.getElementById('collectionView').style.display = isLb ? 'none' : '';
     document.getElementById('leaderboardView').classList.toggle('visible', isLb);
-    document.getElementById('liveView').classList.toggle('visible', isLive);
-    document.getElementById('tabCollection').classList.toggle('active', !isLb && !isLive);
+    document.getElementById('tabCollection').classList.toggle('active', !isLb);
     document.getElementById('tabLeaderboard').classList.toggle('active', isLb);
-    document.getElementById('tabLive').classList.toggle('active', isLive);
     if (isLb) renderLeaderboard();
-    if (isLive) {
-      loadAndRenderLive();
-      clearInterval(liveRefreshTimer);
-      liveRefreshTimer = setInterval(loadAndRenderLive, 2 * 60 * 1000);
-    } else {
-      clearInterval(liveRefreshTimer);
-    }
   }
 
   /* ── TikTok Live ── */
@@ -934,7 +920,6 @@
 
   document.getElementById('tabCollection').addEventListener('click', () => showTab('collection'));
   document.getElementById('tabLeaderboard').addEventListener('click', () => showTab('leaderboard'));
-  document.getElementById('tabLive').addEventListener('click', () => showTab('live'));
 
   document.getElementById('filterGroup').addEventListener('click', e => {
     const btn = e.target.closest('.pill');
@@ -989,6 +974,9 @@
       const fmt = d.toLocaleString('en-SG', { timeZone: 'Asia/Singapore', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true });
       document.getElementById('heroUpdated').textContent = `Prices updated ${fmt} SGT`;
     }
+    loadAndRenderLive();
+    clearInterval(liveRefreshTimer);
+    liveRefreshTimer = setInterval(loadAndRenderLive, 2 * 60 * 1000);
     render();
   })();
 </script>
