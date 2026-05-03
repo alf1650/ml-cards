@@ -913,7 +913,14 @@
 
   function renderLiveTiles(statusMap) {
     const grid = document.getElementById('liveGrid');
-    grid.innerHTML = TIKTOK_ACCOUNTS.map(({ username, display }) => {
+    const sorted = [...TIKTOK_ACCOUNTS].sort((a, b) => {
+      const la = statusMap[a.username]?.live;
+      const lb = statusMap[b.username]?.live;
+      if (la === true && lb !== true) return -1;
+      if (lb === true && la !== true) return 1;
+      return 0;
+    });
+    grid.innerHTML = sorted.map(({ username, display }) => {
       const status = statusMap[username];
       const live = status ? status.live : null;
       return `
