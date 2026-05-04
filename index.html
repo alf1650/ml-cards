@@ -686,13 +686,15 @@
   </div>
 </div>
 
+<script src="config.js"></script>
 <script>
   const RC = { C:'#8892aa',R:'#4b9fff',RS:'#9b6df0',SSR:'#ff6b35',UR:'#f5c842',SP:'#ff4b8b',AR:'#00e5c8',QR:'#ff80c8',TR:'#66bb6a' };
   const RT = { C:'#07080f',R:'#fff',RS:'#fff',SSR:'#fff',UR:'#07080f',SP:'#fff',AR:'#07080f',QR:'#07080f',TR:'#07080f' };
 
-  // Set this to your deployed worker URL after `wrangler deploy`
-  const WORKER_URL = 'https://ml-cards-worker.holiday-radar-api.workers.dev';
-  const TIKTOK_WORKER_URL = 'https://tiktok-live-worker.holiday-radar-api.workers.dev';
+  const APP_CONFIG = window.ML_CARDS_CONFIG || {};
+  const WORKER_URL = APP_CONFIG.workerUrl || 'https://ml-cards-worker.holiday-radar-api.workers.dev';
+  const TIKTOK_WORKER_URL = APP_CONFIG.tiktokWorkerUrl || 'https://tiktok-live-worker.holiday-radar-api.workers.dev';
+  const CF_BEACON_TOKEN = APP_CONFIG.cfBeaconToken || '';
 
   const TIKTOK_ACCOUNTS = [
     { username: 'nocap.tcg',              display: 'NoCap TCG', country: 'MY' },
@@ -755,7 +757,7 @@
       return matchR && matchS;
     });
     if (sortByPrice) {
-      result = result.slice().sort((a, b) => (b.priceSGD || 0) - (a.priceSGD || 0));
+      result = result.slice().sort((a, b) => (b.priceUSD || 0) - (a.priceUSD || 0));
     } else if (sortByViews) {
       result = result.slice().sort((a, b) => getViewCount(b.id) - getViewCount(a.id));
     }
@@ -1028,8 +1030,15 @@
     }
     showTab('live');
     render();
+
+    if (CF_BEACON_TOKEN) {
+      const analytics = document.createElement('script');
+      analytics.defer = true;
+      analytics.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+      analytics.setAttribute('data-cf-beacon', JSON.stringify({ token: CF_BEACON_TOKEN }));
+      document.body.appendChild(analytics);
+    }
   })();
 </script>
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "fcd09707457e4f589eb7c3ec41ddf37c"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

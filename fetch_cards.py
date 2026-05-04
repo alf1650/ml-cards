@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """
 Fetch all products from ccgmarket.org Shopify API,
-download images, convert MYR prices to SGD with 5-10% markup,
-and update data.json.
+download images, and update data.json.
+Prices on ccgmarket.org are listed in USD natively.
 """
 
 import json
 import os
-import random
 import re
 import time
 import urllib.request
@@ -16,31 +15,6 @@ from datetime import datetime, timezone, timedelta
 BASE_URL = "https://www.ccgmarket.org/products.json"
 IMAGES_DIR = os.path.join(os.path.dirname(__file__), "images")
 DATA_FILE = os.path.join(os.path.dirname(__file__), "data.json")
-
-# MYR to SGD/USD conversion rates — fetched live, fall back to last-known rates.
-MYR_TO_SGD_FALLBACK = 0.3221
-MYR_TO_USD_FALLBACK = 0.2382
-
-
-def fetch_myr_rates() -> tuple:
-    """Fetch current MYR→SGD and MYR→USD rates. Falls back to constants on failure."""
-    try:
-        req = urllib.request.Request(
-            "https://open.er-api.com/v6/latest/MYR",
-            headers={"User-Agent": "Mozilla/5.0"},
-        )
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            data = json.loads(resp.read().decode())
-        sgd = float(data["rates"]["SGD"])
-        usd = float(data["rates"]["USD"])
-        print(f"Live MYR→SGD rate: {sgd:.4f}  MYR→USD rate: {usd:.4f}")
-        return sgd, usd
-    except Exception as e:
-        print(f"WARN: FX fetch failed ({e}); using fallbacks SGD={MYR_TO_SGD_FALLBACK} USD={MYR_TO_USD_FALLBACK}")
-        return MYR_TO_SGD_FALLBACK, MYR_TO_USD_FALLBACK
-
-
-MYR_TO_SGD, MYR_TO_USD = fetch_myr_rates()
 
 # Rarity mapping based on card ID prefix
 RARITY_MAP = {
@@ -110,19 +84,13 @@ def extract_hero_and_skin(title, card_id):
     return hero, skin
 
 
-def convert_price(myr_price, card_id):
-    """Convert MYR price to SGD and USD with a deterministic 5-10% markup per card.
-
-    Seeding by card_id keeps prices stable across runs so the weekly
-    refresh only changes prices when MYR or the source price changes.
-    Returns (priceSGD, priceUSD).
-    """
-    myr = float(myr_price)
-    rng = random.Random(card_id)
-    markup = rng.uniform(1.05, 1.10)  # 5-10% markup
-    sgd = round(myr * MYR_TO_SGD * markup, 2)
-    usd = round(myr * MYR_TO_USD * markup, 2)
-    return sgd, usd
+def parse_price(raw_price):
+    """Parse the USD price string from the Shopify API. Returns float or None."""
+    try:
+        val = float(raw_price)
+        return round(val, 2) if val > 0 else None
+    except (TypeError, ValueError):
+        return None
 
 
 def download_image(url, filename):
@@ -168,10 +136,10 @@ def main():
             print(f"  Skipping (no card ID): {title}")
             continue
 
-        # Get price from first variant
+        # Get price from first variant (already in USD on ccgmarket.org)
         variants = product.get("variants", [])
-        myr_price = variants[0].get("price", "0") if variants else "0"
-        sgd_price, usd_price = convert_price(myr_price, card_id)
+        raw_price = variants[0].get("price", "0") if variants else "0"
+        usd_price = parse_price(raw_price)
 
         # Get image
         images = product.get("images", [])
@@ -197,9 +165,7 @@ def main():
                 "skin": skin,
                 "rarity": rarity,
                 "rarityLabel": rarity_label,
-                "priceSGD": sgd_price,
                 "priceUSD": usd_price,
-                "priceMYR": float(myr_price),
             }
         else:
             # Download new image
@@ -214,9 +180,7 @@ def main():
                 "skin": skin,
                 "rarity": rarity,
                 "rarityLabel": rarity_label,
-                "priceSGD": sgd_price,
                 "priceUSD": usd_price,
-                "priceMYR": float(myr_price),
             }
 
         cards.append(card_entry)
@@ -254,7 +218,7 @@ def main():
 
     print(f"\n✅ Done! {len(cards)} cards saved to data.json")
     print(f"   Heroes: {', '.join(sorted(heroes_seen))}")
-    print(f"   Prices converted from MYR → SGD & USD with 5-10% markup")
+    print(f"   Prices in USD (native from ccgmarket.org)")
 
 
 if __name__ == "__main__":
