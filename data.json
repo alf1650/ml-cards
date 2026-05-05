@@ -2,7 +2,7 @@
   "hero": "All Heroes",
   "role": "Collection",
   "specialty": "MLBB Cards",
-  "lastUpdated": "2026-05-04T23:09:38+08:00",
+  "lastUpdated": "2026-05-05T23:21:28+08:00",
   "cards": [
     {
       "id": "ML-AS-C001",
@@ -2396,7 +2396,7 @@
       "skin": "Execute",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceUSD": 15.0
+      "priceUSD": 25.0
     },
     {
       "id": "ML-AS-TR002",
@@ -2405,7 +2405,7 @@
       "skin": "Sprint",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceUSD": 15.0
+      "priceUSD": 25.0
     },
     {
       "id": "ML-AS-TR003",
@@ -2414,7 +2414,7 @@
       "skin": "Reviltalize",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceUSD": 15.0
+      "priceUSD": 25.0
     },
     {
       "id": "ML-AS-TR004",
@@ -2423,7 +2423,7 @@
       "skin": "Retribution",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceUSD": 15.0
+      "priceUSD": 25.0
     },
     {
       "id": "ML-AS-TR005",
@@ -2432,7 +2432,7 @@
       "skin": "Inspire",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceUSD": 15.0
+      "priceUSD": 25.0
     },
     {
       "id": "ML-AS-TR006",
@@ -2441,7 +2441,7 @@
       "skin": "Aegis",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceUSD": 15.0
+      "priceUSD": 25.0
     },
     {
       "id": "ML-AS-TR007",
@@ -2450,7 +2450,7 @@
       "skin": "Purify",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceUSD": 15.0
+      "priceUSD": 25.0
     },
     {
       "id": "ML-AS-TR008",
@@ -2459,7 +2459,7 @@
       "skin": "Flameshot",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceUSD": 15.0
+      "priceUSD": 25.0
     },
     {
       "id": "ML-AS-TR009",
@@ -2468,7 +2468,7 @@
       "skin": "Flicker",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceUSD": 15.0
+      "priceUSD": 25.0
     },
     {
       "id": "ML-AS-TR010",
@@ -2477,7 +2477,7 @@
       "skin": "Arrival",
       "rarity": "TR",
       "rarityLabel": "Trainer",
-      "priceUSD": 15.0
+      "priceUSD": 25.0
     }
   ]
 }
