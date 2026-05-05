@@ -140,10 +140,84 @@
     .banner-content {
       display: flex; align-items: center; justify-content: space-between;
       max-width: 100%;
+      gap: 10px;
+    }
+    .banner-main {
+      min-width: 0;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
     }
     .banner-text {
       font-size: 13px; font-weight: 600; color: var(--text);
       display: flex; align-items: center; gap: 6px;
+    }
+    .banner-toggle {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border2);
+      border-radius: 999px;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .banner-toggle:hover {
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(255,255,255,0.28);
+    }
+    .banner-details {
+      margin-top: 8px;
+      border-top: 1px solid rgba(228,169,48,0.24);
+      padding-top: 8px;
+      max-height: 40dvh;
+      overflow: auto;
+    }
+    .banner-summary {
+      font-size: 12px;
+      color: var(--text);
+      opacity: 0.92;
+    }
+    .banner-list {
+      margin-top: 7px;
+      display: grid;
+      gap: 5px;
+      list-style: none;
+    }
+    .banner-list li {
+      font-size: 12px;
+      color: var(--text);
+      opacity: 0.92;
+    }
+    .banner-card-link,
+    .banner-more-link {
+      background: none;
+      border: none;
+      color: inherit;
+      font: inherit;
+      padding: 0;
+      cursor: pointer;
+      text-align: left;
+    }
+    .banner-card-link:hover,
+    .banner-more-link:hover {
+      color: var(--accent);
+    }
+    .banner-more-link {
+      font-weight: 700;
+    }
+    .banner-list .price-from {
+      color: #ff9a8a;
+      text-decoration: line-through;
+      margin-right: 4px;
+    }
+    .banner-list .price-to {
+      color: #93ef9b;
+      font-weight: 700;
     }
     .banner-close {
       background: none; border: none; color: var(--muted);
@@ -788,8 +862,15 @@
 
 <div class="price-update-banner" id="priceUpdateBanner">
   <div class="banner-content">
-    <span class="banner-text">💰 <strong id="priceChangeCount">0</strong> card prices updated today</span>
+    <div class="banner-main">
+      <span class="banner-text">💰 <strong id="priceChangeCount">0</strong> card prices updated today</span>
+      <button class="banner-toggle" id="bannerToggle" aria-controls="priceChangeDetails" aria-expanded="false">Show updates</button>
+    </div>
     <button class="banner-close" id="bannerClose" aria-label="Close banner">✕</button>
+  </div>
+  <div class="banner-details" id="priceChangeDetails" hidden>
+    <div class="banner-summary" id="priceChangeSummary"></div>
+    <ul class="banner-list" id="priceChangeList"></ul>
   </div>
 </div>
 
@@ -932,6 +1013,57 @@
   let sortByPrice = false;
   let sortByViews = false;
   let priceChanges = {}; // Map of card ID to { oldPrice, newPrice, timestamp }
+  let recentPriceChangeEntries = [];
+  const MAX_BANNER_DETAIL_ITEMS = 3;
+  let bannerShowAllUpdates = false;
+
+  function formatUsd(value) {
+    return `$${Number(value || 0).toFixed(2)}`;
+  }
+
+  function getPriceChangeBannerKey(changes) {
+    if (!changes.length) return '';
+    return `${changes[0].timestamp}|${changes.length}`;
+  }
+
+  function renderPriceChangeBannerDetails(changes) {
+    const summaryEl = document.getElementById('priceChangeSummary');
+    const listEl = document.getElementById('priceChangeList');
+    const toggle = document.getElementById('bannerToggle');
+    if (!summaryEl || !listEl || !toggle) return;
+
+    const names = changes.map(c => c.skin || c.id);
+    const shortNames = names.slice(0, 3).join(', ');
+    const extraCount = Math.max(0, names.length - 3);
+    summaryEl.textContent = extraCount > 0
+      ? `Updated: ${shortNames}, +${extraCount} more.`
+      : `Updated: ${shortNames}.`;
+
+    const visibleChanges = bannerShowAllUpdates
+      ? changes
+      : changes.slice(0, MAX_BANNER_DETAIL_ITEMS);
+
+    const rows = visibleChanges.map(entry => `
+      <li>
+        <button type="button" class="banner-card-link" data-card-id="${entry.id}">
+          <strong>${entry.skin || entry.id}</strong> (${entry.id}):
+          <span class="price-from">${formatUsd(entry.oldPrice)}</span>
+          <span class="price-to">${formatUsd(entry.newPrice)}</span>
+        </button>
+      </li>
+    `).join('');
+
+    let moreLine = '';
+    if (changes.length > MAX_BANNER_DETAIL_ITEMS && !bannerShowAllUpdates) {
+      const moreCount = changes.length - MAX_BANNER_DETAIL_ITEMS;
+      moreLine = `<li><button type="button" class="banner-more-link" data-action="expand-more">+ ${moreCount} more updated card${moreCount === 1 ? '' : 's'}</button></li>`;
+    } else if (changes.length > MAX_BANNER_DETAIL_ITEMS && bannerShowAllUpdates) {
+      moreLine = '<li><button type="button" class="banner-more-link" data-action="collapse-more">Show less</button></li>';
+    }
+
+    listEl.innerHTML = rows + moreLine;
+    toggle.style.display = changes.length ? '' : 'none';
+  }
 
   function getFiltered() {
     let result = allCards.filter(c => {
@@ -1368,30 +1500,60 @@
       
       const changelogs = await res.json();
       
-      // Build priceChanges map
+      // Build latest price changes map (last 24h, newest change per card)
       priceChanges = {};
+      recentPriceChangeEntries = [];
+      bannerShowAllUpdates = false;
       const now = new Date();
       const oneDayAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+      const latestById = {};
       
       for (const entry of changelogs) {
         const timestamp = new Date(entry.timestamp);
-        // Only show changes from last 24 hours
-        if (timestamp > oneDayAgo) {
-          priceChanges[entry.id] = {
-            oldPrice: entry.oldPrice,
-            newPrice: entry.newPrice,
-            timestamp: entry.timestamp
-          };
+        if (!(timestamp > oneDayAgo) || !entry?.id) continue;
+
+        const existing = latestById[entry.id];
+        if (!existing || new Date(existing.timestamp) < timestamp) {
+          latestById[entry.id] = entry;
         }
       }
+
+      recentPriceChangeEntries = Object.values(latestById)
+        .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+      for (const entry of recentPriceChangeEntries) {
+        priceChanges[entry.id] = {
+          oldPrice: Number(entry.oldPrice || 0),
+          newPrice: Number(entry.newPrice || 0),
+          timestamp: entry.timestamp,
+          skin: entry.skin || '',
+          hero: entry.hero || ''
+        };
+      }
       
-      // Show banner if there are price changes and banner wasn't dismissed
-      if (Object.keys(priceChanges).length > 0) {
-        const bannerDismissed = localStorage.getItem('priceUpdateBannerDismissed');
-        if (!bannerDismissed) {
-          const banner = document.getElementById('priceUpdateBanner');
-          document.getElementById('priceChangeCount').textContent = Object.keys(priceChanges).length;
+      renderPriceChangeBannerDetails(recentPriceChangeEntries);
+      const details = document.getElementById('priceChangeDetails');
+      const toggle = document.getElementById('bannerToggle');
+      if (details) details.hidden = true;
+      if (toggle) {
+        toggle.textContent = 'Show updates';
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+
+      // Show banner if there are changes and this exact update set wasn't dismissed
+      if (recentPriceChangeEntries.length > 0) {
+        const currentBannerKey = getPriceChangeBannerKey(recentPriceChangeEntries);
+        const dismissedKey = localStorage.getItem('priceUpdateBannerDismissedKey');
+        const banner = document.getElementById('priceUpdateBanner');
+        document.getElementById('priceChangeCount').textContent = recentPriceChangeEntries.length;
+
+        if (dismissedKey !== currentBannerKey) {
           banner.classList.add('visible');
+          if (details) details.hidden = true;
+          if (toggle) {
+            toggle.textContent = 'Show updates';
+            toggle.setAttribute('aria-expanded', 'false');
+          }
         }
       }
     } catch (e) {
@@ -1399,9 +1561,42 @@
     }
   }
 
+  document.getElementById('bannerToggle')?.addEventListener('click', () => {
+    const details = document.getElementById('priceChangeDetails');
+    const toggle = document.getElementById('bannerToggle');
+    if (!details || !toggle) return;
+    const isOpen = !details.hidden;
+    details.hidden = isOpen;
+    toggle.textContent = isOpen ? 'Show updates' : 'Hide updates';
+    toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+  });
+
+  document.getElementById('priceChangeList')?.addEventListener('click', (e) => {
+    const cardButton = e.target.closest('[data-card-id]');
+    if (cardButton) {
+      openSheet(cardButton.dataset.cardId);
+      return;
+    }
+
+    const actionButton = e.target.closest('[data-action]');
+    if (!actionButton) return;
+
+    if (actionButton.dataset.action === 'expand-more') {
+      bannerShowAllUpdates = true;
+      renderPriceChangeBannerDetails(recentPriceChangeEntries);
+      return;
+    }
+
+    if (actionButton.dataset.action === 'collapse-more') {
+      bannerShowAllUpdates = false;
+      renderPriceChangeBannerDetails(recentPriceChangeEntries);
+    }
+  });
+
   document.getElementById('bannerClose')?.addEventListener('click', () => {
+    const key = getPriceChangeBannerKey(recentPriceChangeEntries);
     document.getElementById('priceUpdateBanner').classList.remove('visible');
-    localStorage.setItem('priceUpdateBannerDismissed', 'true');
+    if (key) localStorage.setItem('priceUpdateBannerDismissedKey', key);
   });
 
   (async () => {
