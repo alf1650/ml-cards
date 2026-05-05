@@ -15,6 +15,7 @@ from datetime import datetime, timezone, timedelta
 BASE_URL = "https://www.ccgmarket.org/products.json"
 IMAGES_DIR = os.path.join(os.path.dirname(__file__), "images")
 DATA_FILE = os.path.join(os.path.dirname(__file__), "data.json")
+CHANGELOG_FILE = os.path.join(os.path.dirname(__file__), "changelogs.json")
 
 # Rarity mapping based on card ID prefix
 RARITY_MAP = {
@@ -213,12 +214,60 @@ def main():
         "cards": cards,
     }
 
+    # Load existing changelogs
+    changelogs = []
+    if os.path.exists(CHANGELOG_FILE):
+        with open(CHANGELOG_FILE) as f:
+            changelogs = json.load(f)
+    
+    # Keep only entries from last 24 hours
+    cutoff_time = now_sgt - timedelta(hours=24)
+    recent_changelogs = []
+    for entry in changelogs:
+        entry_time = datetime.fromisoformat(entry["timestamp"].replace("+08:00", "+08:00"))
+        if entry_time > cutoff_time:
+            recent_changelogs.append(entry)
+    
+    # Detect price changes
+    price_changes = []
+    old_cards_by_id = {card["id"]: card for card in existing_cards.values()}
+    
+    for card in cards:
+        card_id = card["id"]
+        new_price = card.get("priceUSD")
+        
+        if card_id in old_cards_by_id:
+            old_card = old_cards_by_id[card_id]
+            old_price = old_card.get("priceUSD")
+            
+            # Check if price changed
+            if old_price != new_price and old_price is not None and new_price is not None:
+                price_changes.append({
+                    "id": card_id,
+                    "hero": card["hero"],
+                    "skin": card["skin"],
+                    "oldPrice": old_price,
+                    "newPrice": new_price,
+                    "timestamp": now_sgt.strftime("%Y-%m-%dT%H:%M:%S+08:00")
+                })
+    
+    # Add new changes to recent changelogs
+    recent_changelogs.extend(price_changes)
+    
+    # Save changelogs
+    with open(CHANGELOG_FILE, "w") as f:
+        json.dump(recent_changelogs, f, indent=2)
+
     with open(DATA_FILE, "w") as f:
         json.dump(output, f, indent=2)
 
     print(f"\n✅ Done! {len(cards)} cards saved to data.json")
     print(f"   Heroes: {', '.join(sorted(heroes_seen))}")
     print(f"   Prices in USD (native from ccgmarket.org)")
+    if price_changes:
+        print(f"   💰 Price changes detected: {len(price_changes)} cards")
+        for change in price_changes:
+            print(f"      {change['id']}: ${change['oldPrice']} → ${change['newPrice']}")
 
 
 if __name__ == "__main__":

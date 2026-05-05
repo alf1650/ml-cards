@@ -123,6 +123,54 @@
     .stat-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-top: 3px; }
     .hero-updated { font-size: 11px; color: var(--muted); margin-top: 6px; opacity: 0.75; }
 
+    /* ── Price Update Banner ── */
+    .price-update-banner {
+      display: none;
+      position: sticky; top: 0; z-index: 30;
+      background: linear-gradient(90deg, rgba(228,169,48,0.15) 0%, rgba(228,169,48,0.08) 100%);
+      border-bottom: 1px solid rgba(228,169,48,0.3);
+      padding: 12px 16px;
+      animation: slideDown 0.3s ease;
+    }
+    .price-update-banner.visible { display: block; }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .banner-content {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 100%;
+    }
+    .banner-text {
+      font-size: 13px; font-weight: 600; color: var(--text);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .banner-close {
+      background: none; border: none; color: var(--muted);
+      font-size: 16px; cursor: pointer; padding: 4px 8px;
+      transition: color 0.2s;
+      flex-shrink: 0;
+    }
+    .banner-close:hover { color: var(--accent); }
+
+    /* ── Price Change Badge ── */
+    .price-change-badge {
+      position: absolute; top: 8px; right: 8px; z-index: 3;
+      display: inline-flex; align-items: center; gap: 3px;
+      background: linear-gradient(135deg, rgba(228,169,48,0.8) 0%, rgba(255,107,53,0.8) 100%);
+      border: 1px solid rgba(228,169,48,0.6);
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 9px; font-weight: 800; letter-spacing: 0.4px;
+      text-transform: uppercase; color: #fff;
+      backdrop-filter: blur(4px);
+      animation: badgePulse 2s ease-in-out infinite;
+    }
+    @keyframes badgePulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.05); }
+    }
+
     /* ── Controls ── */
     .controls {
       position: sticky; top: 0; z-index: 20;
@@ -738,6 +786,13 @@
   </div>
 </header>
 
+<div class="price-update-banner" id="priceUpdateBanner">
+  <div class="banner-content">
+    <span class="banner-text">💰 <strong id="priceChangeCount">0</strong> card prices updated today</span>
+    <button class="banner-close" id="bannerClose" aria-label="Close banner">✕</button>
+  </div>
+</div>
+
 <nav class="tab-bar">
   <button class="tab-btn active" id="tabLive">🔴 TikTok Live</button>
   <button class="tab-btn" id="tabCollection">📦 Collection</button>
@@ -876,6 +931,7 @@
   let searchQuery = '';
   let sortByPrice = false;
   let sortByViews = false;
+  let priceChanges = {}; // Map of card ID to { oldPrice, newPrice, timestamp }
 
   function getFiltered() {
     let result = allCards.filter(c => {
@@ -907,10 +963,13 @@
 
     grid.innerHTML = filtered.map(c => {
       const views = getViewCount(c.id);
+      const change = priceChanges[c.id];
+      const hasChange = change ? 'true' : 'false';
       return `
       <div class="card" data-id="${c.id}" data-rarity="${c.rarity}" role="button" tabindex="0" aria-label="${c.skin}">
         <div class="card-img">
           <span class="rarity-pill rarity-${c.rarity}">${c.rarity}</span>
+          ${change ? `<span class="price-change-badge">↑ Updated</span>` : ''}
           <img src="images/${c.file}" alt="${c.skin}" loading="lazy" decoding="async" />
           <div class="card-label">
             <div class="card-skin">${c.skin}</div>
@@ -934,6 +993,7 @@
     trackView(id).then(() => render()); // refresh grid after server confirms count
     const col = RC[c.rarity] || '#fff';
     const tc  = RT[c.rarity] || '#fff';
+    const change = priceChanges[id];
     document.getElementById('sheetImg').src = `images/${c.file}`;
     document.getElementById('sheetImg').alt = c.skin;
     document.getElementById('sheetLine').style.background = col;
@@ -941,6 +1001,21 @@
     document.getElementById('sheetBadge').style.cssText = `background:${col}22;border:1px solid ${col}55;color:${col}`;
     document.getElementById('sheetHero').textContent = c.hero;
     document.getElementById('sheetSkin').textContent = c.skin;
+    
+    let priceHTML = `
+      <div class="meta-tile">
+        <div class="tile-label">Price (USD)</div>
+        <div class="tile-val" style="color:#4caf50">${c.priceUSD ? '$' + c.priceUSD.toFixed(2) : (c.priceSGD ? '$' + (c.priceSGD * 0.74).toFixed(2) : 'N/A')}</div>
+      </div>`;
+    
+    if (change) {
+      priceHTML += `
+      <div class="meta-tile">
+        <div class="tile-label">Previous Price</div>
+        <div class="tile-val" style="color:#999;text-decoration:line-through">${'$' + change.oldPrice.toFixed(2)}</div>
+      </div>`;
+    }
+    
     document.getElementById('sheetMeta').innerHTML = `
       <div class="meta-tile">
         <div class="tile-label">Card ID</div>
@@ -950,10 +1025,7 @@
         <div class="tile-label">Rarity</div>
         <div class="tile-val" style="color:${col}">${c.rarity}</div>
       </div>
-      <div class="meta-tile">
-        <div class="tile-label">Price (USD)</div>
-        <div class="tile-val" style="color:#4caf50">${c.priceUSD ? '$' + c.priceUSD.toFixed(2) : (c.priceSGD ? '$' + (c.priceSGD * 0.74).toFixed(2) : 'N/A')}</div>
-      </div>
+      ${priceHTML}
       <div class="meta-tile">
         <div class="tile-label">Rarity Tier</div>
         <div class="tile-val">${c.rarityLabel}</div>
@@ -1288,6 +1360,50 @@
   });
   document.addEventListener('keydown', e => { if (e.key==='Escape') closeSheet(); });
 
+  /* ── Price Update Banner ── */
+  async function loadAndShowPriceChanges() {
+    try {
+      const res = await fetch('changelogs.json', { cache: 'no-store' });
+      if (!res.ok) return; // No changelogs file yet
+      
+      const changelogs = await res.json();
+      
+      // Build priceChanges map
+      priceChanges = {};
+      const now = new Date();
+      const oneDayAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+      
+      for (const entry of changelogs) {
+        const timestamp = new Date(entry.timestamp);
+        // Only show changes from last 24 hours
+        if (timestamp > oneDayAgo) {
+          priceChanges[entry.id] = {
+            oldPrice: entry.oldPrice,
+            newPrice: entry.newPrice,
+            timestamp: entry.timestamp
+          };
+        }
+      }
+      
+      // Show banner if there are price changes and banner wasn't dismissed
+      if (Object.keys(priceChanges).length > 0) {
+        const bannerDismissed = localStorage.getItem('priceUpdateBannerDismissed');
+        if (!bannerDismissed) {
+          const banner = document.getElementById('priceUpdateBanner');
+          document.getElementById('priceChangeCount').textContent = Object.keys(priceChanges).length;
+          banner.classList.add('visible');
+        }
+      }
+    } catch (e) {
+      // Silently fail if changelogs doesn't exist
+    }
+  }
+
+  document.getElementById('bannerClose')?.addEventListener('click', () => {
+    document.getElementById('priceUpdateBanner').classList.remove('visible');
+    localStorage.setItem('priceUpdateBannerDismissed', 'true');
+  });
+
   (async () => {
     const [data] = await Promise.all([
       fetch('data.json', { cache: 'no-store' }).then(r => r.json()),
@@ -1321,6 +1437,8 @@
       showTab('live');
     }
     
+    // Load price changes before rendering
+    await loadAndShowPriceChanges();
     render();
 
     if (CF_BEACON_TOKEN) {

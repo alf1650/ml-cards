@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ML-AS-TR001",
+    "hero": "Trainer",
+    "skin": "Execute",
+    "oldPrice": 15.0,
+    "newPrice": 25.0,
+    "timestamp": "2026-05-05T23:21:28+08:00"
+  },
+  {
+    "id": "ML-AS-TR002",
+    "hero": "Trainer",
+    "skin": "Sprint",
+    "oldPrice": 15.0,
+    "newPrice": 25.0,
+    "timestamp": "2026-05-05T23:21:28+08:00"
+  },
+  {
+    "id": "ML-AS-TR003",
+    "hero": "Trainer",
+    "skin": "Reviltalize",
+    "oldPrice": 15.0,
+    "newPrice": 25.0,
+    "timestamp": "2026-05-05T23:21:28+08:00"
+  },
+  {
+    "id": "ML-AS-TR004",
+    "hero": "Trainer",
+    "skin": "Retribution",
+    "oldPrice": 15.0,
+    "newPrice": 25.0,
+    "timestamp": "2026-05-05T23:21:28+08:00"
+  },
+  {
+    "id": "ML-AS-TR005",
+    "hero": "Trainer",
+    "skin": "Reckless Charge",
+    "oldPrice": 15.0,
+    "newPrice": 25.0,
+    "timestamp": "2026-05-05T23:21:28+08:00"
+  }
+]
