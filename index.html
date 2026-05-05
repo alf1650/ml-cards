@@ -751,6 +751,9 @@
       display: flex; flex-direction: column;
       background: var(--bg2);
       overflow: hidden;
+      position: sticky;
+      top: calc(var(--safe-top) + 16px);
+      height: calc(100dvh - var(--safe-top) - 32px);
     }
     .sidebar-header {
       padding: 20px 18px 10px;
@@ -1313,6 +1316,7 @@
     // If we have cached data, show it while fetching
     if (!cachedLiveStatusSidebar) {
       bar.textContent = 'Checking…';
+      renderLiveSidebarTiles({});
     }
 
     let retries = 2;
