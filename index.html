@@ -602,6 +602,126 @@
       padding: 10px 18px 0;
       font-size: 11px; color: var(--muted);
     }
+
+    /* ── Desktop Layout ── */
+    .desktop-wrapper {
+      display: none;
+      flex: 1;
+    }
+    @media (min-width: 1400px) {
+      body { display: flex; flex-direction: column; }
+      .desktop-wrapper { display: flex; flex: 1; min-height: calc(100dvh - var(--safe-top) - var(--safe-bot)); }
+      .tab-bar { display: none; }
+      #liveView { display: none !important; }
+      #leaderboardView { display: none !important; }
+      #collectionView { 
+        flex: 1; 
+        display: flex !important; 
+        flex-direction: column;
+        background: var(--bg);
+      }
+    }
+
+    .desktop-sidebar {
+      width: 320px;
+      flex-shrink: 0;
+      border-right: 1px solid var(--border);
+      display: flex; flex-direction: column;
+      background: var(--bg2);
+      overflow: hidden;
+    }
+    .sidebar-header {
+      padding: 20px 18px 10px;
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .sidebar-refresh {
+      padding: 8px 18px 0;
+      font-size: 10px; color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 8px;
+    }
+    .sidebar-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      padding: 0 12px calc(var(--safe-bot) + 16px) 12px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .sidebar-grid::-webkit-scrollbar { width: 6px; }
+    .sidebar-grid::-webkit-scrollbar-track { background: transparent; }
+    .sidebar-grid::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.1);
+      border-radius: 3px;
+    }
+    .sidebar-grid::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+    .tt-tile-small {
+      display: flex; flex-direction: column;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .tt-tile-small:hover { transform: translateY(-2px); border-color: var(--border2); box-shadow: 0 8px 20px -4px rgba(0,0,0,0.3); }
+    .tt-tile-small a { text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%; padding: 10px; }
+    .tt-avatar-small {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--surf2);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      margin-bottom: 6px; flex-shrink: 0;
+    }
+    .tt-name-small {
+      font-size: 11px; font-weight: 700; color: var(--text);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      margin-bottom: 2px;
+      line-height: 1.2;
+    }
+    .tt-handle-small {
+      font-size: 9px; color: var(--muted);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      margin-bottom: 6px;
+    }
+    .tt-status-small { margin-top: auto; }
+    .live-badge-small {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: rgba(255,59,48,0.15);
+      border: 1px solid rgba(255,59,48,0.4);
+      border-radius: 100px;
+      padding: 3px 8px;
+      font-size: 9px; font-weight: 800; letter-spacing: 0.4px;
+      text-transform: uppercase; color: #ff3b30;
+    }
+    .live-badge-small .dot {
+      width: 5px; height: 5px;
+      background: #ff3b30; border-radius: 50%;
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+    .offline-badge-small {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 3px 8px;
+      font-size: 9px; font-weight: 700; color: var(--muted);
+    }
+    .unknown-badge-small {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 3px 8px;
+      font-size: 9px; font-weight: 700; color: var(--muted);
+      opacity: 0.6;
+    }
   </style>
 </head>
 <body>
@@ -623,6 +743,14 @@
   <button class="tab-btn" id="tabCollection">📦 Collection</button>
   <button class="tab-btn" id="tabLeaderboard">🏆 Top Cards</button>
 </nav>
+
+<div class="desktop-wrapper" id="desktopWrapper">
+  <div class="desktop-sidebar" id="desktopSidebar">
+    <div class="sidebar-header">TikTok Live</div>
+    <div class="sidebar-refresh" id="sidebarRefreshBar"></div>
+    <div class="sidebar-grid" id="sidebarGrid"></div>
+  </div>
+</div>
 
 <div id="liveView">
   <div class="live-header">TikTok live status · refreshes every 2 min</div>
@@ -892,6 +1020,9 @@
   }
 
   let liveRefreshTimer = null;
+  let desktopLiveRefreshTimer = null;
+  let cachedLiveStatus = null;
+  let liveStatusFetchInProgress = false;
 
   function showTab(tab) {
     const isLb = tab === 'leaderboard';
@@ -904,6 +1035,10 @@
     document.getElementById('tabLeaderboard').classList.toggle('active', isLb);
     if (isLb) renderLeaderboard();
     if (isLive) {
+      // If we have cached data, show it immediately
+      if (cachedLiveStatus) {
+        renderLiveTiles(cachedLiveStatus);
+      }
       loadAndRenderLive();
       clearInterval(liveRefreshTimer);
       liveRefreshTimer = setInterval(loadAndRenderLive, 2 * 60 * 1000);
@@ -919,12 +1054,106 @@
     return '<span class="unknown-badge">? Unknown</span>';
   }
 
+  function statusBadgeSmall(live) {
+    if (live === true)  return '<span class="live-badge-small"><span class="dot"></span>Live</span>';
+    if (live === false) return '<span class="offline-badge-small">⚫ Off</span>';
+    return '<span class="unknown-badge-small">?</span>';
+  }
+
   function regionFlag(region) {
     if (!region) return '';
     // Convert ISO 3166-1 alpha-2 code to flag emoji (regional indicator symbols)
     return region.toUpperCase().replace(/./g, c =>
       String.fromCodePoint(0x1F1E6 - 65 + c.charCodeAt(0))
     );
+  }
+
+  function renderLiveSidebarTiles(statusMap) {
+    const grid = document.getElementById('sidebarGrid');
+    if (!grid) return;
+    const sorted = [...TIKTOK_ACCOUNTS].sort((a, b) => {
+      const la = statusMap[a.username]?.live;
+      const lb = statusMap[b.username]?.live;
+      if (la === true && lb !== true) return -1;
+      if (lb === true && la !== true) return 1;
+      return 0;
+    });
+    grid.innerHTML = sorted.map(({ username, display, country }) => {
+      const status = statusMap[username];
+      const live = status ? status.live : null;
+      const flag = regionFlag(country || status?.region);
+      return `
+        <div class="tt-tile-small">
+          <a href="https://www.tiktok.com/@${username}/live" target="_blank" rel="noopener noreferrer">
+            <div class="tt-avatar-small">🌄</div>
+            <div class="tt-name-small">${display}</div>
+            ${flag ? `<div style="font-size:11px;margin-bottom:4px">${flag}</div>` : ''}
+            <div class="tt-handle-small">@${username}</div>
+            <div class="tt-status-small">${statusBadgeSmall(live)}</div>
+          </a>
+        </div>`;
+    }).join('');
+  }
+
+  let cachedLiveStatusSidebar = null;
+  let sidebarFetchInProgress = false;
+
+  async function loadAndRenderLiveSidebar() {
+    const bar = document.getElementById('sidebarRefreshBar');
+    if (!bar) return;
+
+    if (sidebarFetchInProgress) return;
+    
+    sidebarFetchInProgress = true;
+
+    // If we have cached data, show it while fetching
+    if (!cachedLiveStatusSidebar) {
+      bar.textContent = 'Checking…';
+    }
+
+    let retries = 2;
+    let lastError = null;
+
+    while (retries > 0) {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 8000);
+        
+        const usernames = TIKTOK_ACCOUNTS.map(a => a.username).join(',');
+        const res = await fetch(`${TIKTOK_WORKER_URL}/live-status?usernames=${usernames}`, {
+          signal: controller.signal,
+          cache: 'no-store'
+        });
+        clearTimeout(timeoutId);
+        
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const statusMap = await res.json();
+        
+        cachedLiveStatusSidebar = statusMap;
+        renderLiveSidebarTiles(statusMap);
+        const liveCount = Object.values(statusMap).filter(s => s.live === true).length;
+        const now = new Date().toLocaleTimeString('en-SG', { hour: '2-digit', minute: '2-digit' });
+        bar.textContent = `${liveCount} live · ${now}`;
+        sidebarFetchInProgress = false;
+        return;
+      } catch (e) {
+        lastError = e.message;
+        retries--;
+        if (retries > 0) {
+          await new Promise(resolve => setTimeout(resolve, 500));
+        }
+      }
+    }
+
+    sidebarFetchInProgress = false;
+    if (cachedLiveStatusSidebar) {
+      const liveCount = Object.values(cachedLiveStatusSidebar).filter(s => s.live === true).length;
+      const now = new Date().toLocaleTimeString('en-SG', { hour: '2-digit', minute: '2-digit' });
+      bar.textContent = `${liveCount} live · ${now}`;
+    } else {
+      bar.textContent = `Check failed`;
+      renderLiveSidebarTiles({});
+    }
   }
 
   function renderLiveTiles(statusMap) {
@@ -954,19 +1183,66 @@
 
   async function loadAndRenderLive() {
     const bar = document.getElementById('liveRefreshBar');
-    bar.textContent = 'Checking status…';
-    renderLiveTiles({});
-    try {
-      const usernames = TIKTOK_ACCOUNTS.map(a => a.username).join(',');
-      const res = await fetch(`${TIKTOK_WORKER_URL}/live-status?usernames=${usernames}`);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const statusMap = await res.json();
-      renderLiveTiles(statusMap);
-      const liveCount = Object.values(statusMap).filter(s => s.live === true).length;
+    if (!bar) return;
+
+    // If fetch is already in progress, don't fetch again
+    if (liveStatusFetchInProgress) return;
+    
+    liveStatusFetchInProgress = true;
+    const startTime = Date.now();
+    
+    // Show checking status only if we don't have cached data
+    if (!cachedLiveStatus) {
+      bar.textContent = 'Checking status…';
+      renderLiveTiles({});
+    }
+
+    let retries = 2;
+    let lastError = null;
+
+    while (retries > 0) {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 second timeout
+        
+        const usernames = TIKTOK_ACCOUNTS.map(a => a.username).join(',');
+        const res = await fetch(`${TIKTOK_WORKER_URL}/live-status?usernames=${usernames}`, {
+          signal: controller.signal,
+          cache: 'no-store'
+        });
+        clearTimeout(timeoutId);
+        
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const statusMap = await res.json();
+        
+        // Success! Cache and render
+        cachedLiveStatus = statusMap;
+        renderLiveTiles(statusMap);
+        const liveCount = Object.values(statusMap).filter(s => s.live === true).length;
+        const now = new Date().toLocaleTimeString('en-SG', { hour: '2-digit', minute: '2-digit' });
+        bar.textContent = `${liveCount} live now · last checked ${now} · auto-refreshes every 2 min`;
+        liveStatusFetchInProgress = false;
+        return;
+      } catch (e) {
+        lastError = e.message;
+        retries--;
+        if (retries > 0) {
+          // Wait a bit before retrying
+          await new Promise(resolve => setTimeout(resolve, 500));
+        }
+      }
+    }
+
+    // All retries failed - use cached data if available, otherwise show error
+    liveStatusFetchInProgress = false;
+    if (cachedLiveStatus) {
+      // We have cached data, keep showing it with a note about the error
+      const liveCount = Object.values(cachedLiveStatus).filter(s => s.live === true).length;
       const now = new Date().toLocaleTimeString('en-SG', { hour: '2-digit', minute: '2-digit' });
-      bar.textContent = `${liveCount} live now · last checked ${now} · auto-refreshes every 2 min`;
-    } catch (e) {
-      bar.textContent = `Could not fetch live status (${e.message})`;
+      bar.textContent = `${liveCount} live (cached) · last checked ${now}`;
+    } else {
+      // No cached data and fetch failed
+      bar.textContent = `Check failed (${lastError}) · Pull to retry`;
       renderLiveTiles({});
     }
   }
@@ -1028,7 +1304,23 @@
       const fmt = d.toLocaleString('en-SG', { timeZone: 'Asia/Singapore', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true });
       document.getElementById('heroUpdated').textContent = `Prices updated ${fmt} SGT`;
     }
-    showTab('live');
+    
+    // Initialize desktop layout if screen is wide enough
+    const desktopWrapper = document.getElementById('desktopWrapper');
+    const collectionView = document.getElementById('collectionView');
+    
+    // Pre-load live data in background
+    loadAndRenderLive();
+    loadAndRenderLiveSidebar();
+    
+    if (window.innerWidth >= 1400 && desktopWrapper && collectionView) {
+      desktopWrapper.appendChild(collectionView);
+      clearInterval(desktopLiveRefreshTimer);
+      desktopLiveRefreshTimer = setInterval(loadAndRenderLiveSidebar, 2 * 60 * 1000);
+    } else {
+      showTab('live');
+    }
+    
     render();
 
     if (CF_BEACON_TOKEN) {
