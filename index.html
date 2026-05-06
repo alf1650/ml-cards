@@ -650,13 +650,13 @@
     }
     .live-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 9px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
       padding: 2px 12px calc(var(--safe-bot) + 26px);
     }
-    @media (min-width: 480px)  { .live-grid { grid-template-columns: repeat(3,1fr); } }
-    @media (min-width: 700px)  { .live-grid { grid-template-columns: repeat(4,1fr); gap:12px; padding:6px 20px 30px; } }
-    @media (min-width: 960px)  { .live-grid { grid-template-columns: repeat(5,1fr); gap:14px; } }
+    @media (min-width: 560px)  { .live-grid { grid-template-columns: repeat(3,1fr); } }
+    @media (min-width: 820px)  { .live-grid { grid-template-columns: repeat(4,1fr); gap:12px; padding:6px 20px 30px; } }
+    @media (min-width: 1120px) { .live-grid { grid-template-columns: repeat(5,1fr); gap:14px; } }
     @media (min-width: 700px) and (max-width: 1040px) {
       .live-grid {
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -666,32 +666,70 @@
       display: flex; flex-direction: column;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 18px;
       overflow: hidden;
-      transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s, border-color 0.28s;
+      transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
       -webkit-tap-highlight-color: transparent;
+      position: relative;
     }
-    .tt-tile:hover { transform: translateY(-6px) scale(1.03); border-color: var(--border2); box-shadow: 0 16px 40px -8px rgba(0,0,0,0.5); }
-    .tt-tile a { text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%; padding: 12px 12px 11px; }
+    .tt-tile::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(255,59,48,0.85), rgba(228,169,48,0.75));
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .tt-tile:hover {
+      transform: translateY(-4px);
+      border-color: var(--border2);
+      box-shadow: 0 14px 28px -10px rgba(0,0,0,0.5);
+    }
+    .tt-tile:hover::before { opacity: 1; }
+    .tt-tile a {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 12px;
+      gap: 10px;
+    }
+    .tt-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
     .tt-avatar {
       width: 42px; height: 42px;
       border-radius: 50%;
-      background: var(--surf2);
-      border: 1px solid var(--border);
+      background: linear-gradient(135deg, #1b2340 0%, #2b3f7a 100%);
+      border: 1px solid rgba(255,255,255,0.14);
       display: flex; align-items: center; justify-content: center;
-      font-size: 16px;
-      margin-bottom: 8px; flex-shrink: 0;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      color: #dbe8ff;
+      flex-shrink: 0;
     }
+    .tt-text { min-width: 0; }
     .tt-name {
       font-size: 12px; font-weight: 700; color: var(--text);
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.25;
     }
-    .tt-flag { font-size: 11px; font-weight: 400; opacity: 0.85; }
+    .tt-flag { font-size: 10px; font-weight: 500; opacity: 0.85; margin-left: 4px; }
     .tt-handle {
-      font-size: 10px; color: var(--muted);
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-      margin-bottom: 8px;
+      font-size: 10px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 2px;
     }
     .tt-status { margin-top: auto; }
     .live-badge {
@@ -741,6 +779,11 @@
         font-size: 10px;
         letter-spacing: 0.5px;
         padding: 4px 10px;
+      }
+      .tt-avatar {
+        width: 38px;
+        height: 38px;
+        font-size: 11px;
       }
     }
     .live-refresh-bar {
@@ -818,24 +861,34 @@
     }
     .tt-tile-small:hover { transform: translateY(-2px); border-color: var(--border2); box-shadow: 0 8px 20px -4px rgba(0,0,0,0.3); }
     .tt-tile-small a { text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%; padding: 10px; }
+    .tt-top-small {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
     .tt-avatar-small {
       width: 32px; height: 32px;
       border-radius: 50%;
-      background: var(--surf2);
-      border: 1px solid var(--border);
+      background: linear-gradient(135deg, #1b2340 0%, #2b3f7a 100%);
+      border: 1px solid rgba(255,255,255,0.14);
       display: flex; align-items: center; justify-content: center;
-      font-size: 14px;
-      margin-bottom: 6px; flex-shrink: 0;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      color: #dbe8ff;
+      flex-shrink: 0;
     }
+    .tt-text-small { min-width: 0; }
     .tt-name-small {
       font-size: 11px; font-weight: 700; color: var(--text);
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-      margin-bottom: 2px;
       line-height: 1.2;
     }
     .tt-handle-small {
       font-size: 9px; color: var(--muted);
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      margin-top: 2px;
       margin-bottom: 6px;
     }
     .tt-status-small { margin-top: auto; }
@@ -1298,6 +1351,14 @@
     );
   }
 
+  function initials(name) {
+    if (!name) return 'TT';
+    const parts = String(name).trim().split(/\s+/).filter(Boolean);
+    if (!parts.length) return 'TT';
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return (parts[0][0] + parts[1][0]).toUpperCase();
+  }
+
   function renderLiveSidebarTiles(statusMap) {
     const grid = document.getElementById('sidebarGrid');
     if (!grid) return;
@@ -1315,10 +1376,13 @@
       return `
         <div class="tt-tile-small">
           <a href="https://www.tiktok.com/@${username}/live" target="_blank" rel="noopener noreferrer">
-            <div class="tt-avatar-small">🌄</div>
-            <div class="tt-name-small">${display}</div>
-            ${flag ? `<div style="font-size:11px;margin-bottom:4px">${flag}</div>` : ''}
-            <div class="tt-handle-small">@${username}</div>
+            <div class="tt-top-small">
+              <div class="tt-avatar-small">${initials(display)}</div>
+              <div class="tt-text-small">
+                <div class="tt-name-small">${display}${flag ? ` <span class="tt-flag">${flag}</span>` : ''}</div>
+                <div class="tt-handle-small">@${username}</div>
+              </div>
+            </div>
             <div class="tt-status-small">${statusBadgeSmall(live)}</div>
           </a>
         </div>`;
@@ -1403,9 +1467,13 @@
       return `
         <div class="tt-tile">
           <a href="https://www.tiktok.com/@${username}/live" target="_blank" rel="noopener noreferrer">
-            <div class="tt-avatar">🌄</div>
-            <div class="tt-name">${display}${flag ? ` <span class="tt-flag">${flag}</span>` : ''}</div>
-            <div class="tt-handle">@${username}</div>
+            <div class="tt-top">
+              <div class="tt-avatar">${initials(display)}</div>
+              <div class="tt-text">
+                <div class="tt-name">${display}${flag ? ` <span class="tt-flag">${flag}</span>` : ''}</div>
+                <div class="tt-handle">@${username}</div>
+              </div>
+            </div>
             <div class="tt-status">${statusBadge(live)}</div>
           </a>
         </div>`;
